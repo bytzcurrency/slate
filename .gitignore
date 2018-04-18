@@ -1,18 +1,13 @@
-.gitignore
-*.sublime-project
-*.sublime-workspace
-todo.txt
-reset-files.bash
-
 *.tar.gz
 
 *.exe
-src/pivx
-src/pivxd
-src/pivx-cli
-src/pivx-tx
-src/test/test_pivx
-src/qt/test/test_pivx-qt
+src/slate
+src/slated
+src/slate-cli
+src/slate-tx
+src/test/test_slate
+src/test/test_slate_fuzzy
+src/qt/test/test_slate-qt
 
 # autoreconf
 Makefile.in
@@ -34,16 +29,12 @@ build-aux/test-driver
 config.log
 config.status
 configure
-confdefs.h
-conftest.cpp
-conftest.err
 libtool
-src/config/pivx-config.h
-src/config/pivx-config.h.in
+src/config/slate-config.h
+src/config/slate-config.h.in
 src/config/stamp-h1
 share/setup.nsi
 share/qt/Info.plist
-contrib/devtools/split-debug.sh
 
 src/univalue/gen
 
@@ -52,6 +43,12 @@ src/qt/moc_*.cpp
 src/qt/forms/ui_*.h
 
 src/qt/test/moc*.cpp
+
+src/qt/slate-qt.config
+src/qt/slate-qt.creator
+src/qt/slate-qt.creator.user
+src/qt/slate-qt.files
+src/qt/slate-qt.includes
 
 .deps
 .dirstamp
@@ -65,7 +62,6 @@ src/qt/test/moc*.cpp
 *.o
 *.o-*
 *.patch
-.pivx
 *.a
 *.pb.cc
 *.pb.h
@@ -84,19 +80,16 @@ src/qt/test/moc*.cpp
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-pivx-qt
-PIVX-Qt.app
+slate-qt
+Slate-Qt.app
+background.tiff*
 
 # Unit-tests
 Makefile.test
-pivx-qt_test
-src/test/buildenv.py
+slate-qt_test
 
 # Resources cpp
 qrc_*.cpp
-
-# Qt creator
-*.pro.user
 
 # Mac specific
 .DS_Store
@@ -104,8 +97,9 @@ build
 
 #lcov
 *.gcno
+*.gcda
 /*.info
-test_pivx.coverage/
+test_slate.coverage/
 total.coverage/
 coverage_percent.txt
 
@@ -113,18 +107,12 @@ coverage_percent.txt
 linux-coverage-build
 linux-build
 win32-build
-qa/pull-tester/run-bitcoind-for-test.sh
-qa/pull-tester/tests-config.sh
-qa/pull-tester/cache/*
-qa/pull-tester/test.*/*
+test/config.ini
+test/cache/*
 
 !src/leveldb*/Makefile
 
-.cproject
-.project
 /doc/doxygen/
-/nbproject/
 
-.idea
-CMakeLists.txt
-cmake-build-debug
+libslateconsensus.pc
+contrib/devtools/split-debug.sh
