@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=SLATE
+Comment=SLATE P2P Cryptocurrency
+Comment[fr]=SLATE, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=SLATE, eşten eşe kriptografik sanal para birimi
+Exec=slate-qt %u
+Terminal=false
+Type=Application
+Icon=slate128
+MimeType=x-scheme-handler/slate;
+Categories=Office;Finance;
