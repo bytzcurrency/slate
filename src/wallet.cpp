@@ -4321,7 +4321,7 @@ bool CMerkleTx::AcceptToMemoryPool(bool fLimitFree, bool fRejectInsaneFee, bool 
 int CMerkleTx::GetTransactionLockSignatures() const
 {
     if (fLargeWorkForkFound || fLargeWorkInvalidChainFound) return -2;
-    if (!IsSporkActive(SPORK_2_SWIFTTX)) return -3;
+    if (!IsSporkActive(SPORK_2_SWIFTTX_ENABLED)) return -3;
     if (!fEnableSwiftTX) return -1;
 
     //compile consessus vote
