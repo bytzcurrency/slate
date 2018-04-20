@@ -1,5 +1,5 @@
 ---
-name: "slate-linux-3.1"
+name: "slate-linux-1.0"
 enable_cache: true
 suites:
 - "trusty"
