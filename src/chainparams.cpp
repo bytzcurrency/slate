@@ -115,18 +115,18 @@ public:
         nTargetSpacing = 1 * 60;  // SLATE: 1 minute
         nMaturity = 100;
         nMasternodeCountDrift = 20;
-        nMaxMoneyOut = 21000000 * COIN;
+        nMaxMoneyOut = 950000000 * COIN;
 
         /** Height or Time Based Activations **/
         nLastPOWBlock = 1000;
         nModifierUpdateBlock = 1000;
-        nZerocoinStartHeight = 1;
-        nZerocoinStartTime = 1508214600; // October 17, 2017 4:30:00 AM
-        nBlockEnforceSerialRange = 1; //Enforce serial range starting this block
-        nBlockRecalculateAccumulators = 100002; //Trigger a recalculation of accumulators
-        nBlockFirstFraudulent = 99999999; //First block that bad serials emerged
-        nBlockLastGoodCheckpoint = 100000; //Last valid accumulator checkpoint
-        nBlockEnforceInvalidUTXO = 100200; //Start enforcing the invalid UTXO's
+        nZerocoinStartHeight = 99999999;
+        nZerocoinStartTime = 1608214600; // 
+        nBlockEnforceSerialRange = 99999999; //Enforce serial range starting this block
+        nBlockRecalculateAccumulators = 100000002; //Trigger a recalculation of accumulators
+        nBlockFirstFraudulent = 999999999; //First block that bad serials emerged
+        nBlockLastGoodCheckpoint = 100000000; //Last valid accumulator checkpoint
+        nBlockEnforceInvalidUTXO = 100000200; //Start enforcing the invalid UTXO's
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -149,7 +149,7 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = nZerocoinStartTime;
+        genesis.nTime = 1508214600;
         genesis.nBits = 0x1e0ffff0;
         genesis.nNonce = 2402015;
 
@@ -195,7 +195,7 @@ public:
         nMintRequiredConfirmations = 20; //the maximum amount of confirmations until accumulated in 19
         nRequiredAccumulation = 1;
         nDefaultSecurityLevel = 100; //full security level for accumulators
-        nZerocoinHeaderVersion = 4; //Block headers must be this version once zerocoin is active
+        nZerocoinHeaderVersion = 2; //Block headers must be this version once zerocoin is active
         nBudget_Fee_Confirmations = 6; // Number of confirmations for the finalization fee
     }
 
@@ -233,13 +233,13 @@ public:
         nMasternodeCountDrift = 4;
         nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
         nMaxMoneyOut = 43199500 * COIN;
-        nZerocoinStartHeight = 1;
-        nZerocoinStartTime = 1501776000;
-        nBlockEnforceSerialRange = 1; //Enforce serial range starting this block
-        nBlockRecalculateAccumulators = 100002; //Trigger a recalculation of accumulators
-        nBlockFirstFraudulent = 99999999; //First block that bad serials emerged
-        nBlockLastGoodCheckpoint = 100000; //Last valid accumulator checkpoint
-        nBlockEnforceInvalidUTXO = 100200; //Start enforcing the invalid UTXO's
+        nZerocoinStartHeight = 99999999;
+        nZerocoinStartTime = 1608214600; // 
+        nBlockEnforceSerialRange = 99999999; //Enforce serial range starting this block
+        nBlockRecalculateAccumulators = 100000002; //Trigger a recalculation of accumulators
+        nBlockFirstFraudulent = 999999999; //First block that bad serials emerged
+        nBlockLastGoodCheckpoint = 100000000; //Last valid accumulator checkpoint
+        nBlockEnforceInvalidUTXO = 100000200; //Start enforcing the invalid UTXO's
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nTime = 1454124731;
