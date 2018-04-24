@@ -6284,8 +6284,8 @@ for example: alertnotify=echo %%s | mail -s &quot;SLATE Alert&quot; admin@foo.co
     </message>
     <message>
         <location line="+3"/>
-        <source>(5333 could be used only on mainnet)</source>
-        <translation type="unfinished">(5333 could be used only on mainnet)</translation>
+        <source>(37415 could be used only on mainnet)</source>
+        <translation type="unfinished">(37415 could be used only on mainnet)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -6299,7 +6299,7 @@ for example: alertnotify=echo %%s | mail -s &quot;SLATE Alert&quot; admin@foo.co
     </message>
     <message>
         <location line="+1"/>
-        <source>(must be 5333 for mainnet)</source>
+        <source>(must be 37415 for mainnet)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
