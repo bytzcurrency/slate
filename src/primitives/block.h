@@ -12,6 +12,9 @@
 #include "serialize.h"
 #include "uint256.h"
 
+#define BLOCKHEADER_INITIAL_VERSION 1
+#define BLOCKHEADER_ZEROCOIN_VERSION 2
+
 /** The maximum allowed size for a serialized block, in bytes (network rule) */
 static const unsigned int MAX_BLOCK_SIZE_CURRENT = 2000000;
 static const unsigned int MAX_BLOCK_SIZE_LEGACY = 1000000;
@@ -27,7 +30,7 @@ class CBlockHeader
 {
 public:
     // header
-    static const int32_t CURRENT_VERSION=4;
+    static const int32_t CURRENT_VERSION = BLOCKHEADER_INITIAL_VERSION;
     int32_t nVersion;
     uint256 hashPrevBlock;
     uint256 hashMerkleRoot;
@@ -54,7 +57,7 @@ public:
         READWRITE(nNonce);
 
         //zerocoin active, header changes to include accumulator checksum
-        if(nVersion > 3)
+        if(nVersion >= BLOCKHEADER_ZEROCOIN_VERSION)
             READWRITE(nAccumulatorCheckpoint);
     }
 
