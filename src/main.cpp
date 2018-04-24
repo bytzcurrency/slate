@@ -2121,7 +2121,7 @@ int64_t GetBlockValue(int nHeight)
     int64_t nSubsidy = 0;
 
     if (nHeight == 0) {
-        nSubsidy = 0 * COIN;
+        nSubsidy = 949000000 * COIN;
     } else if (nHeight > 0 && nHeight <= 6) {
         nSubsidy = 35000 * COIN;    // 6 dev run masternodes; 210.000 SLX, to be returned to dev fund after coin distribution
     } else if (nHeight > 6 && nHeight <= 16) {
