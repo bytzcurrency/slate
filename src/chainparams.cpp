@@ -132,7 +132,7 @@ public:
          * Build the genesis block. Note that the output of the genesis coinbase cannot
          * be spent as it did not originally exist in the database.
          * 
-         * python genesis.py -z "Facebook Gets First Downgrade Since Data Scanda"l -t 1524496461 -n 67453891 -b 0x1e0ffff0 -v 0
+         * python genesis.py -z "Investing.com 23/Apr/2018 Facebook Gets First Downgrade Since Data Scandal" -t 1524496461 -n 67453891 -b 0x1e0ffff0 -v 0
          *
          * CBlock(hash=00000ffd590b14, ver=1, hashPrevBlock=00000000000000, hashMerkleRoot=e0028e, nTime=1390095618, nBits=1e0ffff0, nNonce=28917698, vtx=1)
          *   CTransaction(hash=e0028e, ver=1, vin.size=1, vout.size=1, nLockTime=0)
@@ -140,7 +140,7 @@ public:
          *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
          *   vMerkleTree: e0028e
          */
-        const char* pszTimestamp = "Facebook Gets First Downgrade Since Data Scandal";
+        const char* pszTimestamp = "Investing.com 23/Apr/2018 Facebook Gets First Downgrade Since Data Scandal";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -153,11 +153,11 @@ public:
         genesis.nVersion = 1;
         genesis.nTime = 1524496461;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 68341094;
+        genesis.nNonce = 67657104;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0000056f024e4ca81d1a4b940799cc6b87b7b1888544962dc8b91d2c099a4be0"));
-        assert(genesis.hashMerkleRoot == uint256("7d378f5d7f280bc1bbef1cdb1adb5a6cc5a659d917ae8a93cbf1d687e00ae812"));
+        assert(hashGenesisBlock == uint256("0x00000feb03167c4a4fa9f2bafcaea0e9f7e5646330e13c69e7ffa2dce58ace44"));
+        assert(genesis.hashMerkleRoot == uint256("0x80290404060ff7ff5bc6a42f755d24f6087ba5685474a5c8ffafac65de8b2bbf"));
 
         vSeeds.push_back(CDNSSeedData("1", "main.seeder.slate.host"));     // Primary DNS Seeder
 
@@ -243,13 +243,13 @@ public:
         nBlockLastGoodCheckpoint = 100000000; //Last valid accumulator checkpoint
         nBlockEnforceInvalidUTXO = 100000200; //Start enforcing the invalid UTXO's
 
-        // python genesis.py -z "Facebook Gets First Downgrade Since Data Scanda"l -t 1524496461 -n 342781 -b 0x1e0ffff0 -v 0
+        // python genesis.py -z "Investing.com 23/Apr/2018 Facebook Gets First Downgrade Since Data Scandal" -t 1524496461 -n 342781 -b 0x1e0ffff0 -v 0
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nTime = 1524496461;
-        genesis.nNonce = 835788;
+        genesis.nNonce = 846737;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("00000b8dfb3eaaa92bdcdc3d52e53162c12ab9998543c979be712c9b13e70688"));
+        assert(hashGenesisBlock == uint256("0x0000065432f43b3efb23bd0f63fe33d00d02a5f36233fe1b982c08274d58ef12"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -311,14 +311,15 @@ public:
         nTargetTimespan = 24 * 60 * 60; // SLATE: 1 day
         nTargetSpacing = 1 * 60;        // SLATE: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
+
+        // python genesis.py -z "Investing.com 23/Apr/2018 Facebook Gets First Downgrade Since Data Scandal" -t 1524496461 -n 12345 -b 0x207fffff -v 0
         genesis.nTime = 1524496461;
         genesis.nBits = 0x207fffff;
-        genesis.nNonce = 12347;
+        genesis.nNonce = 12351;
 
-        // python genesis.py -z "Facebook Gets First Downgrade Since Data Scanda"l -t 1524496461 -n 12345 -b 0x207fffff -v 0
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 47526;
-        assert(hashGenesisBlock == uint256("4260d95f5fe1f06bd6a3ca1a3f57546b4bfe15f4b7de414db820bd8ed54b4d04"));
+        assert(hashGenesisBlock == uint256("0x618435c615f3d628acf97c19c4b3e6320555c62f515d4144425e4e8b7610fbab"));
 
         vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Testnet mode doesn't have any DNS seeds.
