@@ -316,7 +316,7 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
             txNew.vout[i].nValue = masternodePayment + nFees;
 
             //subtract mn payment from the stake reward
-            txNew.vout[i - 1].nValue -= masternodePayment - 0.00001480 * COIN;
+            txNew.vout[i - 1].nValue -= masternodePayment;
         } else {
             txNew.vout.resize(2);
             txNew.vout[1].scriptPubKey = payee;
