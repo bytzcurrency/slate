@@ -197,7 +197,7 @@ public:
         nMintRequiredConfirmations = 20; //the maximum amount of confirmations until accumulated in 19
         nRequiredAccumulation = 1;
         nDefaultSecurityLevel = 100; //full security level for accumulators
-        nZerocoinHeaderVersion = 2; //Block headers must be this version once zerocoin is active
+        nZerocoinHeaderVersion = BLOCKHEADER_ZEROCOIN_VERSION; //Block headers must be this version once zerocoin is active
         nBudget_Fee_Confirmations = 6; // Number of confirmations for the finalization fee
     }
 
