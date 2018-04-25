@@ -579,6 +579,7 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
                    nReserveBalance >= pwallet->GetBalance() || !masternodeSync.IsSynced()) {
                 nLastCoinStakeSearchInterval = 0;
                 MilliSleep(5000);
+                fMintableCoins = pwallet->MintableCoins();
                 if (!fGenerateBitcoins && !fProofOfStake)
                     continue;
             }
