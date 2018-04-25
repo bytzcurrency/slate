@@ -2121,16 +2121,18 @@ int64_t GetBlockValue(int nHeight)
     int64_t nSubsidy = 0;
 
     if (nHeight == 0) {
-        nSubsidy = 949000000 * COIN;
+        nSubsidy = 947000000 * COIN;
     } else if (nHeight > 0 && nHeight <= 6) {
-        nSubsidy = 35000 * COIN;    // 6 dev run masternodes; 210.000 SLX, to be returned to dev fund after coin distribution
-    } else if (nHeight > 6 && nHeight <= 16) {
-        nSubsidy = 79000 * COIN;    // 10 coin blocks for staking by devs; 790.000 SLX, to be returned to dev fund after coin distribution
-    } else if (nHeight > 16 && nHeight <= 96496) { // 16 + 96480; From: Wednesday, 25 April 2018, 12:00:00 To: Sunday, 1 July 2018, 12:00:00
+        nSubsidy = 35000 * COIN;                        // 6 dev run masternodes; 210.000 SLX, to be returned to dev fund after coin distribution
+    } else if (nHeight > 6 && nHeight <= 21) {
+        nSubsidy = 0 * COIN;                            // 15 blocks with 0 rewards
+    } else if (nHeight > 21 && nHeight <= 300) {        // Switch to PoS at block 200
+        nSubsidy = 10000 * COIN;                        // 279 coin blocks for staking until coin distribution; 2.790.000 SLX
+    } else if (nHeight > 300 && nHeight <= 95340) {     // 300 + 95040; 2 months and 5 days, until July 1, 2018
         nSubsidy = 0 * COIN;
-    } else if (nHeight > 96496 && nHeight <= 622096) { // 96496 + 525600; 365 days
+    } else if (nHeight > 95340 && nHeight <= 620940) {  // 95340 + 525600; 365 days
         nSubsidy = 271 * COIN;
-    } else if (nHeight > 622096) { // To be tuned
+    } else if (nHeight > 620940) { // To be tuned
         nSubsidy = 271 * COIN;
     } else {
         nSubsidy = 0 * COIN;
