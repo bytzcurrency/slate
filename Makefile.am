@@ -4,6 +4,9 @@
 
 ACLOCAL_AMFLAGS = -I build-aux/m4
 SUBDIRS = src
+if ENABLE_MAN
+SUBDIRS += doc/man
+endif
 .PHONY: deploy FORCE
 
 export PYTHONPATH
@@ -224,6 +227,8 @@ EXTRA_DIST = $(top_srcdir)/share/genbuild.sh qa/pull-tester/rpc-tests.sh qa/pull
 CLEANFILES = $(OSX_DMG) $(BITCOIN_WIN_INSTALLER)
 
 .INTERMEDIATE: $(COVERAGE_INFO)
+
+DISTCHECK_CONFIGURE_FLAGS = --enable-man
 
 clean-local:
 	rm -rf test_slate.coverage/ total.coverage/ $(OSX_APP)
