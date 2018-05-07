@@ -1,0 +1,26 @@
+# /etc/conf.d/slated: config file for /etc/init.d/slated
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/slate/slate.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/slated"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/slated.pid"
+
+# Where to write slated data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/slated"
+
+# User and group to own slated process
+#BITCOIND_USER="slate"
+#BITCOIND_GROUP="slate"
+
+# Path to slated executable
+#BITCOIND_BIN="/usr/bin/slated"
+
+# Nice value to run slated under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

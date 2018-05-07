@@ -1,0 +1,26 @@
+[Unit]
+Description=SLATE's distributed currency daemon
+After=network.target
+
+[Service]
+User=slate
+Group=slate
+
+Type=forking
+PIDFile=/var/lib/slated/slated.pid
+
+ExecStart=/usr/bin/slated -daemon -pid=/var/lib/slated/slated.pid \
+          -conf=/etc/slate/slate.conf -datadir=/var/lib/slated
+
+ExecStop=-/usr/bin/slate-cli -conf=/etc/slate/slate.conf \
+         -datadir=/var/lib/slated stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
