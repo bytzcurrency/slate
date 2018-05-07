@@ -429,29 +429,38 @@ vector<COutput> CActiveMasternode::SelectCoinsMasternode()
     vector<COutput> filteredCoins;
     vector<COutPoint> confLockedCoins;
 
-    // Temporary unlock MN coins from masternode.conf
-    if (GetBoolArg("-mnconflock", true)) {
-        uint256 mnTxHash;
-        BOOST_FOREACH (CMasternodeConfig::CMasternodeEntry mne, masternodeConfig.getEntries()) {
-            mnTxHash.SetHex(mne.getTxHash());
-
-            int nIndex;
-            if(!mne.castOutputIndex(nIndex))
-                continue;
-
-            COutPoint outpoint = COutPoint(mnTxHash, nIndex);
-            confLockedCoins.push_back(outpoint);
-            pwalletMain->UnlockCoin(outpoint);
+    while (true) {
+        TRY_LOCK(pwalletMain->cs_wallet, lockWallet);
+        if (!lockWallet) {
+            MilliSleep(50);
+            continue;
         }
-    }
 
-    // Retrieve all possible outputs
-    pwalletMain->AvailableCoins(vCoins);
+        // Temporary unlock MN coins from masternode.conf
+        if (GetBoolArg("-mnconflock", true)) {
+            uint256 mnTxHash;
+            BOOST_FOREACH (CMasternodeConfig::CMasternodeEntry mne, masternodeConfig.getEntries()) {
+                mnTxHash.SetHex(mne.getTxHash());
 
-    // Lock MN coins from masternode.conf back if they where temporary unlocked
-    if (!confLockedCoins.empty()) {
-        BOOST_FOREACH (COutPoint outpoint, confLockedCoins)
-            pwalletMain->LockCoin(outpoint);
+                int nIndex;
+                if(!mne.castOutputIndex(nIndex))
+                    continue;
+
+                COutPoint outpoint = COutPoint(mnTxHash, nIndex);
+                confLockedCoins.push_back(outpoint);
+                pwalletMain->UnlockCoin(outpoint);
+            }
+        }
+
+        // Retrieve all possible outputs
+        pwalletMain->AvailableCoins(vCoins);
+
+        // Lock MN coins from masternode.conf back if they where temporary unlocked
+        if (!confLockedCoins.empty()) {
+            BOOST_FOREACH (COutPoint outpoint, confLockedCoins)
+                pwalletMain->LockCoin(outpoint);
+        }
+        break;
     }
 
     // Filter

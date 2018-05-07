@@ -2082,6 +2082,8 @@ bool CWallet::SelectStakeCoins(std::list<std::unique_ptr<CStakeInput> >& listInp
     AvailableCoins(vCoins, true, NULL, false, STAKABLE_COINS);
     CAmount nAmountSelected = 0;
     if (GetBoolArg("-slxstake", true)) {
+        LOCK(cs_main);
+
         for (const COutput &out : vCoins) {
             //make sure not to outrun target amount
             if (nAmountSelected + out.tx->vout[out.i].nValue > nTargetAmount)
@@ -2154,16 +2156,19 @@ bool CWallet::MintableCoins()
         vector<COutput> vCoins;
         AvailableCoins(vCoins, true);
 
-        for (const COutput& out : vCoins) {
-            int64_t nTxTime = out.tx->GetTxTime();
-            if (out.tx->IsZerocoinSpend()) {
-                if (!out.tx->IsInMainChain())
-                    continue;
-                nTxTime = mapBlockIndex.at(out.tx->hashBlock)->GetBlockTime();
-            }
+        {
+            LOCK(cs_main);
+            for (const COutput& out : vCoins) {
+                int64_t nTxTime = out.tx->GetTxTime();
+                if (out.tx->IsZerocoinSpend()) {
+                    if (!out.tx->IsInMainChain())
+                        continue;
+                    nTxTime = mapBlockIndex.at(out.tx->hashBlock)->GetBlockTime();
+                }
 
-            if (GetAdjustedTime() - nTxTime > nStakeMinAge)
-                return true;
+                if (GetAdjustedTime() - nTxTime > nStakeMinAge)
+                    return true;
+            }
         }
     }
 
@@ -4082,6 +4087,8 @@ void CWallet::AutoCombineDust()
 
     //coins are sectioned by address. This combination code only wants to combine inputs that belong to the same address
     for (map<CBitcoinAddress, vector<COutput> >::iterator it = mapCoinsByAddress.begin(); it != mapCoinsByAddress.end(); it++) {
+        LOCK(cs_main);
+        
         vector<COutput> vCoins, vRewardCoins;
         vCoins = it->second;
 
