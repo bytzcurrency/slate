@@ -75,6 +75,9 @@ src/qt/test/moc*.cpp
 *.dmg
 
 *.json.h
+!src/accumulatorcheckpoints.json.h
+!src/invalid_serials.json.h
+!src/invalid_outpoints.json.h
 *.raw.h
 
 #libtool object files
