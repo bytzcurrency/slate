@@ -791,7 +791,9 @@ void PrivacyDialog::updateAutomintStatus()
 void PrivacyDialog::updateSPORK16Status()
 {
     // Update/enable labels, buttons and tooltips depending on the current SPORK_16 status
-    if(GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE)) {
+    bool fButtonsEnabled =  ui->pushButtonMintzSLX->isEnabled();
+    bool fMaintenanceMode = GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE);
+    if (fMaintenanceMode && fButtonsEnabled) {
         // Mint zSLX
         ui->pushButtonMintzSLX->setEnabled(false);
         ui->pushButtonMintzSLX->setToolTip(tr("zSLX is currently disabled due to maintenance."));
@@ -799,8 +801,7 @@ void PrivacyDialog::updateSPORK16Status()
         // Spend zSLX
         ui->pushButtonSpendzSLX->setEnabled(false);
         ui->pushButtonSpendzSLX->setToolTip(tr("zSLX is currently disabled due to maintenance."));
-    }
-    else {
+    } else if (!fMaintenanceMode && !fButtonsEnabled) {
         // Mint zSLX
         ui->pushButtonMintzSLX->setEnabled(true);
         ui->pushButtonMintzSLX->setToolTip(tr("PrivacyDialog", "Enter an amount of SLX to convert to zSLX", 0));
