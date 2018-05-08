@@ -452,7 +452,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
 
         //Calculate the accumulator checkpoint only if the previous cached checkpoint need to be updated
         uint256 nCheckpoint;
-        uint256 hashBlockLastAccumulated = chainActive[nHeight - (nHeight % 10) - 10]->GetBlockHash();
+        uint256 hashBlockLastAccumulated = nHeight >= 20 ? chainActive[nHeight - (nHeight % 10) - 10]->GetBlockHash(): 0;
         if (nHeight >= pCheckpointCache.first || pCheckpointCache.second.first != hashBlockLastAccumulated) {
             //For the period before v2 activation, zSLX will be disabled and previous block's checkpoint is all that will be needed
             pCheckpointCache.second.second = pindexPrev->nAccumulatorCheckpoint;
