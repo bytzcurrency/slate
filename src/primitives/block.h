@@ -30,7 +30,7 @@ class CBlockHeader
 {
 public:
     // header
-    static const int32_t CURRENT_VERSION = BLOCKHEADER_INITIAL_VERSION;
+    static const int32_t CURRENT_VERSION = BLOCKHEADER_ZEROCOIN_VERSION;
     int32_t nVersion;
     uint256 hashPrevBlock;
     uint256 hashMerkleRoot;
