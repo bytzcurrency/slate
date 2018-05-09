@@ -2379,9 +2379,9 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
         ret = blockValue * 0.9;
     } else {
         //When zSLX is staked, masternode gets less SLX
-        ret = blockValue * 0.9;
+        ret = (blockValue - 27) * COIN;
         if (isZSLXStake)
-            ret = blockValue * 0.8;
+            ret = (blockValue - 30) * COIN;
     }
 
     return ret;

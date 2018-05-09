@@ -3022,7 +3022,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
                 return error("CreateCoinStake : exceeded coinstake size limit");
 
             //Masternode payment
-            FillBlockPayee(txNew, nMinFee, true, stakeInput->IsZSLX());
+//            FillBlockPayee(txNew, nMinFee, true, stakeInput->IsZSLX());
 
             uint256 hashTxOut = txNew.GetHash();
             CTxIn in;
@@ -3084,6 +3084,17 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
 
     // Successfully generated coinstake
     nLastStakeSetUpdate = 0; //this will trigger stake set to repopulate next round
+    return true;
+}
+
+bool CWallet::SignCoinStake(const CKeyStore& keystore, CMutableTransaction& txCoinStake)
+{
+    int nIn = 0;
+    for (CTxIn txIn : txCoinStake.vin) {
+        const CWalletTx *wtx = GetWalletTx(txIn.prevout.hash);
+        if (!SignSignature(*this, *wtx, txCoinStake, nIn++))
+            return error("CreateCoinStake : failed to sign coinstake");
+    }
     return true;
 }
 

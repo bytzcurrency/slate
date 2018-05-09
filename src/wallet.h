@@ -506,6 +506,7 @@ public:
     bool CreateCollateralTransaction(CMutableTransaction& txCollateral, std::string& strReason);
     bool ConvertList(std::vector<CTxIn> vCoins, std::vector<int64_t>& vecAmounts);
     bool CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int64_t nSearchInterval, CMutableTransaction& txNew, unsigned int& nTxNewTime);
+    bool SignCoinStake(const CKeyStore& keystore, CMutableTransaction& txCoinStake);
     bool MultiSend();
     void AutoCombineDust();
     void AutoZeromint();
