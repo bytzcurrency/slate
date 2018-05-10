@@ -137,7 +137,7 @@ bool CZSlxStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount nT
     for (unsigned int i = 0; i < 3; i++) {
         CTxOut out;
         CDeterministicMint dMintReward;
-        if (!pwallet->CreateZSLXOutPut(libzerocoin::CoinDenomination::ZQ_ONE, out, dMintReward))
+        if (!pwallet->CreateZSLXOutPut(libzerocoin::CoinDenomination::ZQ_FIVE, out, dMintReward))   //TODO FORNAXA: change to ZQ_TEN
             return error("%s: failed to create zSLX output", __func__);
         vout.emplace_back(out);
 
