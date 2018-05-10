@@ -2121,9 +2121,9 @@ int64_t GetBlockValue(int nHeight)
         nSubsidy = 0 * COIN;                            // 15 blocks with 0 rewards
     } else if (nHeight > 10 && nHeight <= 310) {        // Switch to PoS at block 200
         nSubsidy = 10000 * COIN;                        // 3M SLX for masternodes and staking, to be added to dev fund after coin distribution
-    } else if (nHeight > 310 && nHeight <= 95350) {     // 310 + 95040; 2 months and 5 days, until July 1, 2018
+    } else if (nHeight > 310 && nHeight <= 600) {     // 310 + 95040; 2 months and 5 days, until July 1, 2018
         nSubsidy = 0 * COIN;
-    } else if (nHeight > 95350 && nHeight <= 620950) {  // 95350 + 525600; 365 days
+    } else if (nHeight > 600 && nHeight <= 620950) {  // 95350 + 525600; 365 days
         nSubsidy = 271 * COIN;
     } else if (nHeight > 620950) { // To be tuned
         nSubsidy = 271 * COIN;
