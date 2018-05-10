@@ -3052,6 +3052,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
         return false;
 
     // Sign for SLX
+    // TODO: separate into sign function
     int nIn = 0;
     if (!txNew.vin[0].scriptSig.IsZerocoinSpend()) {
         for (CTxIn txIn : txNew.vin) {
@@ -3090,10 +3091,14 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
 bool CWallet::SignCoinStake(const CKeyStore& keystore, CMutableTransaction& txCoinStake)
 {
     int nIn = 0;
-    for (CTxIn txIn : txCoinStake.vin) {
-        const CWalletTx *wtx = GetWalletTx(txIn.prevout.hash);
-        if (!SignSignature(*this, *wtx, txCoinStake, nIn++))
-            return error("CreateCoinStake : failed to sign coinstake");
+    if (!txCoinStake.vin[0].scriptSig.IsZerocoinSpend()) {
+        for (CTxIn txIn : txCoinStake.vin) {
+            const CWalletTx *wtx = GetWalletTx(txIn.prevout.hash);
+            if (!SignSignature(*this, *wtx, txCoinStake, nIn++))
+                return error("CreateCoinStake : failed to sign coinstake");
+        }
+    } else {
+        LogPrintf("%s: vin is ZeroCoinSpend: [%s]", __func__, txCoinStake.ToString());
     }
     return true;
 }
