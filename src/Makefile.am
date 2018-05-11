@@ -194,6 +194,7 @@ BITCOIN_CORE_H = \
   wallet.h \
   wallet_ismine.h \
   walletdb.h \
+  zslxchain.h \
   zslxtracker.h \
   zslxwallet.h \
   zmq/zmqabstractnotifier.h \
@@ -243,6 +244,7 @@ libbitcoin_server_a_SOURCES = \
   txdb.cpp \
   txmempool.cpp \
   validationinterface.cpp \
+  zslxchain.cpp \
   $(BITCOIN_CORE_H)
 
 if ENABLE_ZMQ

@@ -17,6 +17,7 @@
 #include "utilmoneystr.h"
 #include "wallet.h"
 #include "walletdb.h"
+#include "zslxchain.h"
 
 #include <stdint.h>
 

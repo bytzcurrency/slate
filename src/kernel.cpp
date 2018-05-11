@@ -12,6 +12,7 @@
 #include "timedata.h"
 #include "util.h"
 #include "stakeinput.h"
+#include "zslxchain.h"
 
 using namespace std;
 
