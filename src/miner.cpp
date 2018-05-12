@@ -143,11 +143,20 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
         bool fStakeFound = false;
         if (nSearchTime >= nLastCoinStakeSearchTime) {
             unsigned int nTxNewTime = 0;
-            if (pwallet->CreateCoinStake(*pwallet, pblock->nBits, nSearchTime - nLastCoinStakeSearchTime, txCoinStake, nTxNewTime)) {
-                pblock->nTime = nTxNewTime;
-                pblock->vtx[0].vout[0].SetEmpty();
-                pblock->vtx.push_back(CTransaction(txCoinStake));
-                fStakeFound = true;
+            CAmount nFee = 0;
+            std::unique_ptr<CStakeInput> stakeInput;
+
+            if (pwallet->FindCoinStake(*pwallet, pblock->nBits, nSearchTime - nLastCoinStakeSearchTime, txCoinStake, nTxNewTime, nFee, stakeInput)) {
+                if (pwallet->FillCoinStake(*pwallet, pblock->nBits, nSearchTime - nLastCoinStakeSearchTime, txCoinStake, nTxNewTime, nFee, stakeInput)) {
+                    pblock->nTime = nTxNewTime;
+                    pblock->vtx[0].vout[0].SetEmpty();
+                    pblock->vtx.push_back(CTransaction(txCoinStake));
+                    fStakeFound = true;
+                } else {
+                    LogPrintf("%s: failed to fill coin stake tx\n", __func__);
+                }
+            } else {
+                    LogPrintf("%s: failed to find coin stake tx\n", __func__);
             }
             nLastCoinStakeSearchInterval = nSearchTime - nLastCoinStakeSearchTime;
             nLastCoinStakeSearchTime = nSearchTime;
