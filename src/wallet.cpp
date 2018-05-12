@@ -2934,7 +2934,7 @@ bool CWallet::CreateTransaction(CScript scriptPubKey, const CAmount& nValue, CWa
 }
 
 // ppcoin: create coin stake transaction
-bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int64_t nSearchInterval, CMutableTransaction& txNew, unsigned int& nTxNewTime)
+bool CWallet::FindCoinStake(const CKeyStore& keystore, unsigned int nBits, int64_t nSearchInterval, CMutableTransaction& txNew, unsigned int& nTxNewTime, CAmount& nMinFee, std::unique_ptr<CStakeInput>& newStakeInput)
 {
     // The following split & combine thresholds are important to security
     // Should not be adjusted if you don't understand the consequences
@@ -2998,6 +2998,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
 
             // Found a kernel
             LogPrintf("CreateCoinStake : kernel found\n");
+
             nCredit += stakeInput->GetValue();
 
             // Calculate reward
@@ -3013,7 +3014,6 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
             }
             txNew.vout.insert(txNew.vout.end(), vout.begin(), vout.end());
 
-            CAmount nMinFee = 0;
             if (!stakeInput->IsZSLX()) {
                 // Set output amount
                 if (txNew.vout.size() == 3) {
@@ -3028,26 +3028,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
             if (nBytes >= DEFAULT_BLOCK_MAX_SIZE / 5)
                 return error("CreateCoinStake : exceeded coinstake size limit");
 
-            //Masternode payment
-            FillBlockPayee(txNew, nMinFee, true, stakeInput->IsZSLX());
-
-            uint256 hashTxOut = txNew.GetHash();
-            CTxIn in;
-            if (!stakeInput->CreateTxIn(this, in, hashTxOut)) {
-                LogPrintf("%s : failed to create TxIn\n", __func__);
-                txNew.vin.clear();
-                txNew.vout.clear();
-                nCredit = 0;
-                continue;
-            }
-            txNew.vin.emplace_back(in);
-
-            //Mark mints as spent
-            if (stakeInput->IsZSLX()) {
-                CZSlxStake* z = (CZSlxStake*)stakeInput.get();
-                if (!z->MarkSpent(this, txNew.GetHash()))
-                    return error("%s: failed to mark mint as used\n", __func__);
-            }
+            newStakeInput = std::move(stakeInput);
 
             fKernelFound = true;
             break;
@@ -3057,6 +3038,38 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
     }
     if (!fKernelFound)
         return false;
+
+    // Successfully generated coinstake
+    return true;
+}
+
+bool CWallet::FillCoinStake(const CKeyStore& keystore, unsigned int nBits, int64_t nSearchInterval, CMutableTransaction& txNew, unsigned int& nTxNewTime, CAmount &nFee, std::unique_ptr<CStakeInput>& stakeInput)
+{
+
+    {
+        LOCK(cs_main);
+
+        //Masternode payment
+        FillBlockPayee(txNew, nFee, true, stakeInput->IsZSLX());     // FORNAXA: check fee
+
+        uint256 hashTxOut = txNew.GetHash();
+        CTxIn in;
+        if (!stakeInput->CreateTxIn(this, in, hashTxOut)) {
+            txNew.vin.clear();
+            txNew.vout.clear();
+            return error("%s : failed to create TxIn\n", __func__);
+        }
+        txNew.vin.emplace_back(in);
+
+        //Mark mints as spent
+        if (stakeInput->IsZSLX()) {
+            CZSlxStake* z = (CZSlxStake*)stakeInput.get();
+            if (!z->MarkSpent(this, txNew.GetHash()))
+                return error("%s: failed to mark mint as used\n", __func__);
+        }
+    }
+
+    // FORNAXA: ensure all OK above, otherwise return false;
 
     // Sign for SLX
     int nIn = 0;
@@ -3089,7 +3102,6 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
         }
     }
 
-    // Successfully generated coinstake
     return true;
 }
 
