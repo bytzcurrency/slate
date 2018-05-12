@@ -2921,7 +2921,7 @@ bool CWallet::CreateTransaction(CScript scriptPubKey, const CAmount& nValue, CWa
 }
 
 // ppcoin: create coin stake transaction
-bool CWallet::FindCoinStake(const CKeyStore& keystore, unsigned int nBits, int64_t nSearchInterval, CMutableTransaction& txNew, unsigned int& nTxNewTime, CAmount& nMinFee, std::unique_ptr<CStakeInput>& newStakeInput)
+bool CWallet::FindCoinStake(const CKeyStore& keystore, unsigned int nBits, int64_t nSearchInterval, CMutableTransaction& txNew, unsigned int& nTxNewTime, std::unique_ptr<CStakeInput>& newStakeInput)
 {
     // The following split & combine thresholds are important to security
     // Should not be adjusted if you don't understand the consequences
@@ -3007,6 +3007,7 @@ bool CWallet::FindCoinStake(const CKeyStore& keystore, unsigned int nBits, int64
             }
             txNew.vout.insert(txNew.vout.end(), vout.begin(), vout.end());
 
+            CAmount nMinFee = 0;
             if (!stakeInput->IsZSLX()) {
                 // Set output amount
                 if (txNew.vout.size() == 3) {
@@ -3037,14 +3038,14 @@ bool CWallet::FindCoinStake(const CKeyStore& keystore, unsigned int nBits, int64
     return true;
 }
 
-bool CWallet::FillCoinStake(const CKeyStore& keystore, unsigned int nBits, int64_t nSearchInterval, CMutableTransaction& txNew, unsigned int& nTxNewTime, CAmount &nFee, std::unique_ptr<CStakeInput>& stakeInput)
+bool CWallet::FillCoinStake(const CKeyStore& keystore, CMutableTransaction& txNew, CAmount &nFee, std::unique_ptr<CStakeInput>& stakeInput)
 {
 
     {
         LOCK(cs_main);
 
         //Masternode payment
-        FillBlockPayee(txNew, nFee, true, stakeInput->IsZSLX());     // FORNAXA: check fee
+        FillBlockPayee(txNew, nFee, true, stakeInput->IsZSLX());
 
         uint256 hashTxOut = txNew.GetHash();
         CTxIn in;
@@ -3062,8 +3063,6 @@ bool CWallet::FillCoinStake(const CKeyStore& keystore, unsigned int nBits, int64
                 return error("%s: failed to mark mint as used\n", __func__);
         }
     }
-
-    // FORNAXA: ensure all OK above, otherwise return false;
 
     // Sign for SLX
     int nIn = 0;
