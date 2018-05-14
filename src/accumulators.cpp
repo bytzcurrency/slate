@@ -402,7 +402,7 @@ bool GetAccumulatorValue(int& nHeight, const libzerocoin::CoinDenomination denom
         //Start at the first zerocoin
         libzerocoin::Accumulator accumulator(Params().Zerocoin_Params(false), denom);
         bnAccValue = accumulator.getValue();
-        nHeight = Params().Zerocoin_Block_V2_Start() + 10;
+        nHeight = Params().Zerocoin_StartHeight() + 10;
         return true;
     }
 
@@ -436,6 +436,10 @@ bool GenerateAccumulatorWitness(const PublicCoin &coin, Accumulator& accumulator
     uint256 hashBlock;
     if (!GetTransaction(txid, txMinted, hashBlock))
         return error("%s failed to read tx", __func__);
+
+    int nHeightTest;
+    if (!IsTransactionInChain(txid, nHeightTest))
+        return error("%s: mint tx %s is not in chain", __func__, txid.GetHex());
 
     int nHeightMintAdded = mapBlockIndex[hashBlock]->nHeight;
 
