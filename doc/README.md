@@ -42,7 +42,7 @@ The following are developer notes on how to build SLATE on your native platform.
 
 Development
 ---------------------
-The Slate repo's [root README](https://github.com/SLATE-Project/SLATE/blob/master/README.md) contains relevant information on the development process and automated testing.
+The Slate repo's [root README](https://github.com/slatecurrency/slate/blob/master/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)
