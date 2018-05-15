@@ -7,7 +7,7 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/slate-project/slate-detached-sigs.git"
+- "url": "https://github.com/slatecurrency/slate-detached-sigs.git"
   "dir": "signature"
 files:
 - "slate-osx-unsigned.tar.gz"

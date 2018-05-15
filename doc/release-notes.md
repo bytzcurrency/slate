@@ -1,7 +1,7 @@
 (note: this is a temporary file, to be added-to by anybody, and moved to
 release-notes at release time)
 
-SLATE Core version *version* is now available from:  <https://github.com/slate-project/slate/releases>
+SLATE Core version *version* is now available from:  <https://github.com/slatecurrency/slate/releases>
 
   <https://slate.io/>
 
