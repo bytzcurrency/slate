@@ -2110,11 +2110,17 @@ bool CWallet::SelectStakeCoins(std::list<std::unique_ptr<CStakeInput> >& listInp
         }
     }
 
-    //zSLX
+    //zPIV
     if (GetBoolArg("-zslxstake", true) && chainActive.Height() > Params().Zerocoin_Block_V2_Start() && !IsSporkActive(SPORK_16_ZEROCOIN_MAINTENANCE_MODE)) {
-        //Add zSLX
-        set<CMintMeta> setMints = zslxTracker->ListMints(true, true, true);
+        //Only update zSLX set once per update interval
+        bool fUpdate = false;
+        static int64_t nTimeLastUpdate = 0;
+        if (GetAdjustedTime() - nTimeLastUpdate > nStakeSetUpdateTime) {
+            fUpdate = true;
+            nTimeLastUpdate = GetAdjustedTime();
+        }
 
+        set<CMintMeta> setMints = zslxTracker->ListMints(true, true, fUpdate);
         for (auto meta : setMints) {
             if (meta.hashStake == 0) {
                 CZerocoinMint mint;
@@ -2944,16 +2950,10 @@ bool CWallet::FindCoinStake(const CKeyStore& keystore, unsigned int nBits, int64
     if (nBalance > 0 && nBalance <= nReserveBalance)
         return false;
 
-    // Initialize as static and don't update the set on every run of CreateCoinStake() in order to lighten resource use
-    static int nLastStakeSetUpdate = 0;
-    static list<std::unique_ptr<CStakeInput> > listInputs;
-    if (GetTime() - nLastStakeSetUpdate > nStakeSetUpdateTime) {
-        listInputs.clear();
-        if (!SelectStakeCoins(listInputs, nBalance - nReserveBalance))
-            return false;
-
-        nLastStakeSetUpdate = GetTime();
-    }
+    // Get the list of stakable inputs
+    std::list<std::unique_ptr<CStakeInput> > listInputs;
+    if (!SelectStakeCoins(listInputs, nBalance - nReserveBalance))
+        return false;
 
     if (listInputs.empty())
         return false;
@@ -3035,7 +3035,6 @@ bool CWallet::FindCoinStake(const CKeyStore& keystore, unsigned int nBits, int64
         return false;
 
     // Successfully generated coinstake
-    nLastStakeSetUpdate = 0; //this will trigger stake set to repopulate next round
     return true;
 }
 
@@ -3096,6 +3095,7 @@ bool CWallet::FillCoinStake(const CKeyStore& keystore, CMutableTransaction& txNe
         }
     }
 
+    // Successfully filled coinstake
     return true;
 }
 
