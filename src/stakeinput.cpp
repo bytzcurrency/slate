@@ -134,6 +134,8 @@ bool CZSlxStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount nT
     if (!pwallet->DatabaseMint(dMint))
         return error("%s: failed to database the staked zSLX", __func__);
 
+    if (nTotal - this->GetValue() < 30 * COIN) return true;
+
     for (unsigned int i = 0; i < 3; i++) {
         CTxOut out;
         CDeterministicMint dMintReward;
