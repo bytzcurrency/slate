@@ -83,9 +83,9 @@ enum WalletFeature {
 enum AvailableCoinsType {
     ALL_COINS = 1,
     ONLY_DENOMINATED = 2,
-    ONLY_NOT35000IFMN = 3,
-    ONLY_NONDENOMINATED_NOT35000IFMN = 4, // ONLY_NONDENOMINATED and not 35000 SLX at the same time
-    ONLY_35000 = 5,                        // find masternode outputs including locked ones (use with caution)
+    ONLY_NOT350000IFMN = 3,
+    ONLY_NONDENOMINATED_NOT350000IFMN = 4, // ONLY_NONDENOMINATED and not 350000 SLX at the same time
+    ONLY_350000 = 5,                        // find masternode outputs including locked ones (use with caution)
     STAKABLE_COINS = 6                          // UTXO's that are valid for staking
 };
 
@@ -529,7 +529,7 @@ public:
     std::set<CTxDestination> GetAccountAddresses(std::string strAccount) const;
 
     bool GetBudgetSystemCollateralTX(CWalletTx& tx, uint256 hash, bool useIX);
-    bool GetBudgetFinalizationCollateralTX(CWalletTx& tx, uint256 hash, bool useIX); // Only used for budget finalization 
+    bool GetBudgetFinalizationCollateralTX(CWalletTx& tx, uint256 hash, bool useIX); // Only used for budget finalization
 
     // get the Obfuscation chain depth for a given input
     int GetRealInputObfuscationRounds(CTxIn in, int rounds) const;
