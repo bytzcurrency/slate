@@ -133,7 +133,7 @@ public:
         nTargetSpacing = 1 * 60;  // SLATE: 1 minute
         nMaturity = 100;
         nMasternodeCountDrift = 20;
-        nMaxMoneyOut = 950000000 * COIN;
+        nMaxMoneyOut = 9500000000 * COIN;
 
         /** Height or Time Based Activations **/
         nLastPOWBlock = 200;
@@ -259,7 +259,7 @@ public:
         nMaturity = 15;
         nMasternodeCountDrift = 4;
         nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
-        nMaxMoneyOut = 950000000 * COIN;
+        nMaxMoneyOut = 9500000000 * COIN;
         nZerocoinStartHeight = 25;
         nZerocoinStartTime = 1524496462;
         nBlockEnforceSerialRange = 25; //Enforce serial range starting this block
