@@ -4178,6 +4178,10 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
     </message>
     <message>
         <source>The PIVX Core developers</source>
+        <translation>PIVX "core" udviklerne</translation>
+    </message>
+    <message>
+        <source>The SLATE Core developers</source>
         <translation>SLATE "core" udviklerne</translation>
     </message>
     <message>
@@ -5137,6 +5141,14 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
     <message>
         <source>Copyright (C) 2015-%i The PIVX Core developers</source>
         <translation>Copyright (C) 2015-%i The PIVX Core developers</translation>
+    </message>
+    <message>
+        <source>Copyright (C) 2018-%i The SLATE Core developers</source>
+        <translation>Copyright (C) 2018-%i The SLATE Core developers</translation>
+    </message>
+    <message>
+        <source>Copyright (C) %i The SLATE Core developers</source>
+        <translation>Copyright (C) %i The SLATE Core developers</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>

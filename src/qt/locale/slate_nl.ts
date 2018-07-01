@@ -4247,6 +4247,10 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
     </message>
     <message>
         <source>The PIVX Core developers</source>
+        <translation>De PIVX Kernontwikkelaars</translation>
+    </message>
+    <message>
+        <source>The SLATE Core developers</source>
         <translation>De SLATE Kernontwikkelaars</translation>
     </message>
     <message>
@@ -5268,7 +5272,15 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
     </message>
     <message>
         <source>Copyright (C) 2015-%i The PIVX Core developers</source>
-        <translation>Copyright (C) 2015-%i The SLATE Kernontwikkelaars</translation>
+        <translation>Copyright (C) 2015-%i The PIVX Kernontwikkelaars</translation>
+    </message>
+    <message>
+        <source>Copyright (C) 2018-%i The SLATE Core developers</source>
+        <translation>Copyright (C) 2018-%i The SLATE Kernontwikkelaars</translation>
+    </message>
+    <message>
+        <source>Copyright (C) %i The SLATE Core developers</source>
+        <translation>Copyright (C) %i The SLATE Kernontwikkelaars</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>

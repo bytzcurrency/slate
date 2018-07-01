@@ -4237,6 +4237,10 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
     </message>
     <message>
         <source>The PIVX Core developers</source>
+        <translation>Die PIVX Core Entwickler</translation>
+    </message>
+    <message>
+        <source>The SLATE Core developers</source>
         <translation>Die SLATE Core Entwickler</translation>
     </message>
     <message>
@@ -5259,6 +5263,14 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
     <message>
         <source>Copyright (C) 2015-%i The PIVX Core developers</source>
         <translation>Copyright (C) 2015-%i The PIVX Core developers</translation>
+    </message>
+    <message>
+        <source>Copyright (C) 2018-%i The SLATE Core developers</source>
+        <translation>Copyright (C) 2018-%i The SLATE Core developers</translation>
+    </message>
+    <message>
+        <source>Copyright (C) %i The SLATE Core developers</source>
+        <translation>Copyright (C) %i The SLATE Core developers</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>

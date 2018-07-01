@@ -2216,6 +2216,10 @@ Please check the address and try again.</source>
     </message>
     <message>
         <source>The PIVX Core developers</source>
+        <translation>PIVX core kehittäjät</translation>
+    </message>
+    <message>
+        <source>The SLATE Core developers</source>
         <translation>SLATE core kehittäjät</translation>
     </message>
     <message>

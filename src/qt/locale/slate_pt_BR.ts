@@ -3128,6 +3128,10 @@ https://www.transifex.com/slate-project/slate-project-translations</translation>
     </message>
     <message>
         <source>The PIVX Core developers</source>
+        <translation>Os desenvolvedores do PIVX Core</translation>
+    </message>
+    <message>
+        <source>The SLATE Core developers</source>
         <translation>Os desenvolvedores do SLATE Core</translation>
     </message>
     <message>
@@ -3793,7 +3797,15 @@ https://www.transifex.com/slate-project/slate-project-translations</translation>
     </message>
     <message>
         <source>Copyright (C) 2015-%i The PIVX Core developers</source>
+        <translation>Todos os direitos reservados (C) 2015-%i aos Desenvolvedores do PIVX Core</translation>
+    </message>
+    <message>
+        <source>Copyright (C) 2015-%i The SLATE Core developers</source>
         <translation>Todos os direitos reservados (C) 2015-%i aos Desenvolvedores do SLATE Core</translation>
+    </message>
+    <message>
+        <source>Copyright (C) %i The SLATE Core developers</source>
+        <translation>Todos os direitos reservados (C) %i aos Desenvolvedores do SLATE Core</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>

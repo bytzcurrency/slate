@@ -3296,6 +3296,10 @@ https://www.transifex.com/slate-project/slate-project-translations</translation>
         <translation>The PIVX Core developers</translation>
     </message>
     <message>
+        <source>The SLATE Core developers</source>
+        <translation>The SLATE Core developers</translation>
+    </message>
+    <message>
         <source>[testnet]</source>
         <translation>[testnet]</translation>
     </message>
@@ -4284,6 +4288,14 @@ for example: alertnotify=echo %%s | mail -s "SLATE Alert" admin@foo.com
     <message>
         <source>Copyright (C) 2015-%i The PIVX Core developers</source>
         <translation>Copyright (C) 2015-%i The PIVX Core developers</translation>
+    </message>
+    <message>
+        <source>Copyright (C) 2018-%i The SLATE Core developers</source>
+        <translation>Copyright (C) 2018-%i The SLATE Core developers</translation>
+    </message>
+    <message>
+        <source>Copyright (C) %i The SLATE Core developers</source>
+        <translation>Copyright (C) %i The SLATE Core developers</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>

@@ -4022,6 +4022,10 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
     </message>
     <message>
         <source>The PIVX Core developers</source>
+        <translation>PIVX Kärna utvecklarna</translation>
+    </message>
+    <message>
+        <source>The SLATE Core developers</source>
         <translation>SLATE Kärna utvecklarna</translation>
     </message>
     <message>
@@ -5024,6 +5028,14 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
     <message>
         <source>Copyright (C) 2015-%i The PIVX Core developers</source>
         <translation>Copyright (C) 2015-%i The PIVX Core developers</translation>
+    </message>
+    <message>
+        <source>Copyright (C) 2018-%i The SLATE Core developers</source>
+        <translation>Copyright (C) 2018-%i The SLATE Core developers</translation>
+    </message>
+    <message>
+        <source>Copyright (C) %i The SLATE Core developers</source>
+        <translation>Copyright (C) %i The SLATE Core developers</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
