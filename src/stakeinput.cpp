@@ -1,5 +1,4 @@
-// Copyright (c) 2017-2018 The PIVX developers
-// Copyright (c) 2018 The SLATE developers
+// Copyright (c) 2017-2018 The SLATE developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -135,12 +134,10 @@ bool CZSlxStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount nT
     if (!pwallet->DatabaseMint(dMint))
         return error("%s: failed to database the staked zSLX", __func__);
 
-    if (nTotal - this->GetValue() < 30 * COIN) return true;
-
     for (unsigned int i = 0; i < 3; i++) {
         CTxOut out;
         CDeterministicMint dMintReward;
-        if (!pwallet->CreateZSLXOutPut(libzerocoin::CoinDenomination::ZQ_TEN, out, dMintReward))
+        if (!pwallet->CreateZSLXOutPut(libzerocoin::CoinDenomination::ZQ_ONE, out, dMintReward))
             return error("%s: failed to create zSLX output", __func__);
         vout.emplace_back(out);
 
@@ -210,7 +207,8 @@ bool CSlxStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount nTo
     {
         //convert to pay to public key type
         CKey key;
-        if (!pwallet->GetKey(uint160(vSolutions[0]), key))
+        CKeyID keyID = CKeyID(uint160(vSolutions[0]));
+        if (!pwallet->GetKey(keyID, key))
             return false;
 
         scriptPubKey << key.GetPubKey() << OP_CHECKSIG;

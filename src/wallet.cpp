@@ -1,8 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The PIVX developers
-// Copyright (c) 2018 The SLATE developers
+// Copyright (c) 2015-2018 The SLATE developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -473,7 +472,7 @@ bool CWallet::GetMasternodeVinAndKeys(CTxIn& txinRet, CPubKey& pubKeyRet, CKey& 
 
     // Find possible candidates
     std::vector<COutput> vPossibleCoins;
-    AvailableCoins(vPossibleCoins, true, NULL, false, ONLY_350000);
+    AvailableCoins(vPossibleCoins, true, NULL, false, ONLY_350000IFMN);
     if (vPossibleCoins.empty()) {
         LogPrintf("CWallet::GetMasternodeVinAndKeys -- Could not locate any valid masternode vin\n");
         return false;
@@ -945,6 +944,7 @@ int64_t CWalletTx::GetTxTime() const
 
 int64_t CWalletTx::GetComputedTxTime() const
 {
+    LOCK(cs_main);
     if (IsZerocoinSpend() || IsZerocoinMint()) {
         if (IsInMainChain())
             return mapBlockIndex.at(hashBlock)->GetBlockTime();
@@ -1046,6 +1046,7 @@ CAmount CWalletTx::GetCredit(const isminefilter& filter) const
 
 CAmount CWalletTx::GetImmatureCredit(bool fUseCache) const
 {
+    LOCK(cs_main);
     if ((IsCoinBase() || IsCoinStake()) && GetBlocksToMaturity() > 0 && IsInMainChain()) {
         if (fUseCache && fImmatureCreditCached)
             return nImmatureCreditCached;
@@ -1104,7 +1105,7 @@ CAmount CWalletTx::GetAnonymizableCredit(bool fUseCache) const
         const CTxIn vin = CTxIn(hashTx, i);
 
         if (pwallet->IsSpent(hashTx, i) || pwallet->IsLockedCoin(hashTx, i)) continue;
-        if (fMasterNode && vout[i].nValue == 350000 * COIN) continue; // do not count MN-like outputs
+        if (fMasterNode && vout[i].nValue == 10000 * COIN) continue; // do not count MN-like outputs
 
         const int rounds = pwallet->GetInputObfuscationRounds(vin);
         if (rounds >= -2 && rounds < nZeromintPercentage) {
@@ -1168,7 +1169,7 @@ CAmount CWalletTx::GetUnlockedCredit() const
         const CTxOut& txout = vout[i];
 
         if (pwallet->IsSpent(hashTx, i) || pwallet->IsLockedCoin(hashTx, i)) continue;
-        if (fMasterNode && vout[i].nValue == 350000 * COIN) continue; // do not count MN-like outputs
+        if (fMasterNode && vout[i].nValue == 10000 * COIN) continue; // do not count MN-like outputs
 
         nCredit += pwallet->GetCredit(txout, ISMINE_SPENDABLE);
         if (!MoneyRange(nCredit))
@@ -1196,8 +1197,13 @@ CAmount CWalletTx::GetLockedCredit() const
         // Skip spent coins
         if (pwallet->IsSpent(hashTx, i)) continue;
 
-        // Add locked coins; Add masternode collaterals which are handled like locked coins
-        if (pwallet->IsLockedCoin(hashTx, i) || (fMasterNode && vout[i].nValue == 350000 * COIN)) {
+        // Add locked coins
+        if (pwallet->IsLockedCoin(hashTx, i)) {
+            nCredit += pwallet->GetCredit(txout, ISMINE_SPENDABLE);
+        }
+
+        // Add masternode collaterals which are handled likc locked coins
+        if (fMasterNode && vout[i].nValue == 10000 * COIN) {
             nCredit += pwallet->GetCredit(txout, ISMINE_SPENDABLE);
         }
 
@@ -1254,6 +1260,7 @@ CAmount CWalletTx::GetDenominatedCredit(bool unconfirmed, bool fUseCache) const
 
 CAmount CWalletTx::GetImmatureWatchOnlyCredit(const bool& fUseCache) const
 {
+    LOCK(cs_main);
     if (IsCoinBase() && GetBlocksToMaturity() > 0 && IsInMainChain()) {
         if (fUseCache && fImmatureWatchCreditCached)
             return nImmatureWatchCreditCached;
@@ -1315,7 +1322,7 @@ CAmount CWalletTx::GetLockedWatchOnlyCredit() const
         }
 
         // Add masternode collaterals which are handled likc locked coins
-        if (fMasterNode && vout[i].nValue == 350000 * COIN) {
+        if (fMasterNode && vout[i].nValue == 10000 * COIN) {
             nCredit += pwallet->GetCredit(txout, ISMINE_WATCH_ONLY);
         }
 
@@ -1540,6 +1547,7 @@ bool CWalletTx::InMempool() const
 
 void CWalletTx::RelayWalletTransaction(std::string strCommand)
 {
+    LOCK(cs_main);
     if (!IsCoinBase()) {
         if (GetDepthInMainChain() == 0) {
             uint256 hash = GetHash();
@@ -1952,7 +1960,7 @@ void CWallet::AvailableCoins(vector<COutput>& vCoins, bool fOnlyConfirmed, const
                     if (IsCollateralAmount(pcoin->vout[i].nValue)) continue; // do not use collateral amounts
                     found = !IsDenominatedAmount(pcoin->vout[i].nValue);
                     if (found && fMasterNode) found = pcoin->vout[i].nValue != 350000 * COIN; // do not use Hot MN funds
-                } else if (nCoinType == ONLY_350000) {
+                } else if (nCoinType == ONLY_350000IFMN) {
                     found = pcoin->vout[i].nValue == 350000 * COIN;
                 } else {
                     found = true;
@@ -1976,7 +1984,7 @@ void CWallet::AvailableCoins(vector<COutput>& vCoins, bool fOnlyConfirmed, const
                 if (mine == ISMINE_WATCH_ONLY && nWatchonlyConfig == 1)
                     continue;
 
-                if (IsLockedCoin((*it).first, i) && nCoinType != ONLY_350000)
+                if (IsLockedCoin((*it).first, i) && nCoinType != ONLY_350000IFMN)
                     continue;
                 if (pcoin->vout[i].nValue <= 0 && !fIncludeZeroValue)
                     continue;
@@ -2074,13 +2082,12 @@ bool less_then_denom(const COutput& out1, const COutput& out2)
 
 bool CWallet::SelectStakeCoins(std::list<std::unique_ptr<CStakeInput> >& listInputs, CAmount nTargetAmount)
 {
+    LOCK(cs_main);
     //Add SLX
     vector<COutput> vCoins;
     AvailableCoins(vCoins, true, NULL, false, STAKABLE_COINS);
     CAmount nAmountSelected = 0;
     if (GetBoolArg("-slxstake", true)) {
-        LOCK(cs_main);
-
         for (const COutput &out : vCoins) {
             //make sure not to outrun target amount
             if (nAmountSelected + out.tx->vout[out.i].nValue > nTargetAmount)
@@ -2111,7 +2118,7 @@ bool CWallet::SelectStakeCoins(std::list<std::unique_ptr<CStakeInput> >& listInp
         }
     }
 
-    //zPIV
+    //zSLX
     if (GetBoolArg("-zslxstake", true) && chainActive.Height() > Params().Zerocoin_Block_V2_Start() && !IsSporkActive(SPORK_16_ZEROCOIN_MAINTENANCE_MODE)) {
         //Only update zSLX set once per update interval
         bool fUpdate = false;
@@ -2146,6 +2153,7 @@ bool CWallet::SelectStakeCoins(std::list<std::unique_ptr<CStakeInput> >& listInp
 
 bool CWallet::MintableCoins()
 {
+    LOCK(cs_main);
     CAmount nBalance = GetBalance();
     CAmount nZslxBalance = GetZerocoinBalance(false);
 
@@ -2159,19 +2167,16 @@ bool CWallet::MintableCoins()
         vector<COutput> vCoins;
         AvailableCoins(vCoins, true);
 
-        {
-            LOCK(cs_main);
-            for (const COutput& out : vCoins) {
-                int64_t nTxTime = out.tx->GetTxTime();
-                if (out.tx->IsZerocoinSpend()) {
-                    if (!out.tx->IsInMainChain())
-                        continue;
-                    nTxTime = mapBlockIndex.at(out.tx->hashBlock)->GetBlockTime();
-                }
-
-                if (GetAdjustedTime() - nTxTime > nStakeMinAge)
-                    return true;
+        for (const COutput& out : vCoins) {
+            int64_t nTxTime = out.tx->GetTxTime();
+            if (out.tx->IsZerocoinSpend()) {
+                if (!out.tx->IsInMainChain())
+                    continue;
+                nTxTime = mapBlockIndex.at(out.tx->hashBlock)->GetBlockTime();
             }
+
+            if (GetAdjustedTime() - nTxTime > nStakeMinAge)
+                return true;
         }
     }
 
@@ -2385,7 +2390,7 @@ bool CWallet::SelectCoinsByDenominations(int nDenom, CAmount nValueMin, CAmount 
 
     BOOST_FOREACH (const COutput& out, vCoins) {
         // masternode-like input should not be selected by AvailableCoins now anyway
-        //if(out.tx->vout[out.i].nValue == 350000*COIN) continue;
+        //if(out.tx->vout[out.i].nValue == 10000*COIN) continue;
         if (nValueRet + out.tx->vout[out.i].nValue <= nValueMax) {
             bool fAccepted = false;
 
@@ -2481,7 +2486,7 @@ bool CWallet::SelectCoinsDark(CAmount nValueMin, CAmount nValueMax, std::vector<
         if (out.tx->vout[out.i].nValue < CENT) continue;
         //do not allow collaterals to be selected
         if (IsCollateralAmount(out.tx->vout[out.i].nValue)) continue;
-        if (fMasterNode && out.tx->vout[out.i].nValue == 350000 * COIN) continue; //masternode input
+        if (fMasterNode && out.tx->vout[out.i].nValue == 10000 * COIN) continue; //masternode input
 
         if (nValueRet + out.tx->vout[out.i].nValue <= nValueMax) {
             CTxIn vin = CTxIn(out.tx->GetHash(), out.i);
@@ -2767,9 +2772,9 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, CAmount> >& vecSend,
                     if (coin_type == ALL_COINS) {
                         strFailReason = _("Insufficient funds.");
                     } else if (coin_type == ONLY_NOT350000IFMN) {
-                        strFailReason = _("Unable to locate enough funds for this transaction that are not equal 350000 SLX.");
+                        strFailReason = _("Unable to locate enough funds for this transaction that are not equal 10000 SLX.");
                     } else if (coin_type == ONLY_NONDENOMINATED_NOT350000IFMN) {
-                        strFailReason = _("Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 350000 SLX.");
+                        strFailReason = _("Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 SLX.");
                     } else {
                         strFailReason = _("Unable to locate enough Obfuscation denominated funds for this transaction.");
                         strFailReason += " " + _("Obfuscation uses exact denominated amounts to send funds, you might simply need to anonymize some more coins.");
@@ -2929,7 +2934,7 @@ bool CWallet::CreateTransaction(CScript scriptPubKey, const CAmount& nValue, CWa
 }
 
 // ppcoin: create coin stake transaction
-bool CWallet::FindCoinStake(const CKeyStore& keystore, unsigned int nBits, int64_t nSearchInterval, CMutableTransaction& txNew, unsigned int& nTxNewTime, std::unique_ptr<CStakeInput>& newStakeInput)
+bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int64_t nSearchInterval, CMutableTransaction& txNew, unsigned int& nTxNewTime)
 {
     // The following split & combine thresholds are important to security
     // Should not be adjusted if you don't understand the consequences
@@ -2993,12 +2998,11 @@ bool CWallet::FindCoinStake(const CKeyStore& keystore, unsigned int nBits, int64
 
             // Found a kernel
             LogPrintf("CreateCoinStake : kernel found\n");
-
             nCredit += stakeInput->GetValue();
 
             // Calculate reward
             CAmount nReward;
-            nReward = GetBlockValue(chainActive.Height());
+            nReward = GetBlockValue(chainActive.Height() + 1);
             nCredit += nReward;
 
             // Create the output transaction(s)
@@ -3024,7 +3028,26 @@ bool CWallet::FindCoinStake(const CKeyStore& keystore, unsigned int nBits, int64
             if (nBytes >= DEFAULT_BLOCK_MAX_SIZE / 5)
                 return error("CreateCoinStake : exceeded coinstake size limit");
 
-            newStakeInput = std::move(stakeInput);
+            //Masternode payment
+            FillBlockPayee(txNew, nMinFee, true, stakeInput->IsZSLX());
+
+            uint256 hashTxOut = txNew.GetHash();
+            CTxIn in;
+            if (!stakeInput->CreateTxIn(this, in, hashTxOut)) {
+                LogPrintf("%s : failed to create TxIn\n", __func__);
+                txNew.vin.clear();
+                txNew.vout.clear();
+                nCredit = 0;
+                continue;
+            }
+            txNew.vin.emplace_back(in);
+
+            //Mark mints as spent
+            if (stakeInput->IsZSLX()) {
+                CZSlxStake* z = (CZSlxStake*)stakeInput.get();
+                if (!z->MarkSpent(this, txNew.GetHash()))
+                    return error("%s: failed to mark mint as used\n", __func__);
+            }
 
             fKernelFound = true;
             break;
@@ -3034,36 +3057,6 @@ bool CWallet::FindCoinStake(const CKeyStore& keystore, unsigned int nBits, int64
     }
     if (!fKernelFound)
         return false;
-
-    // Successfully generated coinstake
-    return true;
-}
-
-bool CWallet::FillCoinStake(const CKeyStore& keystore, CMutableTransaction& txNew, CAmount &nFee, std::unique_ptr<CStakeInput>& stakeInput)
-{
-
-    {
-        LOCK(cs_main);
-
-        //Masternode payment
-        FillBlockPayee(txNew, nFee, true, stakeInput->IsZSLX());
-
-        uint256 hashTxOut = txNew.GetHash();
-        CTxIn in;
-        if (!stakeInput->CreateTxIn(this, in, hashTxOut)) {
-            txNew.vin.clear();
-            txNew.vout.clear();
-            return error("%s : failed to create TxIn\n", __func__);
-        }
-        txNew.vin.emplace_back(in);
-
-        //Mark mints as spent
-        if (stakeInput->IsZSLX()) {
-            CZSlxStake* z = (CZSlxStake*)stakeInput.get();
-            if (!z->MarkSpent(this, txNew.GetHash()))
-                return error("%s: failed to mark mint as used\n", __func__);
-        }
-    }
 
     // Sign for SLX
     int nIn = 0;
@@ -3096,7 +3089,7 @@ bool CWallet::FillCoinStake(const CKeyStore& keystore, CMutableTransaction& txNe
         }
     }
 
-    // Successfully filled coinstake
+    // Successfully generated coinstake
     return true;
 }
 
@@ -4087,6 +4080,7 @@ void CWallet::AutoZeromint()
 
 void CWallet::AutoCombineDust()
 {
+    LOCK2(cs_main, cs_wallet);
     if (chainActive.Tip()->nTime < (GetAdjustedTime() - 300) || IsLocked()) {
         return;
     }
@@ -4095,8 +4089,6 @@ void CWallet::AutoCombineDust()
 
     //coins are sectioned by address. This combination code only wants to combine inputs that belong to the same address
     for (map<CBitcoinAddress, vector<COutput> >::iterator it = mapCoinsByAddress.begin(); it != mapCoinsByAddress.end(); it++) {
-        LOCK(cs_main);
-
         vector<COutput> vCoins, vRewardCoins;
         vCoins = it->second;
 
@@ -4180,6 +4172,7 @@ void CWallet::AutoCombineDust()
 
 bool CWallet::MultiSend()
 {
+    LOCK2(cs_main, cs_wallet);
     // Stop the old blocks from sending multisends
     if (chainActive.Tip()->nTime < (GetAdjustedTime() - 300) || IsLocked()) {
         return false;
@@ -4195,7 +4188,6 @@ bool CWallet::MultiSend()
     bool stakeSent = false;
     bool mnSent = false;
     for (const COutput& out : vCoins) {
-        LOCK2(cs_main, cs_wallet);
 
         //need output with precise confirm count - this is how we identify which is the output to send
         if (out.tx->GetDepthInMainChain() != Params().COINBASE_MATURITY() + 1)
@@ -4388,6 +4380,7 @@ int CMerkleTx::GetDepthInMainChain(const CBlockIndex*& pindexRet, bool enableIX)
 
 int CMerkleTx::GetBlocksToMaturity() const
 {
+    LOCK(cs_main);
     if (!(IsCoinBase() || IsCoinStake()))
         return 0;
     return max(0, (Params().COINBASE_MATURITY() + 1) - GetDepthInMainChain());

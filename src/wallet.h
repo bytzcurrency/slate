@@ -1,8 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The PIVX developers
-// Copyright (c) 2018 The SLATE developers
+// Copyright (c) 2015-2018 The SLATE developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -73,20 +72,20 @@ class CWalletTx;
 
 /** (client) version numbers for particular wallet features */
 enum WalletFeature {
-    FEATURE_BASE = 9900, // the earliest version new wallets supports (only useful for getinfo's clientversion output)
+    FEATURE_BASE = 10500, // the earliest version new wallets supports (only useful for getinfo's clientversion output)
 
     FEATURE_WALLETCRYPT = 40000, // wallet encryption
     FEATURE_COMPRPUBKEY = 60000, // compressed public keys
 
-    FEATURE_LATEST = 9900
+    FEATURE_LATEST = 61000
 };
 
 enum AvailableCoinsType {
     ALL_COINS = 1,
     ONLY_DENOMINATED = 2,
     ONLY_NOT350000IFMN = 3,
-    ONLY_NONDENOMINATED_NOT350000IFMN = 4, // ONLY_NONDENOMINATED and not 350000 SLX at the same time
-    ONLY_350000 = 5,                        // find masternode outputs including locked ones (use with caution)
+    ONLY_NONDENOMINATED_NOT350000IFMN = 4, // ONLY_NONDENOMINATED and not 10000 SLX at the same time
+    ONLY_350000IFMN = 5,                        // find masternode outputs including locked ones (use with caution)
     STAKABLE_COINS = 6                          // UTXO's that are valid for staking
 };
 
@@ -506,8 +505,7 @@ public:
     int GenerateObfuscationOutputs(int nTotalValue, std::vector<CTxOut>& vout);
     bool CreateCollateralTransaction(CMutableTransaction& txCollateral, std::string& strReason);
     bool ConvertList(std::vector<CTxIn> vCoins, std::vector<int64_t>& vecAmounts);
-    bool FindCoinStake(const CKeyStore& keystore, unsigned int nBits, int64_t nSearchInterval, CMutableTransaction& txNew, unsigned int& nTxNewTime, std::unique_ptr<CStakeInput>& newStakeInput);
-    bool FillCoinStake(const CKeyStore& keystore, CMutableTransaction& txNew, CAmount &nFee, std::unique_ptr<CStakeInput>& stakeInput);
+    bool CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int64_t nSearchInterval, CMutableTransaction& txNew, unsigned int& nTxNewTime);
     bool MultiSend();
     void AutoCombineDust();
     void AutoZeromint();
@@ -530,7 +528,7 @@ public:
     std::set<CTxDestination> GetAccountAddresses(std::string strAccount) const;
 
     bool GetBudgetSystemCollateralTX(CWalletTx& tx, uint256 hash, bool useIX);
-    bool GetBudgetFinalizationCollateralTX(CWalletTx& tx, uint256 hash, bool useIX); // Only used for budget finalization
+    bool GetBudgetFinalizationCollateralTX(CWalletTx& tx, uint256 hash, bool useIX); // Only used for budget finalization 
 
     // get the Obfuscation chain depth for a given input
     int GetRealInputObfuscationRounds(CTxIn in, int rounds) const;

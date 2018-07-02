@@ -1,8 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The PIVX developers
-// Copyright (c) 2018 The SLATE developers
+// Copyright (c) 2015-2018 The SLATE developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -117,15 +116,14 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
     // Make sure to create the correct block version after zerocoin is enabled
     bool fZerocoinActive = GetAdjustedTime() >= Params().Zerocoin_StartTime();
     if (fZerocoinActive)
-        pblock->nVersion = BLOCKHEADER_ZEROCOIN_VERSION;
+        pblock->nVersion = 4;
     else
-        pblock->nVersion = BLOCKHEADER_INITIAL_VERSION;
+        pblock->nVersion = 3;
 
     // Create coinbase tx
     CMutableTransaction txNew;
     txNew.vin.resize(1);
     txNew.vin[0].prevout.SetNull();
-    txNew.vin[0].scriptSig.clear();
     txNew.vout.resize(1);
     txNew.vout[0].scriptPubKey = scriptPubKeyIn;
     pblock->vtx.push_back(txNew);
@@ -135,25 +133,20 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
     // ppcoin: if coinstake available add coinstake tx
     static int64_t nLastCoinStakeSearchTime = GetAdjustedTime(); // only initialized at startup
 
-    CMutableTransaction txCoinStake;
-    std::unique_ptr<CStakeInput> stakeInput;
-
     if (fProofOfStake) {
         boost::this_thread::interruption_point();
         pblock->nTime = GetAdjustedTime();
         CBlockIndex* pindexPrev = chainActive.Tip();
         pblock->nBits = GetNextWorkRequired(pindexPrev, pblock);
+        CMutableTransaction txCoinStake;
         int64_t nSearchTime = pblock->nTime; // search to current time
         bool fStakeFound = false;
         if (nSearchTime >= nLastCoinStakeSearchTime) {
             unsigned int nTxNewTime = 0;
-
-            if (pwallet->FindCoinStake(*pwallet, pblock->nBits, nSearchTime - nLastCoinStakeSearchTime, txCoinStake, nTxNewTime, stakeInput)) {
+            if (pwallet->CreateCoinStake(*pwallet, pblock->nBits, nSearchTime - nLastCoinStakeSearchTime, txCoinStake, nTxNewTime)) {
                 pblock->nTime = nTxNewTime;
                 pblock->vtx[0].vout[0].SetEmpty();
                 pblock->vtx.push_back(CTransaction(txCoinStake));
-                pblocktemplate->vTxFees.push_back(0);   // updated at end
-                pblocktemplate->vTxSigOps.push_back(-1); // updated at end
                 fStakeFound = true;
             }
             nLastCoinStakeSearchInterval = nSearchTime - nLastCoinStakeSearchTime;
@@ -437,13 +430,6 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
             if (txNew.vout.size() > 1) {
                 pblock->payee = txNew.vout[1].scriptPubKey;
             }
-        } else {
-            if (pwallet->FillCoinStake(*pwallet, txCoinStake, nFees, stakeInput)) {
-                LogPrintf("%s: filled coin stake tx [%s]\n", __func__, txCoinStake.ToString());
-            } else {
-                LogPrintf("%s: failed to fill coin stake tx\n", __func__);
-                return NULL;
-            }
         }
 
         nLastBlockTx = nBlockTx;
@@ -451,15 +437,11 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
         LogPrintf("CreateNewBlock(): total size %u\n", nBlockSize);
 
         // Compute final coinbase transaction.
+        pblock->vtx[0].vin[0].scriptSig = CScript() << nHeight << OP_0;
         if (!fProofOfStake) {
             pblock->vtx[0] = txNew;
             pblocktemplate->vTxFees[0] = -nFees;
-        } else {
-            pblock->vtx[1] = CTransaction(txCoinStake);
-            pblocktemplate->vTxFees[1] = -nFees;
-            pblocktemplate->vTxSigOps[1] = GetLegacySigOpCount(txCoinStake);
         }
-        pblock->vtx[0].vin[0].scriptSig = CScript() << nHeight << OP_0;
 
         // Fill in header
         pblock->hashPrevBlock = pindexPrev->GetBlockHash();
@@ -470,7 +452,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
 
         //Calculate the accumulator checkpoint only if the previous cached checkpoint need to be updated
         uint256 nCheckpoint;
-        uint256 hashBlockLastAccumulated = nHeight >= 20 ? chainActive[nHeight - (nHeight % 10) - 10]->GetBlockHash(): 0;
+        uint256 hashBlockLastAccumulated = chainActive[nHeight - (nHeight % 10) - 10]->GetBlockHash();
         if (nHeight >= pCheckpointCache.first || pCheckpointCache.second.first != hashBlockLastAccumulated) {
             //For the period before v2 activation, zSLX will be disabled and previous block's checkpoint is all that will be needed
             pCheckpointCache.second.second = pindexPrev->nAccumulatorCheckpoint;
