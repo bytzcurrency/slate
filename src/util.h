@@ -1,234 +1,121 @@
-// Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The PIVX developers
-// Copyright (c) 2018 The SLATE developers
-// Distributed under the MIT software license, see the accompanying
-// file COPYING or http://www.opensource.org/licenses/mit-license.php.
+/**********************************************************************
+ * Copyright (c) 2013, 2014 Pieter Wuille                             *
+ * Distributed under the MIT software license, see the accompanying   *
+ * file COPYING or http://www.opensource.org/licenses/mit-license.php.*
+ **********************************************************************/
 
-/**
- * Server/client environment: argument handling, config file parsing,
- * logging, thread wrappers
- */
-#ifndef BITCOIN_UTIL_H
-#define BITCOIN_UTIL_H
+#ifndef SECP256K1_UTIL_H
+#define SECP256K1_UTIL_H
 
-#if defined(HAVE_CONFIG_H)
-#include "config/slate-config.h"
+#if defined HAVE_CONFIG_H
+#include "libsecp256k1-config.h"
 #endif
 
-#include "compat.h"
-#include "tinyformat.h"
-#include "utiltime.h"
-
-#include <exception>
-#include <map>
+#include <stdlib.h>
 #include <stdint.h>
-#include <string>
-#include <vector>
+#include <stdio.h>
 
-#include <boost/filesystem/path.hpp>
-#include <boost/thread/exceptions.hpp>
+typedef struct {
+    void (*fn)(const char *text, void* data);
+    const void* data;
+} secp256k1_callback;
 
-//SLATE only features
-
-extern bool fMasterNode;
-extern bool fLiteMode;
-extern bool fEnableSwiftTX;
-extern int nSwiftTXDepth;
-extern int nZeromintPercentage;
-extern const int64_t AUTOMINT_DELAY;
-extern int nPreferredDenom;
-extern int nAnonymizeSlateAmount;
-extern int nLiquidityProvider;
-extern bool fEnableZeromint;
-extern int64_t enforceMasternodePaymentsTime;
-extern std::string strMasterNodeAddr;
-extern int keysLoaded;
-extern bool fSucessfullyLoaded;
-extern std::vector<int64_t> obfuScationDenominations;
-extern std::string strBudgetMode;
-
-extern std::map<std::string, std::string> mapArgs;
-extern std::map<std::string, std::vector<std::string> > mapMultiArgs;
-extern bool fDebug;
-extern bool fPrintToConsole;
-extern bool fPrintToDebugLog;
-extern bool fServer;
-extern std::string strMiscWarning;
-extern bool fLogTimestamps;
-extern bool fLogIPs;
-extern volatile bool fReopenDebugLog;
-
-void SetupEnvironment();
-bool SetupNetworking();
-
-/** Return true if log accepts specified category */
-bool LogAcceptCategory(const char* category);
-/** Send a string to the log output */
-int LogPrintStr(const std::string& str);
-
-#define LogPrintf(...) LogPrint(NULL, __VA_ARGS__)
-
-/**
- * When we switch to C++11, this can be switched to variadic templates instead
- * of this macro-based construction (see tinyformat.h).
- */
-#define MAKE_ERROR_AND_LOG_FUNC(n)                                                              \
-    /**   Print to debug.log if -debug=category switch is given OR category is NULL. */         \
-    template <TINYFORMAT_ARGTYPES(n)>                                                           \
-    static inline int LogPrint(const char* category, const char* format, TINYFORMAT_VARARGS(n)) \
-    {                                                                                           \
-        if (!LogAcceptCategory(category)) return 0;                                             \
-        return LogPrintStr(tfm::format(format, TINYFORMAT_PASSARGS(n)));                        \
-    }                                                                                           \
-    /**   Log error and return false */                                                         \
-    template <TINYFORMAT_ARGTYPES(n)>                                                           \
-    static inline bool error(const char* format, TINYFORMAT_VARARGS(n))                         \
-    {                                                                                           \
-        LogPrintStr(std::string("ERROR: ") + tfm::format(format, TINYFORMAT_PASSARGS(n)) + "\n");            \
-        return false;                                                                           \
-    }
-
-TINYFORMAT_FOREACH_ARGNUM(MAKE_ERROR_AND_LOG_FUNC)
-
-/**
- * Zero-arg versions of logging and error, these are not covered by
- * TINYFORMAT_FOREACH_ARGNUM
- */
-static inline int LogPrint(const char* category, const char* format)
-{
-    if (!LogAcceptCategory(category)) return 0;
-    return LogPrintStr(format);
-}
-static inline bool error(const char* format)
-{
-    LogPrintStr(std::string("ERROR: ") + format + "\n");
-    return false;
+static SECP256K1_INLINE void secp256k1_callback_call(const secp256k1_callback * const cb, const char * const text) {
+    cb->fn(text, (void*)cb->data);
 }
 
-double double_safe_addition(double fValue, double fIncrement);
-double double_safe_multiplication(double fValue, double fmultiplicator);
-void PrintExceptionContinue(std::exception* pex, const char* pszThread);
-void ParseParameters(int argc, const char* const argv[]);
-void FileCommit(FILE* fileout);
-bool TruncateFile(FILE* file, unsigned int length);
-int RaiseFileDescriptorLimit(int nMinFD);
-void AllocateFileRange(FILE* file, unsigned int offset, unsigned int length);
-bool RenameOver(boost::filesystem::path src, boost::filesystem::path dest);
-bool TryCreateDirectory(const boost::filesystem::path& p);
-boost::filesystem::path GetDefaultDataDir();
-const boost::filesystem::path& GetDataDir(bool fNetSpecific = true);
-boost::filesystem::path GetConfigFile();
-boost::filesystem::path GetMasternodeConfigFile();
-#ifndef WIN32
-boost::filesystem::path GetPidFile();
-void CreatePidFile(const boost::filesystem::path& path, pid_t pid);
-#endif
-void ReadConfigFile(std::map<std::string, std::string>& mapSettingsRet, std::map<std::string, std::vector<std::string> >& mapMultiSettingsRet);
-#ifdef WIN32
-boost::filesystem::path GetSpecialFolderPath(int nFolder, bool fCreate = true);
-#endif
-boost::filesystem::path GetTempPath();
-void ShrinkDebugFile();
-void runCommand(std::string strCommand);
-
-inline bool IsSwitchChar(char c)
-{
-#ifdef WIN32
-    return c == '-' || c == '/';
+#ifdef DETERMINISTIC
+#define TEST_FAILURE(msg) do { \
+    fprintf(stderr, "%s\n", msg); \
+    abort(); \
+} while(0);
 #else
-    return c == '-';
+#define TEST_FAILURE(msg) do { \
+    fprintf(stderr, "%s:%d: %s\n", __FILE__, __LINE__, msg); \
+    abort(); \
+} while(0)
 #endif
-}
 
-/**
- * Return string argument or default value
- *
- * @param strArg Argument to get (e.g. "-foo")
- * @param default (e.g. "1")
- * @return command-line argument or default value
- */
-std::string GetArg(const std::string& strArg, const std::string& strDefault);
+#ifdef HAVE_BUILTIN_EXPECT
+#define EXPECT(x,c) __builtin_expect((x),(c))
+#else
+#define EXPECT(x,c) (x)
+#endif
 
-/**
- * Return integer argument or default value
- *
- * @param strArg Argument to get (e.g. "-foo")
- * @param default (e.g. 1)
- * @return command-line argument (0 if invalid number) or default value
- */
-int64_t GetArg(const std::string& strArg, int64_t nDefault);
+#ifdef DETERMINISTIC
+#define CHECK(cond) do { \
+    if (EXPECT(!(cond), 0)) { \
+        TEST_FAILURE("test condition failed"); \
+    } \
+} while(0)
+#else
+#define CHECK(cond) do { \
+    if (EXPECT(!(cond), 0)) { \
+        TEST_FAILURE("test condition failed: " #cond); \
+    } \
+} while(0)
+#endif
 
-/**
- * Return boolean argument or default value
- *
- * @param strArg Argument to get (e.g. "-foo")
- * @param default (true or false)
- * @return command-line argument or default value
- */
-bool GetBoolArg(const std::string& strArg, bool fDefault);
+/* Like assert(), but when VERIFY is defined, and side-effect safe. */
+#if defined(COVERAGE)
+#define VERIFY_CHECK(check)
+#define VERIFY_SETUP(stmt)
+#elif defined(VERIFY)
+#define VERIFY_CHECK CHECK
+#define VERIFY_SETUP(stmt) do { stmt; } while(0)
+#else
+#define VERIFY_CHECK(cond) do { (void)(cond); } while(0)
+#define VERIFY_SETUP(stmt)
+#endif
 
-/**
- * Set an argument if it doesn't already have a value
- *
- * @param strArg Argument to set (e.g. "-foo")
- * @param strValue Value (e.g. "1")
- * @return true if argument gets set, false if it already had a value
- */
-bool SoftSetArg(const std::string& strArg, const std::string& strValue);
-
-/**
- * Set a boolean argument if it doesn't already have a value
- *
- * @param strArg Argument to set (e.g. "-foo")
- * @param fValue Value (e.g. false)
- * @return true if argument gets set, false if it already had a value
- */
-bool SoftSetBoolArg(const std::string& strArg, bool fValue);
-
-/**
- * Format a string to be used as group of options in help messages
- *
- * @param message Group name (e.g. "RPC server options:")
- * @return the formatted string
- */
-std::string HelpMessageGroup(const std::string& message);
-
-/**
- * Format a string to be used as option description in help messages
- *
- * @param option Option message (e.g. "-rpcuser=<user>")
- * @param message Option description (e.g. "Username for JSON-RPC connections")
- * @return the formatted string
- */
-std::string HelpMessageOpt(const std::string& option, const std::string& message);
-
-void SetThreadPriority(int nPriority);
-void RenameThread(const char* name);
-
-/**
- * .. and a wrapper that just calls func once
- */
-template <typename Callable>
-void TraceThread(const char* name, Callable func)
-{
-    std::string s = strprintf("slate-%s", name);
-    RenameThread(s.c_str());
-    try {
-        LogPrintf("%s thread start\n", name);
-        func();
-        LogPrintf("%s thread exit\n", name);
-    } catch (boost::thread_interrupted) {
-        LogPrintf("%s thread interrupt\n", name);
-        throw;
-    } catch (std::exception& e) {
-        PrintExceptionContinue(&e, name);
-        throw;
-    } catch (...) {
-        PrintExceptionContinue(NULL, name);
-        throw;
+static SECP256K1_INLINE void *checked_malloc(const secp256k1_callback* cb, size_t size) {
+    void *ret = malloc(size);
+    if (ret == NULL) {
+        secp256k1_callback_call(cb, "Out of memory");
     }
+    return ret;
 }
 
-#endif // BITCOIN_UTIL_H
+static SECP256K1_INLINE void *checked_realloc(const secp256k1_callback* cb, void *ptr, size_t size) {
+    void *ret = realloc(ptr, size);
+    if (ret == NULL) {
+        secp256k1_callback_call(cb, "Out of memory");
+    }
+    return ret;
+}
+
+/* Macro for restrict, when available and not in a VERIFY build. */
+#if defined(SECP256K1_BUILD) && defined(VERIFY)
+# define SECP256K1_RESTRICT
+#else
+# if (!defined(__STDC_VERSION__) || (__STDC_VERSION__ < 199901L) )
+#  if SECP256K1_GNUC_PREREQ(3,0)
+#   define SECP256K1_RESTRICT __restrict__
+#  elif (defined(_MSC_VER) && _MSC_VER >= 1400)
+#   define SECP256K1_RESTRICT __restrict
+#  else
+#   define SECP256K1_RESTRICT
+#  endif
+# else
+#  define SECP256K1_RESTRICT restrict
+# endif
+#endif
+
+#if defined(_WIN32)
+# define I64FORMAT "I64d"
+# define I64uFORMAT "I64u"
+#else
+# define I64FORMAT "lld"
+# define I64uFORMAT "llu"
+#endif
+
+#if defined(HAVE___INT128)
+# if defined(__GNUC__)
+#  define SECP256K1_GNUC_EXT __extension__
+# else
+#  define SECP256K1_GNUC_EXT
+# endif
+SECP256K1_GNUC_EXT typedef unsigned __int128 uint128_t;
+#endif
+
+#endif /* SECP256K1_UTIL_H */
