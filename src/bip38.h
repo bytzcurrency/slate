@@ -1,5 +1,4 @@
-// Copyright (c) 2017 The PIVX developers
-// Copyright (c) 2018 The SLATE developers
+// Copyright (c) 2017 The SLATE developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
