@@ -4963,11 +4963,11 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Не удалось найти достаточное количество средств, предназначенных для обфускации, для этой транзакции.</translation>
     </message>
     <message>
-        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 SLX.</source>
+        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 350000 SLX.</source>
         <translation>Невозможно найти достаточное количество средств, не предназначенных для обфускации, для этой транзакции, которые не равны 10000 SLX.</translation>
     </message>
     <message>
-        <source>Unable to locate enough funds for this transaction that are not equal 10000 SLX.</source>
+        <source>Unable to locate enough funds for this transaction that are not equal 350000 SLX.</source>
         <translation>Не удалось найти достаточное количество средств для этой транзакции, которые не равны 10000 SLX.</translation>
     </message>
     <message>

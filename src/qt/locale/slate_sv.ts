@@ -4858,7 +4858,7 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
         <translation>Kan inte binda till %s på denna dator. SLATE Kärna körs förmodligen redan.</translation>
     </message>
     <message>
-        <source>Unable to locate enough funds for this transaction that are not equal 10000 SLX.</source>
+        <source>Unable to locate enough funds for this transaction that are not equal 350000 SLX.</source>
         <translation>Kan inte hitta tillräckliga pengar för denna transaktion som inte är 10000 SLX.</translation>
     </message>
     <message>

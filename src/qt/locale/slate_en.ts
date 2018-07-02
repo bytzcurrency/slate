@@ -6521,12 +6521,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+2"/>
-        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 SLX.</source>
+        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 350000 SLX.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Unable to locate enough funds for this transaction that are not equal 10000 SLX.</source>
+        <source>Unable to locate enough funds for this transaction that are not equal 350000 SLX.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

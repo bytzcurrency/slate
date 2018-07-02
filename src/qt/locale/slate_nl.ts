@@ -5099,11 +5099,11 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
         <translation>Kan niet genoeg verduistering gedenomineerde fondsen voor deze transactie vinden.</translation>
     </message>
     <message>
-        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 SLX.</source>
+        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 350000 SLX.</source>
         <translation>Kan niet genoeg verduistering niet gedenomineerde fondsen voor deze transactie vinden die niet gelijk zijn aan 10000 SLX.</translation>
     </message>
     <message>
-        <source>Unable to locate enough funds for this transaction that are not equal 10000 SLX.</source>
+        <source>Unable to locate enough funds for this transaction that are not equal 350000 SLX.</source>
         <translation>Kan niet genoeg fondsen voor deze transactie vinden die niet gelijk zijn aan 10000 SLX.</translation>
     </message>
     <message>

@@ -4967,11 +4967,11 @@ También mint las denominaciones más altas (por lo tanto, se necesitan menos da
         <translation>Imposible localizar suficientes fondos denominados de Ofuscación para esta transacción.</translation>
     </message>
     <message>
-        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 SLX.</source>
+        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 350000 SLX.</source>
         <translation>Imposible localizar suficientes fondos no-denominados de Ofuscación para esta transacción que no es igual a 10000 SLX.</translation>
     </message>
     <message>
-        <source>Unable to locate enough funds for this transaction that are not equal 10000 SLX.</source>
+        <source>Unable to locate enough funds for this transaction that are not equal 350000 SLX.</source>
         <translation>Imposible localizar fondos suficientes para esta transacción que no es igual a 10000 SLX.</translation>
     </message>
     <message>

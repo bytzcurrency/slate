@@ -4118,12 +4118,12 @@ for example: alertnotify=echo %%s | mail -s "SLATE Alert" admin@foo.com
         <translation>Unable to locate enough Obfuscation denominated funds for this transaction.</translation>
     </message>
     <message>
-        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 SLX.</source>
-        <translation>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 SLX.</translation>
+        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 350000 SLX.</source>
+        <translation>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 350000 SLX.</translation>
     </message>
     <message>
-        <source>Unable to locate enough funds for this transaction that are not equal 10000 SLX.</source>
-        <translation>Unable to locate enough funds for this transaction that are not equal 10000 SLX.</translation>
+        <source>Unable to locate enough funds for this transaction that are not equal 350000 SLX.</source>
+        <translation>Unable to locate enough funds for this transaction that are not equal 350000 SLX.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
