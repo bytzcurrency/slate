@@ -2498,8 +2498,8 @@ bool RecalculateSLXSupply(int nHeightStart)
 bool ReindexAccumulators(list<uint256>& listMissingCheckpoints, string& strError)
 {
     // SLATE: recalculate Accumulator Checkpoints that failed to database properly
-    uiInterface.ShowProgress(_("Calculating missing accumulators..."), 0);
-    if (!listMissingCheckpoints.empty() && chainActive.Height() >= Params().Zerocoin_StartHeight()) {
+    if (!listMissingCheckpoints.empty()) {
+        uiInterface.ShowProgress(_("Calculating missing accumulators..."), 0);
         LogPrintf("%s : finding missing checkpoints\n", __func__);
 
         //search the chain to see when zerocoin started
