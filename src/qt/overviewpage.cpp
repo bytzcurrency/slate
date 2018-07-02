@@ -210,11 +210,11 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
         nWatchOnlyLockedBalance = pwalletMain->GetLockedWatchOnlyBalance();
     }
     // SLX Balance
-    CAmount nTotalBalance = balance + unconfirmedBalance + nLockedBalance;
+    CAmount nTotalBalance = balance + unconfirmedBalance;
     CAmount slxAvailableBalance = balance - immatureBalance;
     CAmount nTotalWatchBalance = watchOnlyBalance + watchUnconfBalance + watchImmatureBalance;    
-    CAmount nUnlockedBalance = nTotalBalance - nLockedBalance - nLockedBalance; // increment nLockedBalance twice because it was added to
-                                                                                // nTotalBalance above
+    CAmount nUnlockedBalance = nTotalBalance - nLockedBalance; // Fix: slateapps: increment nLockedBalance twice because it was added to
+                                                               // nTotalBalance above
     // zSLX Balance
     CAmount matureZerocoinBalance = zerocoinBalance - unconfirmedZerocoinBalance - immatureZerocoinBalance;
     // Percentages
