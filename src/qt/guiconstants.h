@@ -52,7 +52,7 @@ static const int MAX_URI_LENGTH = 255;
 #define SPINNER_FRAMES 35
 
 #define QAPP_ORG_NAME "SLATE"
-#define QAPP_ORG_DOMAIN "slate.org"
+#define QAPP_ORG_DOMAIN "slate.io"
 #define QAPP_APP_NAME_DEFAULT "SLATE-Qt"
 #define QAPP_APP_NAME_TESTNET "SLATE-Qt-testnet"
 

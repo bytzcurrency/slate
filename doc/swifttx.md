@@ -12,8 +12,8 @@ When a "Transaction Lock" occurs the hash of the related transaction is broadcas
 * `zmqpubhashtxlock`: publishes the transaction hash when locked via SwiftX
 
 This mechanism has been integrated into Bitcore-Node-SLATE which allows for notification to be broadcast through Insight API in one of two ways:
-* WebSocket: [https://github.com/SLATE-Project/insight-api-slate#web-socket-api](https://github.com/SLATE-Project/insight-api-slate#web-socket-api) 
-* API: [https://github.com/SLATE-Project/insight-api-slate#swifttx-transactions](https://github.com/SLATE-Project/insight-api-slate#swifttx-transactions) 
+* WebSocket: [https://github.com/slatecurrency/insight-api-slate#web-socket-api](https://github.com/slatecurrency/insight-api-slate#web-socket-api) 
+* API: [https://github.com/slatecurrency/insight-api-slate#swifttx-transactions](https://github.com/slatecurrency/insight-api-slate#swifttx-transactions) 
 
 ####Command line option
 
