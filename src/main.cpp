@@ -2,6 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2018 The SLATE developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -1815,7 +1816,11 @@ int64_t GetBlockValue(int nHeight)
         nSubsidy = 0 * COIN;                            // 15 blocks with 0 rewards
     } else if (nHeight > 10 && nHeight <= 310) {        // Switch to PoS at block 200
         nSubsidy = 10000 * COIN;                        // 3M SLX for masternodes and staking, to be reconciled after coin distribution
-    } else if (nHeight > 310 && nHeight <= 80950) {     // 310 + 80640 = 80950; (Aim for 9th of July 2018, 7 weeks after 15th of May = 80640 blocks)
+    } else if (nHeight > 310 && nHeight <= 67000) {     // 310 + 80640 = 80950; (Aim for 9th of July 2018, 7 weeks after 15th of May = 80640 blocks)
+        nSubsidy = 0 * COIN;
+    } else if (nHeight > 67000 && nHeight <= 67003) {   // Increase overall coins by 10x with 3 blocks each containing 2849970000 SLX (Together 8549910000 SLX) (Aim for 9th of July 2018, 7 weeks after 15th of May = 80640 blocks)
+        nSubsidy = 2849970000 * COIN;
+    } else if (nHeight > 67003 && nHeight <= 80950) {   // 310 + 80640 = 80950; (Aim for 9th of July 2018, 7 weeks after 15th of May = 80640 blocks)
         nSubsidy = 0 * COIN;
     } else if (nHeight > 80950 && nHeight <= 606550) {  // 80950 + 525600; 365 days
         nSubsidy = 271 * COIN;

@@ -3117,7 +3117,7 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
     </message>
     <message>
         <source>&amp;Open</source>
-        <translation>&amp;Offen</translation>
+        <translation>&amp;Öffnen</translation>
     </message>
     <message>
         <source>Startup time</source>
@@ -3141,7 +3141,7 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
     </message>
     <message>
         <source>Build date</source>
-        <translation>Build Datum</translation>
+        <translation>Kompilierungs-Datum</translation>
     </message>
     <message>
         <source>Current number of blocks</source>
@@ -3157,7 +3157,7 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
     </message>
     <message>
         <source>Block chain</source>
-        <translation>Block chain</translation>
+        <translation>Block Kette</translation>
     </message>
     <message>
         <source>Open the SLATE debug log file from the current data directory. This can take a few seconds for large log files.</source>

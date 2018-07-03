@@ -2,6 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2018 The SLATE developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -205,7 +206,7 @@ public:
         nPoolMaxTransactions = 3;
         strSporkKey = "04700e916c512d08e658a97c7e76fab398968e4a442415f51d3907aeaa705831792197a9904597445d72a3f99ab200e264a8e767a6a2f8b499ec1684831f95cbc1";
         strSporkKeyOld = "04700e916c512d08e658a97c7e76fab398968e4a442415f51d3907aeaa705831792197a9904597445d72a3f99ab200e264a8e767a6a2f8b499ec1684831f95cbc1";
-        strObfuscationPoolDummyAddress = "D87q2gC9j6nNrnzCsg4aY6bHMLsT9nUhEw";
+        strObfuscationPoolDummyAddress = "sMGx5WVasXzj2HNxd6xczLgzaUrY1RpaHH";
         nStartMasternodePayments = 1524496461; 
 
         /** Zerocoin */
@@ -306,7 +307,7 @@ public:
         nPoolMaxTransactions = 2;
         strSporkKey = "04b33722601343992c8a651fafa0f424c6ac90f797d3f58d90eebf96e817e9d7ca76a40e3c53b3d47f6f6a60b0d36dbb94ee630a5ad622f08d92782999fe7b043a";
         strSporkKeyOld = "04b33722601343992c8a651fafa0f424c6ac90f797d3f58d90eebf96e817e9d7ca76a40e3c53b3d47f6f6a60b0d36dbb94ee630a5ad622f08d92782999fe7b043a";
-        strObfuscationPoolDummyAddress = "y57cqfGRkekRyDRNeJiLtYVEbvhXrNbmox";
+        strObfuscationPoolDummyAddress = "TcShTh43pddH9bxzq1583cgHYE5rmbCfVF";
         nStartMasternodePayments = 1524496461; //Fri, 09 Jan 2015 21:05:58 GMT
         nBudget_Fee_Confirmations = 3; // Number of confirmations for the finalization fee. We have to make this very short
                                        // here because we only have a 8 block finalization window on testnet

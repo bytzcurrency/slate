@@ -1,5 +1,6 @@
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2018 The SLATE developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -173,8 +174,8 @@ UniValue preparebudget(const UniValue& params, bool fHelp)
             "\"xxxx\"       (string) proposal fee hash (if successful) or error message (if failed)\n"
 
             "\nExamples:\n" +
-            HelpExampleCli("preparebudget", "\"test-proposal\" \"https://forum.slate.org/t/test-proposal\" 2 820800 \"D9oc6C3dttUbv8zd7zGNq1qKBGf4ZQ1XEE\" 500") +
-            HelpExampleRpc("preparebudget", "\"test-proposal\" \"https://forum.slate.org/t/test-proposal\" 2 820800 \"D9oc6C3dttUbv8zd7zGNq1qKBGf4ZQ1XEE\" 500"));
+            HelpExampleCli("preparebudget", "\"test-proposal\" \"https://forum.slate.org/t/test-proposal\" 2 820800 \"se9SRHBXWThEqrTDqEHy7eBZpTyLhQqZHs\" 500") +
+            HelpExampleRpc("preparebudget", "\"test-proposal\" \"https://forum.slate.org/t/test-proposal\" 2 820800 \"se9SRHBXWThEqrTDqEHy7eBZpTyLhQqZHs\" 500"));
 
     LOCK2(cs_main, pwalletMain->cs_wallet);
 
@@ -269,8 +270,8 @@ UniValue submitbudget(const UniValue& params, bool fHelp)
             "\"xxxx\"       (string) proposal hash (if successful) or error message (if failed)\n"
 
             "\nExamples:\n" +
-            HelpExampleCli("submitbudget", "\"test-proposal\" \"https://forum.slate.org/t/test-proposal\" 2 820800 \"D9oc6C3dttUbv8zd7zGNq1qKBGf4ZQ1XEE\" 500") +
-            HelpExampleRpc("submitbudget", "\"test-proposal\" \"https://forum.slate.org/t/test-proposal\" 2 820800 \"D9oc6C3dttUbv8zd7zGNq1qKBGf4ZQ1XEE\" 500"));
+            HelpExampleCli("submitbudget", "\"test-proposal\" \"https://forum.slate.org/t/test-proposal\" 2 820800 \"se9SRHBXWThEqrTDqEHy7eBZpTyLhQqZHs\" 500") +
+            HelpExampleRpc("submitbudget", "\"test-proposal\" \"https://forum.slate.org/t/test-proposal\" 2 820800 \"se9SRHBXWThEqrTDqEHy7eBZpTyLhQqZHs\" 500"));
 
     // Check these inputs the same way we check the vote commands:
     // **********************************************************
