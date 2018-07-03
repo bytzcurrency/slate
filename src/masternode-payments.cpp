@@ -201,6 +201,8 @@ bool IsBlockValueValid(const CBlock& block, CAmount nExpectedValue, CAmount nMin
         } else {
             if (nMinted > nExpectedValue) {
                 return false;
+            } else if (nMinted < nExpectedValue - 1*COIN){
+                return false;
             }
         }
     } else { // we're synced and have data so check the budget schedule
@@ -215,6 +217,8 @@ bool IsBlockValueValid(const CBlock& block, CAmount nExpectedValue, CAmount nMin
             return true;
         } else {
             if (nMinted > nExpectedValue) {
+                return false;
+            } else if (nMinted < nExpectedValue - 1*COIN){
                 return false;
             }
         }
