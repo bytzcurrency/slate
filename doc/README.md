@@ -3,7 +3,7 @@ SLATE Core
 
 Setup
 ---------------------
-[SLATE Core](http://slate.org/wallet) is the original SLATE client and it builds the backbone of the network. However, it downloads and stores the entire history of SLATE transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
+[SLATE Core](http://slate.io/wallet) is the original SLATE client and it builds the backbone of the network. However, it downloads and stores the entire history of SLATE transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
 
 Running
 ---------------------
@@ -26,11 +26,10 @@ Drag SLATE-Qt to your applications folder, and then run SLATE-Qt.
 
 ### Need Help?
 
-* See the documentation at the [SLATE Wiki](https://en.bitcoin.it/wiki/Main_Page) ***TODO***
+* See the documentation at the [SLATE Wiki](https://github.com/slatecurrency/slate/wiki/) ***TODO***
 for help and more information.
-* Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or on the [SLATE Forum](http://forum.slate.org/).
-* Join our Discord server [Discord Server](https://discord.slate.org)
-* Join one of our Slack groups [SLATE Slack Groups](https://slate.org/slack-logins/) (Main community is replaced by Discord).
+* Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php?topic=3399383) or on the [SLATE Forum](http://forum.slate.io/).
+* Join our Discord server [Discord Server](https://discord.gg/ENuwHH5) - [alternative invitaiont link](https://discord.gg/ENuwHH5) 
 
 Building
 ---------------------
@@ -48,7 +47,7 @@ The Slate repo's [root README](https://github.com/slatecurrency/slate/blob/maste
 - [Multiwallet Qt Development](multiwallet-qt.md)
 - [Release Notes](release-notes.md)
 - [Release Process](release-process.md)
-- [Source Code Documentation (External Link)](https://dev.visucore.com/bitcoin/doxygen/) ***TODO***
+- [Source Code Documentation (External Link)](https://devwiki.slate.io/) ***TODO***
 - [Translation Process](translation_process.md)
 - [Unit Tests](unit-tests.md)
 - [Unauthenticated REST Interface](REST-interface.md)
@@ -56,8 +55,7 @@ The Slate repo's [root README](https://github.com/slatecurrency/slate/blob/maste
 
 ### Resources
 
-* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or the [SLATE](http://forum.slate.org/) forum.
-* Join the [SLATE-Dev](https://slate-dev.slack.com/) Slack group ([Sign-Up](https://slate-dev.herokuapp.com/)).
+* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=3399383) or the [SLATE](http://forum.slate.io/) forum.
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)

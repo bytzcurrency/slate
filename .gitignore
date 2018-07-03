@@ -128,3 +128,5 @@ test/cache/*
 
 libslateconsensus.pc
 contrib/devtools/split-debug.sh
+
+.vscode/
