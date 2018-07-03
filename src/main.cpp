@@ -2,6 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2018 The SLATE developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -1815,7 +1816,11 @@ int64_t GetBlockValue(int nHeight)
         nSubsidy = 0 * COIN;                            // 15 blocks with 0 rewards
     } else if (nHeight > 10 && nHeight <= 310) {        // Switch to PoS at block 200
         nSubsidy = 10000 * COIN;                        // 3M SLX for masternodes and staking, to be reconciled after coin distribution
-    } else if (nHeight > 310 && nHeight <= 80950) {     // 310 + 80640 = 80950; (Aim for 9th of July 2018, 7 weeks after 15th of May = 80640 blocks)
+    } else if (nHeight > 310 && nHeight <= 67000) {     // 310 + 80640 = 80950; (Aim for 9th of July 2018, 7 weeks after 15th of May = 80640 blocks)
+        nSubsidy = 0 * COIN;
+    } else if (nHeight > 67000 && nHeight <= 67003) {   // Increase overall coins by 10x with 3 blocks each containing 2849970000 SLX (Together 8549910000 SLX) (Aim for 9th of July 2018, 7 weeks after 15th of May = 80640 blocks)
+        nSubsidy = 2849970000 * COIN;
+    } else if (nHeight > 67003 && nHeight <= 80950) {   // 310 + 80640 = 80950; (Aim for 9th of July 2018, 7 weeks after 15th of May = 80640 blocks)
         nSubsidy = 0 * COIN;
     } else if (nHeight > 80950 && nHeight <= 606550) {  // 80950 + 525600; 365 days
         nSubsidy = 271 * COIN;
@@ -2497,7 +2502,8 @@ bool RecalculateSLXSupply(int nHeightStart)
 bool ReindexAccumulators(list<uint256>& listMissingCheckpoints, string& strError)
 {
     // SLATE: recalculate Accumulator Checkpoints that failed to database properly
-    if (!listMissingCheckpoints.empty() && chainActive.Height() >= Params().Zerocoin_StartHeight()) {
+    if (!listMissingCheckpoints.empty()) {
+        uiInterface.ShowProgress(_("Calculating missing accumulators..."), 0);
         LogPrintf("%s : finding missing checkpoints\n", __func__);
 
         //search the chain to see when zerocoin started
@@ -2506,6 +2512,8 @@ bool ReindexAccumulators(list<uint256>& listMissingCheckpoints, string& strError
         // find each checkpoint that is missing
         CBlockIndex* pindex = chainActive[nZerocoinStart];
         while (pindex) {
+            uiInterface.ShowProgress(_("Calculating missing accumulators..."), std::max(1, std::min(99, (int)((double)(pindex->nHeight - nZerocoinStart) / (double)(chainActive.Height() - nZerocoinStart) * 100))));
+
             if (ShutdownRequested())
                 return false;
 
@@ -2536,6 +2544,7 @@ bool ReindexAccumulators(list<uint256>& listMissingCheckpoints, string& strError
             }
             pindex = chainActive.Next(pindex);
         }
+        uiInterface.ShowProgress("", 100);
     }
     return true;
 }
@@ -2670,8 +2679,8 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     unsigned int nSigOps = 0;
     CDiskTxPos pos(pindex->GetBlockPos(), GetSizeOfCompactSize(block.vtx.size()));
     std::vector<std::pair<uint256, CDiskTxPos> > vPos;
-    std::vector<pair<CoinSpend, uint256> > vSpends;
-    vector<pair<PublicCoin, uint256> > vMints;
+    std::vector<std::pair<CoinSpend, uint256> > vSpends;
+    std::vector<std::pair<PublicCoin, uint256> > vMints;
     vPos.reserve(block.vtx.size());
     CBlockUndo blockundo;
     blockundo.vtxundo.reserve(block.vtx.size() - 1);
@@ -2867,10 +2876,6 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     //Record zSLX serials
     set<uint256> setAddedTx;
     for (pair<CoinSpend, uint256> pSpend : vSpends) {
-        //record spend to database
-        if (!zerocoinDB->WriteCoinSpend(pSpend.first.getCoinSerialNumber(), pSpend.second))
-            return state.Abort(("Failed to record coin serial to database"));
-
         // Send signal to wallet if this is ours
         if (pwalletMain) {
             if (pwalletMain->IsMyZerocoinSpend(pSpend.first.getCoinSerialNumber())) {
@@ -2895,11 +2900,9 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         }
     }
 
-    //Record mints to db
-    for (pair<PublicCoin, uint256> pMint : vMints) {
-        if (!zerocoinDB->WriteCoinMint(pMint.first, pMint.second))
-            return state.Abort(("Failed to record new mint to database"));
-    }
+    // Flush spend/mint info to disk
+    if (!zerocoinDB->WriteCoinSpendBatch(vSpends)) return state.Abort(("Failed to record coin serials to database"));
+    if (!zerocoinDB->WriteCoinMintBatch(vMints)) return state.Abort(("Failed to record new mints to database"));
 
     //Record accumulator checksums
     DatabaseChecksums(mapAccumulators);

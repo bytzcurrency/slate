@@ -1886,9 +1886,9 @@ Var god vänta efter att du trycker på importera.</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/slate-project/slate-project-translations</source>
+https://www.transifex.com/slatecurrency/slatecurrency-translations</source>
         <translation>Fattas språk eller är översättningen ofullständig? Hjälp till att bidra med översättning här:
-https://www.transifex.com/slate-project/slate-project-translations</translation>
+https://www.transifex.com/slatecurrency/slatecurrency-translations</translation>
     </message>
     <message>
         <source>Enable automatic minting of SLX units to zSLX</source>
@@ -4858,7 +4858,7 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
         <translation>Kan inte binda till %s på denna dator. SLATE Kärna körs förmodligen redan.</translation>
     </message>
     <message>
-        <source>Unable to locate enough funds for this transaction that are not equal 10000 SLX.</source>
+        <source>Unable to locate enough funds for this transaction that are not equal 350000 SLX.</source>
         <translation>Kan inte hitta tillräckliga pengar för denna transaktion som inte är 10000 SLX.</translation>
     </message>
     <message>

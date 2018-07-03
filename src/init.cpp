@@ -2,6 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2018 The SLATE developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -29,7 +30,7 @@
 #include "masternodeman.h"
 #include "miner.h"
 #include "net.h"
-#include "rpcserver.h"
+#include "rpc/server.h"
 #include "script/standard.h"
 #include "scheduler.h"
 #include "spork.h"
@@ -169,6 +170,7 @@ public:
 
 static CCoinsViewDB* pcoinsdbview = NULL;
 static CCoinsViewErrorCatcher* pcoinscatcher = NULL;
+static boost::scoped_ptr<ECCVerifyHandle> globalVerifyHandle;
 
 void Interrupt(boost::thread_group& threadGroup)
 {
@@ -289,6 +291,8 @@ void Shutdown()
     delete zwalletMain;
     zwalletMain = NULL;
 #endif
+    globalVerifyHandle.reset();
+    ECC_Stop();
     LogPrintf("%s: done\n", __func__);
 }
 
@@ -692,8 +696,7 @@ void ThreadImport(std::vector<boost::filesystem::path> vImportFiles)
 bool InitSanityCheck(void)
 {
     if (!ECC_InitSanityCheck()) {
-        InitError("OpenSSL appears to lack support for elliptic curve cryptography. For more "
-                  "information, visit https://en.bitcoin.it/wiki/OpenSSL_and_EC_Libraries");
+        InitError("Elliptic curve cryptography sanity check failure. Aborting.");
         return false;
     }
     if (!glibc_sanity_test() || !glibcxx_sanity_test())
@@ -986,6 +989,10 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
 
     // ********************************************************* Step 4: application initialization: dir lock, daemonize, pidfile, debug log
 
+    // Initialize elliptic curve code
+    ECC_Start();
+    globalVerifyHandle.reset(new ECCVerifyHandle());
+
     // Sanity check
     if (!InitSanityCheck())
         return InitError(_("Initialization sanity check failed. SLATE Core is shutting down."));
@@ -1132,7 +1139,7 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
             filesystem::path chainstateDir = GetDataDir() / "chainstate";
             filesystem::path sporksDir = GetDataDir() / "sporks";
             filesystem::path zerocoinDir = GetDataDir() / "zerocoin";
-            
+
             LogPrintf("Deleting blockchain folders blocks, chainstate, sporks and zerocoin\n");
             // We delete in 4 individual steps in case one of the folder is missing already
             try {
@@ -1439,11 +1446,13 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
 
                 // Drop all information from the zerocoinDB and repopulate
                 if (GetBoolArg("-reindexzerocoin", false)) {
-                    uiInterface.InitMessage(_("Reindexing zerocoin database..."));
-                    std::string strError = ReindexZerocoinDB();
-                    if (strError != "") {
-                        strLoadError = strError;
-                        break;
+                    if (chainActive.Height() > Params().Zerocoin_StartHeight()) {
+                        uiInterface.InitMessage(_("Reindexing zerocoin database..."));
+                        std::string strError = ReindexZerocoinDB();
+                        if (strError != "") {
+                            strLoadError = strError;
+                            break;
+                        }
                     }
                 }
 
@@ -1458,22 +1467,24 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
 
                 // Force recalculation of accumulators.
                 if (GetBoolArg("-reindexaccumulators", false)) {
-                    CBlockIndex* pindex = chainActive[Params().Zerocoin_StartHeight()];
-                    while (pindex->nHeight < chainActive.Height()) {
-                        if (!count(listAccCheckpointsNoDB.begin(), listAccCheckpointsNoDB.end(), pindex->nAccumulatorCheckpoint))
-                            listAccCheckpointsNoDB.emplace_back(pindex->nAccumulatorCheckpoint);
-                        pindex = chainActive.Next(pindex);
+                    if (chainActive.Height() > Params().Zerocoin_Block_V2_Start()) {
+                        CBlockIndex *pindex = chainActive[Params().Zerocoin_Block_V2_Start()];
+                        while (pindex->nHeight < chainActive.Height()) {
+                            if (!count(listAccCheckpointsNoDB.begin(), listAccCheckpointsNoDB.end(),
+                                       pindex->nAccumulatorCheckpoint))
+                                listAccCheckpointsNoDB.emplace_back(pindex->nAccumulatorCheckpoint);
+                            pindex = chainActive.Next(pindex);
+                        }
+                        // SLATE: recalculate Accumulator Checkpoints that failed to database properly
+                        if (!listAccCheckpointsNoDB.empty()) {
+                            uiInterface.InitMessage(_("Calculating missing accumulators..."));
+                            LogPrintf("%s : finding missing checkpoints\n", __func__);
+
+                            string strError;
+                            if (!ReindexAccumulators(listAccCheckpointsNoDB, strError))
+                                return InitError(strError);
+                        }
                     }
-                }
-
-                // SLATE: recalculate Accumulator Checkpoints that failed to database properly
-                if (!listAccCheckpointsNoDB.empty()) {
-                    uiInterface.InitMessage(_("Calculating missing accumulators..."));
-                    LogPrintf("%s : finding missing checkpoints\n", __func__);
-
-                    string strError;
-                    if (!ReindexAccumulators(listAccCheckpointsNoDB, strError))
-                        return InitError(strError);
                 }
 
                 uiInterface.InitMessage(_("Verifying blocks..."));

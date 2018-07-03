@@ -1930,9 +1930,9 @@ Bitte haben Sie etwas Geduld, nachdem Sie auf Importieren geklickt haben.</trans
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/slate-project/slate-project-translations</source>
+https://www.transifex.com/slatecurrency/slatecurrency-translations</source>
         <translation>Sprache fehlt oder ist unvollständig? Helfe mit und trage zur Übersetzung bei unter:
-https://www.transifex.com/slate-project/slate-project-translations</translation>
+https://www.transifex.com/slatecurrency/slatecurrency-translations</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -3117,7 +3117,7 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
     </message>
     <message>
         <source>&amp;Open</source>
-        <translation>&amp;Offen</translation>
+        <translation>&amp;Öffnen</translation>
     </message>
     <message>
         <source>Startup time</source>
@@ -3141,7 +3141,7 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
     </message>
     <message>
         <source>Build date</source>
-        <translation>Build Datum</translation>
+        <translation>Kompilierungs-Datum</translation>
     </message>
     <message>
         <source>Current number of blocks</source>
@@ -3157,7 +3157,7 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
     </message>
     <message>
         <source>Block chain</source>
-        <translation>Block chain</translation>
+        <translation>Block Kette</translation>
     </message>
     <message>
         <source>Open the SLATE debug log file from the current data directory. This can take a few seconds for large log files.</source>
@@ -5089,11 +5089,11 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>Nicht genügend gestückeltes, verschleiertes Guthaben für diese Transaktion gefunden.</translation>
     </message>
     <message>
-        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 SLX.</source>
+        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 350000 SLX.</source>
         <translation>Nicht genügend verschleiertes, nicht gestückeltes Guthaben für diese Transaktion gefunden, die nicht gleich 10000 SLX entsprechen.</translation>
     </message>
     <message>
-        <source>Unable to locate enough funds for this transaction that are not equal 10000 SLX.</source>
+        <source>Unable to locate enough funds for this transaction that are not equal 350000 SLX.</source>
         <translation>Nicht genügend Guthaben für diese Transaktion gefunden, die nicht gleich 10000 SLX entsprechen.</translation>
     </message>
     <message>

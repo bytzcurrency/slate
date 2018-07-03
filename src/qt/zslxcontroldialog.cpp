@@ -1,4 +1,5 @@
 // Copyright (c) 2017-2018 The PIVX developers
+// Copyright (c) 2018 The SLATE developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -16,7 +17,7 @@ std::set<std::string> ZSlxControlDialog::setSelectedMints;
 std::set<CMintMeta> ZSlxControlDialog::setMints;
 
 ZSlxControlDialog::ZSlxControlDialog(QWidget *parent) :
-    QDialog(parent),
+    QDialog(parent, Qt::WindowSystemMenuHint | Qt::WindowTitleHint | Qt::WindowCloseButtonHint),
     ui(new Ui::ZSlxControlDialog),
     model(0)
 {

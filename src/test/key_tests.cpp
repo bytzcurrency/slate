@@ -1,5 +1,6 @@
 // Copyright (c) 2012-2013 The Bitcoin Core developers
 // Copyright (c) 2017 The PIVX developers
+// Copyright (c) 2018 The SLATE developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -18,14 +19,14 @@
 
 using namespace std;
 
-static const string strSecret1     ("87vK7Vayi3QLsuiva5yWSuVwSMhMcRM9dBsaD6JXMD1P5vnjRFn");
-static const string strSecret2     ("87FGYGFDg5SYfdD4XL593hr7do6f52czPecVsYSAXi8N4RGeS9i");
-static const string strSecret1C    ("YRYJwfAyJ9c2jhi3T2xQyLijGvM7yLTw4izDaNQLxBzgUYrQiPmJ");
-static const string strSecret2C    ("YNZyazHkwUbkmUpEYsBGWwHnHQTy2n9rJy1gS5k54YXVx3pE8n6N");
-static const CBitcoinAddress addr1 ("DBFi8XAE1rcdCQfkv9w22n8Y9RxgaJnrDD");
-static const CBitcoinAddress addr2 ("DPvKfv1FVp69yZMDzeuugvfZ9pzYiMv1bs");
-static const CBitcoinAddress addr1C("DNPrHK9ezAAUVExFDpZ7EE1xWpPskgp1gP");
-static const CBitcoinAddress addr2C("DNBVSAoc2whPFjZVAZ1pQbXPJk1LRrDC8Q");
+static const string strSecret1     ("5hPeTYcmaVb6HqLiDtBNdcjrCWvUQdQRX2fAeFEKLaJEsGWaUWn");
+static const string strSecret2     ("5hhLaEM2PtsCHseaVNLAxTSppk117xHx8DZ9yVMzA3QxnbjrA52");
+static const string strSecret1C    ("Mj7d1wMVwemJEya5Abd9CUJmJ7tokSBru7mGpns1QM4FaA9EJDac");
+static const string strSecret2C    ("MpG91SPGvgcTVQeYsvGtqHS8EtdmigpmHynq6WbtdLqQ47Uv2HUS");
+static const CBitcoinAddress addr1 ("sYRVtguAQEV5jvdcRFPGzvrqAMC6MTNgWZ");
+static const CBitcoinAddress addr2 ("sQ7qUJpa5NnrNkkU2U6Nx6pt9Zs2jB2t1f");
+static const CBitcoinAddress addr1C("sJzrrtD1rVjU4k19gEw4MNEFa8puR1iBRN");
+static const CBitcoinAddress addr2C("sLPHaE9kCDiPbwfJS5GSNbhNevUT2ZjKvY");
 
 
 static const string strAddressBad("Xta1praZQjyELweyMByXyiREw1ZRsjXzVP");

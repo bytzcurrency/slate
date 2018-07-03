@@ -1,5 +1,6 @@
 // Copyright (c) 2014-2016 The Dash Developers
 // Copyright (c) 2016-2017 The PIVX developers
+// Copyright (c) 2018 The SLATE developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -17,7 +18,7 @@
 #include <QPushButton>
 #include <QSettings>
 
-ObfuscationConfig::ObfuscationConfig(QWidget* parent) : QDialog(parent),
+ObfuscationConfig::ObfuscationConfig(QWidget* parent) : QDialog(parent, Qt::WindowSystemMenuHint | Qt::WindowTitleHint | Qt::WindowCloseButtonHint),
                                                         ui(new Ui::ObfuscationConfig),
                                                         model(0)
 {

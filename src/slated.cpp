@@ -2,6 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2018 The SLATE developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -11,12 +12,12 @@
 #include "masternodeconfig.h"
 #include "noui.h"
 #include "scheduler.h"
-#include "rpcserver.h"
+#include "rpc/server.h"
 #include "ui_interface.h"
 #include "util.h"
 #include "httpserver.h"
 #include "httprpc.h"
-#include "rpcserver.h"
+#include "rpc/server.h"
 
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/filesystem.hpp>
@@ -30,7 +31,7 @@
  *
  * \section intro_sec Introduction
  *
- * This is the developer documentation of the reference client for an experimental new digital currency called SLATE (http://www.slate.org),
+ * This is the developer documentation of the reference client for an experimental new digital currency called SLATE (http://www.slate.io),
  * which enables instant payments to anyone, anywhere in the world. SLATE uses peer-to-peer technology to operate
  * with no central authority: managing transactions and issuing money are carried out collectively by the network.
  *

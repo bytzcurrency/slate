@@ -1,4 +1,5 @@
 // Copyright (c) 2017-2018 The PIVX developers
+// Copyright (c) 2018 The SLATE developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -16,7 +17,7 @@
 using namespace std;
 using namespace boost;
 
-MultiSendDialog::MultiSendDialog(QWidget* parent) : QDialog(parent),
+MultiSendDialog::MultiSendDialog(QWidget* parent) : QDialog(parent, Qt::WindowSystemMenuHint | Qt::WindowTitleHint | Qt::WindowCloseButtonHint),
                                                     ui(new Ui::MultiSendDialog),
                                                     model(0)
 {

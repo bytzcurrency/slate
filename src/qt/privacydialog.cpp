@@ -1,4 +1,5 @@
 // Copyright (c) 2017-2018 The PIVX developers
+// Copyright (c) 2018 The SLATE developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -25,7 +26,7 @@
 #include <primitives/deterministicmint.h>
 #include <accumulators.h>
 
-PrivacyDialog::PrivacyDialog(QWidget* parent) : QDialog(parent),
+PrivacyDialog::PrivacyDialog(QWidget* parent) : QDialog(parent, Qt::WindowSystemMenuHint | Qt::WindowTitleHint | Qt::WindowCloseButtonHint | Qt::WindowCloseButtonHint),
                                                           ui(new Ui::PrivacyDialog),
                                                           walletModel(0),
                                                           currentBalance(-1)

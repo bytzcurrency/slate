@@ -1,8 +1,8 @@
-SLATE Core version *3.1.0* is now available from:  <https://github.com/slate-project/slate/releases>
+SLATE Core version *3.1.0* is now available from:  <https://github.com/slatecurrency/slate/releases>
 
 This is a new major version release, including various bug fixes and performance improvements, as well as updated translations.
 
-Please report bugs using the issue tracker at github: <https://github.com/slate-project/slate/issues>
+Please report bugs using the issue tracker at github: <https://github.com/slatecurrency/slate/issues>
 
 
 Mandatory Update
@@ -405,4 +405,4 @@ Thanks to everyone who directly contributed to this release:
 - PeterL73
 - Anthony Posselli
 
-As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/slate-project-translations/), the QA team during Testing and the Node hosts supporting our Testnet.
+As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/slatecurrency-translations/), the QA team during Testing and the Node hosts supporting our Testnet.
