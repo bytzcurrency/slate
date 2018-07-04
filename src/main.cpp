@@ -1810,22 +1810,20 @@ int64_t GetBlockValue(int nHeight)
 {
     int64_t nSubsidy = 0;
 
-    if (nHeight == 0) {
+    if (nHeight == 1) {
         nSubsidy = 947000000 * COIN;
-    } else if (nHeight > 0 && nHeight <= 10) {
+    } else if (nHeight >= 2 && nHeight <= 11) {
         nSubsidy = 0 * COIN;                            // 15 blocks with 0 rewards
-    } else if (nHeight > 10 && nHeight <= 310) {        // Switch to PoS at block 200
+    } else if (nHeight >= 12 && nHeight <= 311) {       // Switch to PoS at block 200
         nSubsidy = 10000 * COIN;                        // 3M SLX for masternodes and staking, to be reconciled after coin distribution
-    } else if (nHeight > 310 && nHeight <= 67000) {     // 310 + 80640 = 80950; (Aim for 9th of July 2018, 7 weeks after 15th of May = 80640 blocks)
+    } else if (nHeight >= 312 && nHeight <= 67001) {
         nSubsidy = 0 * COIN;
-    } else if (nHeight > 67000 && nHeight <= 67003) {   // Increase overall coins by 10x with 3 blocks each containing 2849970000 SLX (Together 8549910000 SLX) (Aim for 9th of July 2018, 7 weeks after 15th of May = 80640 blocks)
+    } else if (nHeight >= 67002 && nHeight <= 67004) {  // Increase overall coins by 10x with 3 blocks each containing 2849970000 SLX (Together 8549910000 SLX) (Aim for 9th of July 2018, 7 weeks after 15th of May = 80640 blocks)
         nSubsidy = 2849970000 * COIN;
-    } else if (nHeight > 67003 && nHeight <= 80950) {   // 310 + 80640 = 80950; (Aim for 9th of July 2018, 7 weeks after 15th of May = 80640 blocks)
+    } else if (nHeight >= 67005 && nHeight <= 107624) {  // 40620 + 67004 = 107624; (Aim for 1th of August 2018)
         nSubsidy = 0 * COIN;
-    } else if (nHeight > 80950 && nHeight <= 606550) {  // 80950 + 525600; 365 days
-        nSubsidy = 271 * COIN;
-    } else if (nHeight > 606550) { // To be tuned
-        nSubsidy = 271 * COIN;
+    } else if (nHeight >= 107625) {
+        nSubsidy = 2710 * COIN;
     } else {
         nSubsidy = 0 * COIN;
     }
@@ -1840,13 +1838,13 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
     if (nHeight <= Params().LAST_POW_BLOCK()) {
         ret = 0 * COIN;
     } else if (nHeight <= Params().Zerocoin_Block_V2_Start()) {
-        ret = blockValue > 241 * COIN ? 241 * COIN : blockValue * 0.9;
+        ret = blockValue > 2410 * COIN ? 2410 * COIN : blockValue * 0.9;
     } else {
         //When zSLX is staked, masternode gets less SLX
         if (isZSLXStake){
-            ret = blockValue > 241 * COIN ? 241 * COIN : 0;
+            ret = blockValue > 2410 * COIN ? 2410 * COIN : 0;
         } else {
-            ret = blockValue > 244 * COIN ? 244 * COIN : 0;
+            ret = blockValue > 2440 * COIN ? 2440 * COIN : 0;
         }
     }
 
@@ -2829,7 +2827,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     LogPrint("bench", "      - Connect %u transactions: %.2fms (%.3fms/tx, %.3fms/txin) [%.2fs]\n", (unsigned)block.vtx.size(), 0.001 * (nTime1 - nTimeStart), 0.001 * (nTime1 - nTimeStart) / block.vtx.size(), nInputs <= 1 ? 0 : 0.001 * (nTime1 - nTimeStart) / (nInputs - 1), nTimeConnect * 0.000001);
 
     //Fees are redistributed to miners (PoW) and to MNs (PoS)
-    CAmount nExpectedMint = GetBlockValue(pindex->pprev->nHeight);
+    CAmount nExpectedMint = GetBlockValue(pindex->pprev->nHeight + 1);
     nExpectedMint += nFees;
 
     //Check that the block does not overmint
