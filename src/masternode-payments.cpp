@@ -209,7 +209,7 @@ bool IsBlockValueValid(const CBlock& block, CAmount nExpectedValue, CAmount nMin
 
         //are these blocks even enabled
         if (!IsSporkActive(SPORK_13_ENABLE_SUPERBLOCKS)) {
-            return nMinted <= nExpectedValue;
+            return (nMinted <= nExpectedValue) && (nMinted >= nExpectedValue - 1*COIN);
         }
 
         if (budget.IsBudgetPaymentBlock(nHeight)) {
