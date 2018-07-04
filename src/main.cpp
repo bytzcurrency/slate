@@ -1816,13 +1816,13 @@ int64_t GetBlockValue(int nHeight)
         nSubsidy = 0 * COIN;                            // 15 blocks with 0 rewards
     } else if (nHeight >= 12 && nHeight <= 311) {       // Switch to PoS at block 200
         nSubsidy = 10000 * COIN;                        // 3M SLX for masternodes and staking, to be reconciled after coin distribution
-    } else if (nHeight >= 312 && nHeight <= 67001) {
+    } else if (nHeight >= 312 && nHeight <= 67000) {
         nSubsidy = 0 * COIN;
-    } else if (nHeight >= 67002 && nHeight <= 67004) {  // Increase overall coins by 10x with 3 blocks each containing 2849970000 SLX (Together 8549910000 SLX) (Aim for 9th of July 2018, 7 weeks after 15th of May = 80640 blocks)
-        nSubsidy = 2849970000 * COIN;
-    } else if (nHeight >= 67005 && nHeight <= 107624) {  // 40620 + 67004 = 107624; (Aim for 1th of August 2018)
+    } else if (nHeight >= 67001 && nHeight <= 67003) {  // Increase overall coins by 10x with 3 blocks each containing 2850000000 SLX (Together 8550000000 SLX) (Aim for 9th of July 2018, 7 weeks after 15th of May = 80640 blocks)
+        nSubsidy = 2850000000 * COIN;
+    } else if (nHeight >= 67004 && nHeight <= 107623) {  // 40620 + 67004 = 107624; (Aim for 1th of August 2018)
         nSubsidy = 0 * COIN;
-    } else if (nHeight >= 107625) {
+    } else if (nHeight >= 107624) {
         nSubsidy = 2710 * COIN;
     } else {
         nSubsidy = 0 * COIN;
