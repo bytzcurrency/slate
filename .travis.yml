@@ -88,6 +88,6 @@ jobs:
         # Remove this comment and the `#` from the following two lines when we merge proper subtree implementations for secp256k1 and leveldb
         #- contrib/devtools/git-subtree-check.sh src/secp256k1
         #- contrib/devtools/git-subtree-check.sh src/leveldb
-        - contrib/devtools/check-doc.py
+        #- contrib/devtools/check-doc.py
         - contrib/devtools/logprint-scanner.py
         - if [ "$TRAVIS_EVENT_TYPE" = "pull_request" ]; then contrib/devtools/lint-whitespace.sh; fi
