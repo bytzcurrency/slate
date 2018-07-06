@@ -36,7 +36,7 @@ Protections were in place to guard against stakes with more coins than the
 expected amount, update this to also guard against stakes with less coins than
 the expected amounts.
 
-0.1.3 Change log
+0.1.03 Change log
 =================
 
 - `18aba2b` Add new main and testnet checkpoints
