@@ -187,7 +187,11 @@ public:
         assert(hashGenesisBlock == uint256("0x00000feb03167c4a4fa9f2bafcaea0e9f7e5646330e13c69e7ffa2dce58ace44"));
         assert(genesis.hashMerkleRoot == uint256("0x80290404060ff7ff5bc6a42f755d24f6087ba5685474a5c8ffafac65de8b2bbf"));
 
-        vSeeds.push_back(CDNSSeedData("1", "main.seeder.slate.host"));     // Primary DNS Seeder
+        vSeeds.push_back(CDNSSeedData("seeder.slate.host", "main.seeder.slate.host"));                 // Slate DNS Seeder
+        vSeeds.push_back(CDNSSeedData("slateseeder1.xhost.host", "main.slateseeder1.xhost.host"));     // Slate US1 DNS Seeder
+        vSeeds.push_back(CDNSSeedData("slateseeder2.xhost.host", "main.slateseeder2.xhost.host"));     // Slate EU1 DNS Seeder
+        vSeeds.push_back(CDNSSeedData("slateseeder3.xhost.host", "main.slateseeder3.xhost.host"));     // Slate ASIA1 (Singapore) DNS Seeder
+        vSeeds.push_back(CDNSSeedData("slateseeder4.xhost.host", "main.slateseeder4.xhost.host"));     // Slate AUSTRALIA1 (Sydney) DNS Seeder
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 125);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 18);
@@ -288,7 +292,11 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("1", "testnet.seeder.slate.host"));     // Primary DNS Seeder
+        vSeeds.push_back(CDNSSeedData("seeder.slate.host", "testnet.seeder.slate.host"));                         // Slate DNS Seeder
+        vSeeds.push_back(CDNSSeedData("slatetestseeder1.xhost.host", "testnet.slatetestseeder1.xhost.host"));     // Slate US1 DNS Seeder
+        vSeeds.push_back(CDNSSeedData("slatetestseeder2.xhost.host", "testnet.slatetestseeder2.xhost.host"));     // Slate EU1 DNS Seeder
+        vSeeds.push_back(CDNSSeedData("slatetestseeder3.xhost.host", "testnet.slatetestseeder3.xhost.host"));     // Slate ASIA1 (Singapore) DNS Seeder
+        vSeeds.push_back(CDNSSeedData("slatetestseeder4.xhost.host", "testnet.slatetestseeder4.xhost.host"));     // Slate AUSTRALIA1 (Sydney) DNS Seeder
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 66); // Testnet slate addresses start with 'T'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 9);  // Testnet slate script addresses start with '4' or '5'
