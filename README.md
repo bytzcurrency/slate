@@ -2,7 +2,6 @@ SLATE Core integration/staging tree
 ===================================
 
 [![Build Status](https://travis-ci.org/slatecurrency/slate.svg?branch=master)](https://travis-ci.org/slatecurrency/slate) [![GitHub versslate](https://badge.fury.io/gh/slatecurrency%2Fslate.svg)](https://badge.fury.io/gh/slatecurrency%2Fslate) [![Snap Status](https://build.snapcraft.io/badge/slateapps/slate.svg)](https://build.snapcraft.io/user/slateapps/slate) [![GitHub issues](https://img.shields.io/github/issues/slatecurrency/slate.svg)](https://github.com/slatecurrency/slate/issues) [![GitHub forks](https://img.shields.io/github/forks/slatecurrency/slate.svg)](https://github.com/slatecurrency/slate/network) [![GitHub stars](https://img.shields.io/github/stars/slatecurrency/slate.svg)](https://github.com/slatecurrency/slate/stargazers) [![GitHub license](https://img.shields.io/github/license/slatecurrency/slate.svg)](https://github.com/slatecurrency/slate) [![Twitter](https://img.shields.io/twitter/url/https/github.com/slatecurrency/slate.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fslatecurrency%2Fslate)
-https://slate.io
 
 What is SLATE?
 --------------
@@ -21,6 +20,8 @@ custom Proof of Stake protocol for securing its network and uses an innovative
 variable seesaw reward mechanism that dynamically balances 90% of its block
 reward size between masternodes and staking nodes and 10% dedicated for budget
 proposals.
+
+Homepage: https://slate.io
 
 License
 -------
