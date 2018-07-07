@@ -1,0 +1,15 @@
+# http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-1.0.html
+
+[Desktop Entry]
+Type=Application
+Version=0.1.03
+Encoding=UTF-8
+Name=Slate Qt (Testnet)
+Icon=${SNAP}/slate128testnet.png
+MimeType=x-scheme-handler/slate;
+Exec=ion %u --testnet
+Terminal=true
+Categories=Office;Finance;Cryptocurrency;
+Comment=Slate Digital Currency QT (Testnet) 
+Keywords=internet;slate;testnet;qt;crypto;currency;snap;snapcraft;
+Name[de_DE]=slate-testnet.desktop.desktop
