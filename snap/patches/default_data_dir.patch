@@ -1,0 +1,25 @@
+From 9e743715662b6bed2e9df60a061be9cdacf635ee Mon Sep 17 00:00:00 2001
+From: Slate Random Dev <slate@i2pmail.org>
+Date: Sat, 7 Jul 2018 23:10:50 +0200
+Subject: [PATCH 1/2] Snap patch: home dir
+
+---
+ src/util.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/util.cpp b/src/util.cpp
+index 223e4fe..5ba3841 100644
+--- a/src/util.cpp
++++ b/src/util.cpp
+@@ -433,7 +433,7 @@ boost::filesystem::path GetDefaultDataDir()
+     return GetSpecialFolderPath(CSIDL_APPDATA) / "SLATE";
+ #else
+     fs::path pathRet;
+-    char* pszHome = getenv("HOME");
++    char* pszHome = getenv("SNAP_USER_COMMON");
+     if (pszHome == NULL || strlen(pszHome) == 0)
+         pathRet = fs::path("/");
+     else
+-- 
+2.7.4
+
