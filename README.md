@@ -1,7 +1,7 @@
 SLATE Core integration/staging tree
 ===================================
 
-[![Build Status](https://travis-ci.org/slatecurrency/slate.svg?branch=master)](https://travis-ci.org/slatecurrency/slate)
+[![Build Status](https://travis-ci.org/slatecurrency/slate.svg?branch=0.1.03)](https://travis-ci.org/slatecurrency/slate)
 
 https://slate.io
 
