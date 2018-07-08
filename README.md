@@ -52,28 +52,16 @@ SLATE Core integration/staging tree
 
 <center>
 
-### Downloads
-
-
-#### Latest release, all downloads including debug versions
 <p align="center">
     <a href="https://github.com/slatecurrency/slate/releases/latest">
         <img src="https://img.shields.io/github/downloads/slatecurrency/slate/latest/total.svg"
             alt="Latest Release"></a>
-</p>
-
-#### OSX downloads
-<p align="center">
     <a href="https://github.com/slatecurrency/slate/releases/download/v0.1.03/slate-0.1.03-osx-unsigned.dmg">
         <img src="https://img.shields.io/github/downloads/slatecurrency/slate/v0.1.03/slate-0.1.03-osx-unsigned.dmg.svg"
             alt="Download Slate Setup for Windows 32-bit"></a>
     <a href="https://github.com/slatecurrency/slate/releases/download/v0.1.03/slate-0.1.03-osx64.tar.gz.exe">
         <img src="https://img.shields.io/github/downloads/slatecurrency/slate/v0.1.03/slate-0.1.03-osx64.tar.gz.svg"
             alt="Download Slate Setup for Windows 64-bit"></a>
-</p>
-
-#### Windows downloads:
-<p align="center">
     <a href="https://github.com/slatecurrency/slate/releases/download/v0.1.03/slate-0.1.03-win32-setup-unsigned.exe">
         <img src="https://img.shields.io/github/downloads/slatecurrency/slate/latest/slate-0.1.03-win32-setup-unsigned.exe.svg"
             alt="Download Slate Setup for Windows 32-bit"></a>
@@ -86,10 +74,6 @@ SLATE Core integration/staging tree
     <a href="https://github.com/slatecurrency/slate/releases/download/v0.1.03/slate-0.1.03-win64.exe">
         <img src="https://img.shields.io/github/downloads/slatecurrency/slate/latest/slate-0.1.03-win64.svg"
             alt="Download Slate Setup for Windows 64-bit"></a>
-</p>
-
-#### Linux i686/x86_64/arm/aarch64 downloads:
-<p align="center">
     <a href="https://github.com/slatecurrency/slate/releases/download/v0.1.03/slate-0.1.03-i686-pc-linux-gnu.tar.gz">
         <img src="https://img.shields.io/github/downloads/slatecurrency/slate/v0.1.03/slate-0.1.03-i686-pc-linux-gnu.tar.gz.svg"
             alt="Download Slate Setup for Windows 32-bit"></a>
