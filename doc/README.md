@@ -16,6 +16,21 @@ Unpack the files into a directory and run:
 - bin/32/slate-qt (GUI, 32-bit) or bin/32/slated (headless, 32-bit)
 - bin/64/slate-qt (GUI, 64-bit) or bin/64/slated (headless, 64-bit)
 
+### Unix (Method2: Snapcraft)
+
+[Install SLATE over snapcraft](https://build.snapcraft.io/user/slateapps/slate). Currently available builds:
+
+- i386
+- armhf
+- amd64
+
+More info about snapcraft: https://snapcraft.io/
+
+#### Installation:
+
+- Requirements: snapd ([Don't have snapd installed?](https://docs.snapcraft.io/core/install))
+- Installation command: `sudo snap install --edge slate`
+
 ### Windows
 
 Unpack the files into a directory, and then run slate-qt.exe.
