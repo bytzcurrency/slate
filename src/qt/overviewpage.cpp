@@ -211,7 +211,7 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     }
     // SLX Balance
     CAmount nTotalBalance = balance + unconfirmedBalance;
-    CAmount slxAvailableBalance = balance - immatureBalance;
+    CAmount slxAvailableBalance = balance - immatureBalance - nLockedBalance;
     CAmount nTotalWatchBalance = watchOnlyBalance + watchUnconfBalance + watchImmatureBalance;    
     CAmount nUnlockedBalance = nTotalBalance - nLockedBalance; // Fix: slateapps: increment nLockedBalance twice because it was added to
                                                                // nTotalBalance above
