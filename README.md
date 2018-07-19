@@ -45,7 +45,7 @@ The first premium decentralized streaming platform to utilize the power of distr
 
 ### SLATIX
 
-![SLATIX](doc/slatix-logo.png&height="130")
+![SLATIX](doc/slatix-logo.png)
 
 [Learn more about SLATIX](https://slatix.com/)
 
