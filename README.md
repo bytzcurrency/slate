@@ -1,99 +1,19 @@
-<center>
+[![LOGO](doc/slate-logo.png?style=centerme)](https://slate.io/)
 
-SLATE Core integration/staging tree
+SLATE Core integration/staging tree 
 ===================================
 
-</center>
-
-<p align="center">
-    <a href="https://slate.io/">
-    <img src="src/qt/res/src/slate.svg"
-        height="130"></a>
-</p>
-<p align="center">
-    <a href="https://discord.gg/ENuwHH5">
-        <img src="https://img.shields.io/discord/308323056592486420.svg?logo=discord"
-            alt="chat on Discord"></a>
-    <a href="https://twitter.com/intent/follow?screen_name=slatecurrency">
-        <img src="https://img.shields.io/twitter/follow/slatecurrency.svg?style=social&logo=twitter"
-            alt="follow on Twitter"></a>
-    <a href="https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fslatecurrency%2Fslate">
-        <img src="https://img.shields.io/twitter/url/https/github.com/slatecurrency/slate.svg?style=social"
-            alt="Tweet"></a>
-    <a href="https://github.com/slatecurrency/slate/watchers">
-        <img src="https://img.shields.io/github/watchers/slatecurrency/slate.svg?style=social&label=Watch"
-            alt="GitHub watchers"></a>
-    <a href="https://github.com/slatecurrency/slate/followers" alt="GitHub followers">
-        <img src="https://img.shields.io/github/followers/slatecurrency.svg?style=social&label=Follow" /></a>
-</p>
-<p align="center">
-    <a href="https://badge.fury.io/gh/slatecurrency%2Fslate">
-        <img src="https://badge.fury.io/gh/slatecurrency%2Fslate.svg"
-            alt="GitHub versslate"></a>
-    <a href="https://travis-ci.org/slatecurrency/slate">
-        <img src="https://travis-ci.org/slatecurrency/slate.svg?branch=master"
-            alt="Build status"></a>
-    <a href="https://build.snapcraft.io/user/slateapps/slate">
-        <img src="https://build.snapcraft.io/badge/slateapps/slate.svg"
-            alt="Snap Status"></a>
-    <a href="https://github.com/slatecurrency/slate">
-        <img src="https://img.shields.io/github/license/slatecurrency/slate.svg"
-            alt="GitHub license"></a>
-    <a href="https://github.com/slatecurrency/slate/compare/0.1.03...master" alt="commits to be deployed">
-        <img src="https://img.shields.io/github/commits-since/slatecurrency/slate/0.1.03.svg?label=commits%20to%20be%20deployed" /></a>
-    <a href="https://github.com/slatecurrency/slate/network">
-        <img src="https://img.shields.io/github/forks/slatecurrency/slate.svg"
-            alt="GitHub forks"></a>
-    <a href="https://github.com/slatecurrency/slate/stargazers">
-        <img src="https://img.shields.io/github/stars/slatecurrency/slate.svg"
-            alt="GitHub stars"></a>
-</p>
+[![chat on Discord](https://img.shields.io/discord/308323056592486420.svg?logo=discord?style=centerme)](https://discord.gg/ENuwHH5) [![follow on Twitter](https://img.shields.io/twitter/follow/slatecurrency.svg?style=social&logo=twitter?style=centerme)](https://twitter.com/intent/follow?screen_name=slatecurrency) [![Tweet](https://img.shields.io/twitter/url/https/github.com/slatecurrency/slate.svg?style=social?style=centerme)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fslatecurrency%2Fslate) [![GitHub watchers](https://img.shields.io/github/watchers/slatecurrency/slate.svg?style=social&label=Watch?style=centerme)](https://github.com/slatecurrency/slate/watchers) [![GitHub followers](https://img.shields.io/github/followers/slatecurrency.svg?style=social&label=Follow?style=centerme)](https://github.com/slatecurrency/slate/followers) [![GitHub versslate](https://badge.fury.io/gh/slatecurrency%2Fslate.svg?style=centerme)](https://badge.fury.io/gh/slatecurrency%2Fslate) [![Build status](https://travis-ci.org/slatecurrency/slate.svg?branch=master?style=centerme)](https://travis-ci.org/slatecurrency/slate) [![Snap Status](https://build.snapcraft.io/badge/slateapps/slate.svg?style=centerme)](https://build.snapcraft.io/user/slateapps/slate) [![GitHub license](https://img.shields.io/github/license/slatecurrency/slate.svg?style=centerme)](https://github.com/slatecurrency/slate) [![commits to be deployed](https://img.shields.io/github/commits-since/slatecurrency/slate/0.1.03.svg?label=commits%20to%20be%20deployed?style=centerme)](https://github.com/slatecurrency/slate/compare/0.1.03...master) [![GitHub forks](https://img.shields.io/github/forks/slatecurrency/slate.svg?style=centerme)](https://github.com/slatecurrency/slate/network) [![GitHub stars](https://img.shields.io/github/stars/slatecurrency/slate.svg?style=centerme)](https://github.com/slatecurrency/slate/stargazers)
 
 
-<center>
-
-<p align="center">
-    <a href="https://github.com/slatecurrency/slate/releases/latest">
-        <img src="https://img.shields.io/github/downloads/slatecurrency/slate/latest/total.svg"
-            alt="Latest Release"></a>
-    <a href="https://github.com/slatecurrency/slate/releases/download/v0.1.03/slate-0.1.03-osx-unsigned.dmg">
-        <img src="https://img.shields.io/github/downloads/slatecurrency/slate/v0.1.03/slate-0.1.03-osx-unsigned.dmg.svg"
-            alt="Download Slate Setup for Windows 32-bit"></a>
-    <a href="https://github.com/slatecurrency/slate/releases/download/v0.1.03/slate-0.1.03-osx64.tar.gz.exe">
-        <img src="https://img.shields.io/github/downloads/slatecurrency/slate/v0.1.03/slate-0.1.03-osx64.tar.gz.svg"
-            alt="Download Slate Setup for Windows 64-bit"></a>
-    <a href="https://github.com/slatecurrency/slate/releases/download/v0.1.03/slate-0.1.03-win32-setup-unsigned.exe">
-        <img src="https://img.shields.io/github/downloads/slatecurrency/slate/latest/slate-0.1.03-win32-setup-unsigned.exe.svg"
-            alt="Download Slate Setup for Windows 32-bit"></a>
-    <a href="https://github.com/slatecurrency/slate/releases/download/v0.1.03/slate-0.1.03-win64-setup-unsigned.exe">
-        <img src="https://img.shields.io/github/downloads/slatecurrency/slate/latest/slate-0.1.03-win64-setup-unsigned.exe.svg"
-            alt="Download Slate Setup for Windows 64-bit"></a>
-    <a href="https://github.com/slatecurrency/slate/releases/download/v0.1.03/slate-0.1.03-win32.zip">
-        <img src="https://img.shields.io/github/downloads/slatecurrency/slate/latest/slate-0.1.03-win32.zip.svg"
-            alt="Download Slate Setup for Windows 32-bit"></a>
-    <a href="https://github.com/slatecurrency/slate/releases/download/v0.1.03/slate-0.1.03-win64.exe">
-        <img src="https://img.shields.io/github/downloads/slatecurrency/slate/latest/slate-0.1.03-win64.svg"
-            alt="Download Slate Setup for Windows 64-bit"></a>
-    <a href="https://github.com/slatecurrency/slate/releases/download/v0.1.03/slate-0.1.03-i686-pc-linux-gnu.tar.gz">
-        <img src="https://img.shields.io/github/downloads/slatecurrency/slate/v0.1.03/slate-0.1.03-i686-pc-linux-gnu.tar.gz.svg"
-            alt="Download Slate Setup for Windows 32-bit"></a>
-    <a href="https://github.com/slatecurrency/slate/releases/download/v0.1.03/slate-0.1.03-x86_64-linux-gnu.tar.gz">
-        <img src="https://img.shields.io/github/downloads/slatecurrency/slate/v0.1.03/slate-0.1.03-x86_64-linux-gnu.tar.gz.svg"
-            alt="Download Slate Setup for Windows 64-bit"></a>
-    <a href="https://github.com/slatecurrency/slate/releases/download/v0.1.03/slate-0.1.03-arm-linux-gnueabihf.tar.gz">
-        <img src="https://img.shields.io/github/downloads/slatecurrency/slate/v0.1.03/slate-0.1.03-arm-linux-gnueabihf.tar.gz.svg"
-            alt="Download Slate Setup for Windows 32-bit"></a>
-    <a href="https://github.com/slatecurrency/slate/releases/download/v0.1.03/slate-0.1.03-aarch64-linux-gnu.tar.gz">
-        <img src="https://img.shields.io/github/downloads/slatecurrency/slate/v0.1.03/slate-0.1.03-aarch64-linux-gnu.tar.gz.svg"
-            alt="Download Slate Setup for Windows 64-bit"></a>
-</p>
-
+---
+[![Latest Release](https://img.shields.io/github/downloads/slatecurrency/slate/latest/total.svg?style=centerme)](https://github.com/slatecurrency/slate/releases/latest) [![Download Slate Setup for OSX 32-bit](https://img.shields.io/github/downloads/slatecurrency/slate/v0.1.03/slate-0.1.03-osx-unsigned.dmg.svg?style=centerme)](https://github.com/slatecurrency/slate/releases/download/v0.1.03/slate-0.1.03-osx-unsigned.dmg)[![Download Slate Setup for OSX 64-bit](https://img.shields.io/github/downloads/slatecurrency/slate/v0.1.03/slate-0.1.03-osx64.tar.gz.svg?style=centerme)](https://github.com/slatecurrency/slate/releases/download/v0.1.03/slate-0.1.03-osx64.tar.gz.exe) [![Download Slate Setup for Windows 32-bit](https://img.shields.io/github/downloads/slatecurrency/slate/latest/slate-0.1.03-win32-setup-unsigned.exe.svg?style=centerme)](https://github.com/slatecurrency/slate/releases/download/v0.1.03/slate-0.1.03-win32-setup-unsigned.exe)[![Download Slate Setup for Windows 64-bit](https://img.shields.io/github/downloads/slatecurrency/slate/latest/slate-0.1.03-win64-setup-unsigned.exe.svg?style=centerme)](https://github.com/slatecurrency/slate/releases/download/v0.1.03/slate-0.1.03-win64-setup-unsigned.exe)[![Download Slate binaries for Windows 32-bit](https://img.shields.io/github/downloads/slatecurrency/slate/latest/slate-0.1.03-win32.zip.svg?style=centerme)](https://github.com/slatecurrency/slate/releases/download/v0.1.03/slate-0.1.03-win32.zip) [![Download Slate binaries for Windows 64-bit](https://img.shields.io/github/downloads/slatecurrency/slate/latest/slate-0.1.03-win64.svg?style=centerme)](https://github.com/slatecurrency/slate/releases/download/v0.1.03/slate-0.1.03-win64.exe) [![Download Slate for Linux 32-bit (i686)](https://img.shields.io/github/downloads/slatecurrency/slate/v0.1.03/slate-0.1.03-i686-pc-linux-gnu.tar.gz.svg?style=centerme)](https://github.com/slatecurrency/slate/releases/download/v0.1.03/slate-0.1.03-i686-pc-linux-gnu.tar.gz)[![Download Slate for Linux 64-bit (x86_x64)](https://img.shields.io/github/downloads/slatecurrency/slate/v0.1.03/slate-0.1.03-x86_64-linux-gnu.tar.gz.svg?style=centerme)](https://github.com/slatecurrency/slate/releases/download/v0.1.03/slate-0.1.03-x86_64-linux-gnu.tar.gz)[![Download Slate for ARM Linux](https://img.shields.io/github/downloads/slatecurrency/slate/v0.1.03/slate-0.1.03-arm-linux-gnueabihf.tar.gz.svg?style=centerme)](https://github.com/slatecurrency/slate/releases/download/v0.1.03/slate-0.1.03-arm-linux-gnueabihf.tar.gz)[![Download Slate for aarch64 Linux](https://img.shields.io/github/downloads/slatecurrency/slate/v0.1.03/slate-0.1.03-aarch64-linux-gnu.tar.gz.svg?style=centerme)](https://github.com/slatecurrency/slate/releases/download/v0.1.03/slate-0.1.03-aarch64-linux-gnu.tar.gz)
 
 What is SLATE?
 --------------
 
 
-![SLATE](https://slate.io/img/b1-icons.png)
+![SLATE](doc/what-is-slate.png?style=centerme)
 
 SLATE is a blockchain-based entertainment utility protocol powered by a
 cryptographically secure multilayered network. Decentralized delivery yields
@@ -103,7 +23,7 @@ world has to offer. Tickets will be forgery resistant, virtually eliminating
 fraud. Service providers holding SLX can earn even more by storing and
 delivering content.
 
-![applayer](https://slate.io/img/b11-img1.png)
+![applayer](doc/applayer.png?style=centerme)
 
 Together with this use case SLATE also features fast and private transactions
 with low transaction fees and a low environmental footprint.  It utilizes a
@@ -126,7 +46,7 @@ The first premium decentralized streaming platform to utilize the power of distr
 
 ### SLATIX
 
-<img src="http://slatix.com/logo.png" height="130" alt="SLATIX">
+![SLATIX](doc/slatix-logo.png?style=centerme&height="130")
 
 [Learn more about SLATIX](https://slatix.com/)
 
@@ -163,5 +83,3 @@ completely stable. [Tags](https://github.com/slatecurrency/slate/tags) are creat
 regularly to indicate new official, stable release versions of SLATE Core.
 
 The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
-
-</center>
