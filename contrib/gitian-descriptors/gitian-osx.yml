@@ -1,5 +1,5 @@
 ---
-name: "slate-osx-1.0"
+name: "slate-osx-0.1"
 enable_cache: true
 suites:
 - "trusty"

@@ -1,5 +1,5 @@
 ---
-name: "slate-win-1.0"
+name: "slate-win-0.1"
 enable_cache: true
 suites:
 - "trusty"
