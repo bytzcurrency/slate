@@ -81,7 +81,6 @@ jobs:
         apt:
           packages:
             - python3-pip
-            - shellcheck
       install:
         - travis_retry pip3 install flake8 --user
       before_script:
