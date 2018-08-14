@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
 # Copyright (c) 2017-2018 The Bitcoin Core developers
 # Copyright (c) 2018 The PIVX Core developers
