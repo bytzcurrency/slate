@@ -1,5 +1,5 @@
 ---
-name: "slate-aarch64-0.1"
+name: "slate-aarch64-1.0"
 enable_cache: true
 suites:
 - "xenial"
@@ -8,11 +8,11 @@ architectures:
 packages:
 - "curl"
 - "g++-aarch64-linux-gnu"
-- "g++-4.9-aarch64-linux-gnu"
-- "gcc-4.9-aarch64-linux-gnu"
+- "g++-5-aarch64-linux-gnu"
+- "gcc-5-aarch64-linux-gnu"
 - "binutils-aarch64-linux-gnu"
-- "g++-4.9-multilib"
-- "gcc-4.9-multilib"
+- "g++-5-multilib"
+- "gcc-5-multilib"
 - "binutils-gold"
 - "git-core"
 - "pkg-config"
