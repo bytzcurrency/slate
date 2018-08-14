@@ -24,7 +24,7 @@ def countRelevantCommas(line):
 
 if __name__ == "__main__":
     out = check_output(["git", "rev-parse", "--show-toplevel"])
-    srcDir = out.rstrip() + "/src/"
+    srcDir = out.rstrip() + "/src/".encode('ascii')
 
     filelist = [os.path.join(dp, f) for dp, dn, filenames in os.walk(srcDir) for f in filenames if os.path.splitext(f)[1] == '.cpp' or os.path.splitext(f)[1] == '.h' ]
     incorrectInstanceCounter = 0
@@ -73,11 +73,11 @@ if __name__ == "__main__":
                         numPercents = tempLine.count('%') - numExtraPercents - 2*tempLine.count('%%')
 
                         if numPercents != numCommas:
-                            print "Incorrect number of arguments for LogPrint(f) statement found."
+                            print("Incorrect number of arguments for LogPrint(f) statement found.")
                             print(str(file) + ":" + str(lineCounter - tempCount))
-                            print "Line = " + tempLine
+                            print("Line = " + tempLine)
                             print("numRelevantCommas = " + str(numCommas) + ", numRelevantPercents = " + str(numPercents))
-                            print ""
+                            print("")
                             
                             incorrectInstanceCounter += 1
 
