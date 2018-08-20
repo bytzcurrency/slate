@@ -1,0 +1,7 @@
+[main]
+host = https://www.transifex.com
+
+[slate.qt-translation-001x]
+file_filter = src/qt/locale/slate_<lang>.ts
+source_file = src/qt/locale/slate_en.ts
+source_lang = en
