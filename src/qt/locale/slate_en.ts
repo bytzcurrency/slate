@@ -54,7 +54,7 @@
         <translation>C&amp;lose</translation>
     </message>
     <message>
-        <location filename="../addressbookpage.cpp" line="+44"/>
+        <location filename="../addressbookpage.cpp" line="+45"/>
         <source>Choose the address to send coins to</source>
         <translation>Choose the address to send coins to</translation>
     </message>
@@ -127,7 +127,7 @@
 <context>
     <name>AddressTableModel</name>
     <message>
-        <location filename="../addresstablemodel.cpp" line="+199"/>
+        <location filename="../addresstablemodel.cpp" line="+200"/>
         <source>Label</source>
         <translation>Label</translation>
     </message>
@@ -175,7 +175,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../askpassphrasedialog.cpp" line="+48"/>
+        <location filename="../askpassphrasedialog.cpp" line="+49"/>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</translation>
     </message>
@@ -296,7 +296,7 @@
 <context>
     <name>BanTableModel</name>
     <message>
-        <location filename="../bantablemodel.cpp" line="+89"/>
+        <location filename="../bantablemodel.cpp" line="+90"/>
         <source>IP/Netmask</source>
         <translation type="unfinished"></translation>
     </message>
@@ -431,7 +431,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../bip38tooldialog.cpp" line="+30"/>
+        <location filename="../bip38tooldialog.cpp" line="+31"/>
         <source>Click &quot;Decrypt Key&quot; to compute key</source>
         <translation type="unfinished"></translation>
     </message>
@@ -516,7 +516,7 @@
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <location filename="../bitcoingui.cpp" line="+127"/>
+        <location filename="../bitcoingui.cpp" line="+129"/>
         <source>Wallet</source>
         <translation>Wallet</translation>
     </message>
@@ -526,7 +526,7 @@
         <translation>Node</translation>
     </message>
     <message>
-        <location line="+178"/>
+        <location line="+180"/>
         <source>&amp;Overview</source>
         <translation>&amp;Overview</translation>
     </message>
@@ -777,7 +777,7 @@
         <translation>&amp;Command-line options</translation>
     </message>
     <message numerus="yes">
-        <location line="+479"/>
+        <location line="+482"/>
         <source>Processed %n blocks of transaction history.</source>
         <translation>
             <numerusform>Processed %n block of transaction history.</numerusform>
@@ -785,12 +785,12 @@
         </translation>
     </message>
     <message>
-        <location line="+32"/>
-        <source>Synchronizing additional data: %p%</source>
-        <translation>Synchronizing additional data: %p%</translation>
+        <location line="+322"/>
+        <source>Tor is &lt;b&gt;enabled&lt;/b&gt;: %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="-263"/>
         <source>%1 behind. Scanning block %2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -800,7 +800,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-729"/>
+        <location line="-732"/>
         <source>&amp;File</source>
         <translation>&amp;File</translation>
     </message>
@@ -825,13 +825,13 @@
         <translation>Tabs toolbar</translation>
     </message>
     <message>
-        <location line="-444"/>
-        <location line="+923"/>
+        <location line="-446"/>
+        <location line="+928"/>
         <source>SLATE Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-723"/>
+        <location line="-726"/>
         <source>Send coins to a SLATE address</source>
         <translation type="unfinished"></translation>
     </message>
@@ -936,7 +936,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+230"/>
+        <location line="+233"/>
         <source>SLATE Core client</source>
         <translation type="unfinished"></translation>
     </message>
@@ -973,8 +973,13 @@
         <source>Up to date</source>
         <translation>Up to date</translation>
     </message>
+    <message>
+        <location line="+26"/>
+        <source>Syncing additional data (%p%)...</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message numerus="yes">
-        <location line="+41"/>
+        <location line="+15"/>
         <source>%n hour(s)</source>
         <translation>
             <numerusform>%n hour</numerusform>
@@ -1113,6 +1118,11 @@ Address: %4
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</translation>
     </message>
+    <message>
+        <location filename="../slate.cpp" line="+505"/>
+        <source>A fatal error occurred. SLATE can no longer continue safely and will quit.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BlockExplorer</name>
@@ -1147,7 +1157,7 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../blockexplorer.cpp" line="+480"/>
+        <location filename="../blockexplorer.cpp" line="+481"/>
         <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (slate.conf).</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1155,7 +1165,7 @@ Address: %4
 <context>
     <name>ClientModel</name>
     <message>
-        <location filename="../clientmodel.cpp" line="+80"/>
+        <location filename="../clientmodel.cpp" line="+82"/>
         <source>Total: %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / Unknown: %5)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1278,7 +1288,7 @@ Address: %4
         <translation>Priority</translation>
     </message>
     <message>
-        <location filename="../coincontroldialog.cpp" line="+52"/>
+        <location filename="../coincontroldialog.cpp" line="+53"/>
         <source>Copy address</source>
         <translation>Copy address</translation>
     </message>
@@ -1496,7 +1506,7 @@ Address: %4
         <translation>The address associated with this address list entry. This can only be modified for sending addresses.</translation>
     </message>
     <message>
-        <location filename="../editaddressdialog.cpp" line="+28"/>
+        <location filename="../editaddressdialog.cpp" line="+29"/>
         <source>New receiving address</source>
         <translation>New receiving address</translation>
     </message>
@@ -1539,7 +1549,7 @@ Address: %4
 <context>
     <name>FreespaceChecker</name>
     <message>
-        <location filename="../intro.cpp" line="+70"/>
+        <location filename="../intro.cpp" line="+71"/>
         <source>A new data directory will be created.</source>
         <translation>A new data directory will be created.</translation>
     </message>
@@ -1567,7 +1577,7 @@ Address: %4
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <location filename="../utilitydialog.cpp" line="+37"/>
+        <location filename="../utilitydialog.cpp" line="+38"/>
         <source>version</source>
         <translation>version</translation>
     </message>
@@ -1774,7 +1784,7 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../masternodelist.cpp" line="+52"/>
+        <location filename="../masternodelist.cpp" line="+53"/>
         <source>Start alias</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1950,54 +1960,48 @@ MultiSend will not be activated unless you have clicked Activate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../multisenddialog.cpp" line="+68"/>
+        <location filename="../multisenddialog.cpp" line="+69"/>
         <source>(no label)</source>
         <translation type="unfinished">(no label)</translation>
     </message>
     <message>
-        <location line="+42"/>
-        <source>The entered address:
-</source>
-        <translation type="unfinished"></translation>
+        <location line="+44"/>
+        <source>The entered address is invalid.</source>
+        <translation type="unfinished">The entered address is invalid.</translation>
     </message>
     <message>
         <location line="+0"/>
-        <source> is invalid.
-Please check the address and try again.</source>
-        <translation type="unfinished"></translation>
+        <source>Please check the address and try again.</source>
+        <translation type="unfinished">Please check the address and try again.</translation>
     </message>
     <message>
         <location line="+11"/>
-        <source>The total amount of your MultiSend vector is over 100% of your stake reward
-</source>
+        <source>The total amount of your MultiSend vector is over 100% of your stake reward.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Please Enter 1 - 100 for percent.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+33"/>
-        <source>Saved the MultiSend to memory, but failed saving properties to the database.
-</source>
+        <location line="+40"/>
+        <source>Saved the MultiSend to memory, but failed saving properties to the database.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+4"/>
-        <source>MultiSend Vector
-</source>
+        <source>MultiSend Vector</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+24"/>
+        <source>Could not locate address.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-61"/>
+        <source>Please Enter 1 - 100 for percent.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+59"/>
         <source>Removed </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Could not locate address
-</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2184,7 +2188,7 @@ Please be patient after clicking import.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../multisigdialog.cpp" line="+299"/>
+        <location filename="../multisigdialog.cpp" line="+300"/>
         <source>Invalid Tx Hash.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2277,7 +2281,7 @@ Please be patient after clicking import.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../obfuscationconfig.cpp" line="+47"/>
+        <location filename="../obfuscationconfig.cpp" line="+48"/>
         <location line="+14"/>
         <location line="+14"/>
         <source>Obfuscation Configuration</source>
@@ -2322,7 +2326,7 @@ Please be patient after clicking import.</source>
         <translation>Select payment request file</translation>
     </message>
     <message>
-        <location filename="../openuridialog.cpp" line="+47"/>
+        <location filename="../openuridialog.cpp" line="+48"/>
         <source>Select payment request file to open</source>
         <translation>Select payment request file to open</translation>
     </message>
@@ -2440,13 +2444,7 @@ Please be patient after clicking import.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+21"/>
-        <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/slatecurrency/slatecurrency-translations</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-204"/>
+        <location line="-183"/>
         <source>Map port using &amp;UPnP</source>
         <translation>Map port using &amp;UPnP</translation>
     </message>
@@ -2547,7 +2545,12 @@ https://www.transifex.com/slatecurrency/slatecurrency-translations</source>
         <translation>User Interface &amp;language:</translation>
     </message>
     <message>
-        <location line="+53"/>
+        <location line="+37"/>
+        <source>Language missing or translation incomplete? Help contributing translations here:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+52"/>
         <source>User Interface Theme:</source>
         <translation>User Interface Theme:</translation>
     </message>
@@ -2609,7 +2612,7 @@ https://www.transifex.com/slatecurrency/slatecurrency-translations</source>
         <translation>&amp;Cancel</translation>
     </message>
     <message>
-        <location filename="../optionsdialog.cpp" line="+89"/>
+        <location filename="../optionsdialog.cpp" line="+90"/>
         <source>Any</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2829,13 +2832,13 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
         <translation>Recent transactions</translation>
     </message>
     <message>
-        <location filename="../overviewpage.cpp" line="+149"/>
+        <location filename="../overviewpage.cpp" line="+150"/>
         <location line="+1"/>
         <source>out of sync</source>
         <translation>out of sync</translation>
     </message>
     <message>
-        <location line="+105"/>
+        <location line="+106"/>
         <source>Current percentage of zSLX.
 If AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).
 </source>
@@ -2861,7 +2864,7 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
 <context>
     <name>PaymentServer</name>
     <message>
-        <location filename="../paymentserver.cpp" line="+297"/>
+        <location filename="../paymentserver.cpp" line="+298"/>
         <location line="+209"/>
         <location line="+33"/>
         <location line="+104"/>
@@ -2983,7 +2986,7 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
 <context>
     <name>PeerTableModel</name>
     <message>
-        <location filename="../peertablemodel.cpp" line="+115"/>
+        <location filename="../peertablemodel.cpp" line="+116"/>
         <source>Address/Hostname</source>
         <translation>Address/Hostname</translation>
     </message>
@@ -3012,7 +3015,7 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
     </message>
     <message>
         <location line="+64"/>
-        <location filename="../privacydialog.cpp" line="+163"/>
+        <location filename="../privacydialog.cpp" line="+164"/>
         <location line="+111"/>
         <source>Mint Zerocoin</source>
         <translation type="unfinished"></translation>
@@ -3113,13 +3116,13 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
     </message>
     <message>
         <location line="+37"/>
-        <location filename="../privacydialog.cpp" line="+536"/>
+        <location filename="../privacydialog.cpp" line="+537"/>
         <source>Spend Zerocoin. Without &apos;Pay To:&apos; address creates payments to yourself.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
-        <location filename="../privacydialog.cpp" line="-487"/>
+        <location filename="../privacydialog.cpp" line="-488"/>
         <location line="+4"/>
         <location line="+12"/>
         <location line="+84"/>
@@ -3547,13 +3550,13 @@ To change the percentage (no restart required):
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+12"/>
         <location line="+4"/>
         <source>zSLX is currently disabled due to maintenance.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-637"/>
+        <location line="-639"/>
         <location line="+111"/>
         <source>zSLX is currently undergoing maintenance.</source>
         <translation type="unfinished"></translation>
@@ -3794,7 +3797,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location line="+335"/>
+        <location line="+336"/>
         <source>PrivacyDialog</source>
         <comment>Enter an amount of SLX to convert to zSLX</comment>
         <translation type="unfinished">
@@ -3803,7 +3806,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         </translation>
     </message>
     <message>
-        <location line="-307"/>
+        <location line="-308"/>
         <source>denomination: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -3846,12 +3849,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../bitcoinunits.cpp" line="+252"/>
+        <location filename="../bitcoinunits.cpp" line="+253"/>
         <source>Amount</source>
         <translation>Amount</translation>
     </message>
     <message>
-        <location filename="../guiutil.cpp" line="+113"/>
+        <location filename="../guiutil.cpp" line="+114"/>
         <source>Enter a SLATE address (e.g. %1)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3906,11 +3909,44 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <source>%1 ms</source>
         <translation>%1 ms</translation>
     </message>
+    <message>
+        <location filename="../slate.cpp" line="+81"/>
+        <location line="+7"/>
+        <location line="+13"/>
+        <location line="+19"/>
+        <source>SLATE Core</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-38"/>
+        <source>Error: Specified data directory &quot;%1&quot; does not exist.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Error: Cannot parse configuration file: %1. Only use key=value syntax.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>Error: Invalid combination of -regtest and -testnet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>Error reading masternode configuration file: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+45"/>
+        <source>SLATE Core didn&apos;t yet exit safely...</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QRImageWidget</name>
     <message>
-        <location filename="../receiverequestdialog.cpp" line="+36"/>
+        <location filename="../receiverequestdialog.cpp" line="+37"/>
         <source>&amp;Save Image...</source>
         <translation>&amp;Save Image...</translation>
     </message>
@@ -4110,7 +4146,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+59"/>
-        <location filename="../rpcconsole.cpp" line="+331"/>
+        <location filename="../rpcconsole.cpp" line="+332"/>
         <location line="+717"/>
         <source>Select a peer to view detailed information.</source>
         <translation>Select a peer to view detailed information.</translation>
@@ -4566,7 +4602,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Remove</translation>
     </message>
     <message>
-        <location filename="../receivecoinsdialog.cpp" line="+39"/>
+        <location filename="../receivecoinsdialog.cpp" line="+40"/>
         <source>Copy label</source>
         <translation>Copy label</translation>
     </message>
@@ -4652,7 +4688,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>RecentRequestsTableModel</name>
     <message>
-        <location filename="../recentrequeststablemodel.cpp" line="+28"/>
+        <location filename="../recentrequeststablemodel.cpp" line="+29"/>
         <source>Date</source>
         <translation>Date</translation>
     </message>
@@ -4691,7 +4727,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     <name>SendCoinsDialog</name>
     <message>
         <location filename="../forms/sendcoinsdialog.ui" line="+17"/>
-        <location filename="../sendcoinsdialog.cpp" line="+231"/>
+        <location filename="../sendcoinsdialog.cpp" line="+232"/>
         <location line="+25"/>
         <location line="+396"/>
         <source>Send Coins</source>
@@ -5204,7 +5240,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>This is a verified payment request.</translation>
     </message>
     <message>
-        <location filename="../sendcoinsentry.cpp" line="+31"/>
+        <location filename="../sendcoinsentry.cpp" line="+32"/>
         <source>Enter a label for this address to add it to your address book</source>
         <translation>Enter a label for this address to add it to your address book</translation>
     </message>
@@ -5333,7 +5369,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Reset all verify message fields</translation>
     </message>
     <message>
-        <location filename="../signverifymessagedialog.cpp" line="+31"/>
+        <location filename="../signverifymessagedialog.cpp" line="+32"/>
         <source>Click &quot;Sign Message&quot; to generate signature</source>
         <translation>Click &quot;Sign Message&quot; to generate signature</translation>
     </message>
@@ -5407,7 +5443,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>SplashScreen</name>
     <message>
-        <location filename="../splashscreen.cpp" line="+36"/>
+        <location filename="../splashscreen.cpp" line="+37"/>
         <source>SLATE Core</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5437,7 +5473,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../networkstyle.cpp" line="+20"/>
+        <location filename="../networkstyle.cpp" line="+21"/>
         <source>[testnet]</source>
         <translation>[testnet]</translation>
     </message>
@@ -5445,7 +5481,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>TrafficGraphWidget</name>
     <message>
-        <location filename="../trafficgraphwidget.cpp" line="+79"/>
+        <location filename="../trafficgraphwidget.cpp" line="+80"/>
         <source>KB/s</source>
         <translation>KB/s</translation>
     </message>
@@ -5453,7 +5489,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>TransactionDesc</name>
     <message numerus="yes">
-        <location filename="../transactiondesc.cpp" line="+33"/>
+        <location filename="../transactiondesc.cpp" line="+34"/>
         <source>Open for %n more block(s)</source>
         <translation>
             <numerusform>Open for %n more block</numerusform>
@@ -5726,7 +5762,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>TransactionTableModel</name>
     <message>
-        <location filename="../transactiontablemodel.cpp" line="+215"/>
+        <location filename="../transactiontablemodel.cpp" line="+216"/>
         <source>Date</source>
         <translation>Date</translation>
     </message>
@@ -5942,7 +5978,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>TransactionView</name>
     <message>
-        <location filename="../transactionview.cpp" line="+69"/>
+        <location filename="../transactionview.cpp" line="+70"/>
         <location line="+17"/>
         <source>All</source>
         <translation>All</translation>
@@ -6161,7 +6197,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>UnitDisplayStatusBarControl</name>
     <message>
-        <location filename="../bitcoingui.cpp" line="+102"/>
+        <location filename="../bitcoingui.cpp" line="+120"/>
         <source>Unit to show amounts in. Click to select another unit.</source>
         <translation>Unit to show amounts in. Click to select another unit.</translation>
     </message>
@@ -6169,7 +6205,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>WalletFrame</name>
     <message>
-        <location filename="../walletframe.cpp" line="+26"/>
+        <location filename="../walletframe.cpp" line="+27"/>
         <source>No wallet has been loaded.</source>
         <translation>No wallet has been loaded.</translation>
     </message>
@@ -6177,7 +6213,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>WalletModel</name>
     <message>
-        <location filename="../walletmodel.cpp" line="+331"/>
+        <location filename="../walletmodel.cpp" line="+332"/>
         <location line="+9"/>
         <location line="+9"/>
         <source>Send Coins</source>
@@ -6193,7 +6229,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>WalletView</name>
     <message>
-        <location filename="../walletview.cpp" line="+63"/>
+        <location filename="../walletview.cpp" line="+64"/>
         <source>HISTORY</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6305,7 +6341,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished">Continuously rate-limit free transactions to &lt;n&gt;*1000 bytes per minute (default:%u)</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+6"/>
         <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
         <translation type="unfinished">Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</translation>
     </message>
@@ -6345,7 +6381,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+6"/>
         <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly.</source>
         <translation type="unfinished">Enter regression test mode, which uses a special chain in which blocks can be solved instantly.</translation>
     </message>
@@ -6460,7 +6496,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished">Output debugging information (default: %u, supplying &lt;category&gt; is optional)</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+7"/>
         <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
         <translation type="unfinished">Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</translation>
     </message>
@@ -6515,7 +6551,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+3"/>
         <source>Unable to locate enough Obfuscation denominated funds for this transaction.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6625,7 +6661,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished">Add a node to connect to and attempt to keep the connection open</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+5"/>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
         <translation type="unfinished">Allow DNS lookups for -addnode, -seednode and -connect</translation>
     </message>
@@ -6705,7 +6741,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished">Collateral not valid.</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Connect only to the specified node(s)</source>
         <translation type="unfinished">Connect only to the specified node(s)</translation>
     </message>
@@ -6715,7 +6751,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished">Connect through SOCKS5 proxy</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Connect to a node to retrieve peer addresses, and disconnect</source>
         <translation type="unfinished">Connect to a node to retrieve peer addresses, and disconnect</translation>
     </message>
@@ -6725,7 +6761,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished">Connection options:</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Copyright (C) 2009-%i The Bitcoin Core Developers</source>
         <translation type="unfinished">Copyright (C) 2009-%i The Bitcoin Core Developers</translation>
     </message>
@@ -6741,16 +6777,6 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+1"/>
-        <source>Copyright (C) 2018-%i The SLATE Core developers</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Copyright (C) %i The SLATE Core developers</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
         <source>Corrupted block database detected</source>
         <translation type="unfinished">Corrupted block database detected</translation>
     </message>
@@ -6760,7 +6786,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished">Could not parse masternode.conf</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+3"/>
         <source>Debugging/Testing options:</source>
         <translation type="unfinished">Debugging/Testing options:</translation>
     </message>
@@ -6770,7 +6796,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+3"/>
         <source>Disable OS notifications for incoming transactions (default: %u)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6875,7 +6901,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished">Error recovering public key.</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Error</source>
         <translation type="unfinished">Error</translation>
     </message>
@@ -6920,7 +6946,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished">Failed to listen on any port. Use -listen=0 if you want this.</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Failed to read block</source>
         <translation type="unfinished">Failed to read block</translation>
     </message>
@@ -6955,7 +6981,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished">Generate coins (default: %u)</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>How many blocks to check at startup (default: %u, 0 = all)</source>
         <translation type="unfinished">How many blocks to check at startup (default: %u, 0 = all)</translation>
     </message>
@@ -7085,12 +7111,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished">Invalid script detected.</translation>
     </message>
     <message>
-        <location line="+49"/>
+        <location line="+51"/>
         <source>Percentage of automatically minted Zerocoin  (1-100, default: %u)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+10"/>
         <source>Reindex the SLX and zSLX money supply statistics</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7105,22 +7131,22 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+12"/>
         <source>Selected coins value is less than payment target</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+40"/>
         <source>SwiftX options:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-268"/>
+        <location line="-297"/>
         <source>This is a pre-release test build - use at your own risk - do not use for staking or merchant applications!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-175"/>
+        <location line="-184"/>
         <source> mints deleted
 </source>
         <translation type="unfinished"></translation>
@@ -7137,7 +7163,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+38"/>
+        <location line="+41"/>
         <source>Disable all SLATE specific functionality (Masternodes, Zerocoin, SwiftX, Budgeting) (0-1, default: %u)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7147,7 +7173,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+22"/>
         <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7177,7 +7203,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+34"/>
         <source>Preferred Denomination for automatically minted Zerocoin  (1/5/10/50/100/500/1000/5000), 0 for no preference. default: %u)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7197,12 +7223,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+58"/>
+        <location line="+59"/>
         <source>&lt;category&gt; can be:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+12"/>
         <source>Attempt to force blockchain corruption recovery</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7212,7 +7238,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+23"/>
         <source>Display the stake modifier calculations in the debug.log file.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7247,7 +7273,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+16"/>
         <source>Error: A fatal internal error occurred, see debug.log for details</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7272,7 +7298,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+4"/>
         <source>Failed to select a zerocoin</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7287,7 +7313,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+33"/>
+        <location line="+34"/>
         <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
         <translation type="unfinished">Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</translation>
     </message>
@@ -7312,7 +7338,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished">Line: %d</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
         <translation type="unfinished">Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</translation>
     </message>
@@ -7322,7 +7348,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished">Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Loading addresses...</source>
         <translation type="unfinished">Loading addresses...</translation>
     </message>
@@ -7527,17 +7553,112 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished">Password for JSON-RPC connections</translation>
     </message>
     <message>
-        <location line="+121"/>
+        <location line="+138"/>
         <source>isValid(): Invalid -proxy address or hostname: &apos;%s&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-119"/>
+        <location line="-136"/>
         <source>Preparing for resync...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location line="-386"/>
+        <source>Could not locate RPC credentials. No authentication cookie could be found, and no rpcpassword is set in the configuration file (%s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+29"/>
+        <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly. This is intended for regression testing tools and app development.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+84"/>
+        <source>Output only the hex-encoded transaction id of the resultant transaction.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+101"/>
+        <source>Add address-based output to TX</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location line="+1"/>
+        <source>Add input to TX</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Add raw script output to TX</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Add zero or more signatures to transaction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>Commands:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Connect to JSON-RPC on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Copyright (C) %i The SLATE Core Developers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Create hex-encoded slate transaction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Create new, empty TX.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Delete input N from TX</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Delete output N from TX</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+29"/>
+        <source>Error writing zerocoinDB to disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>Failed to parse host:port string</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Get help for a command</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+32"/>
+        <source>List commands</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Load JSON file FILENAME into register NAME</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+44"/>
         <source>Prepend debug output with timestamp (default: %u)</source>
         <translation type="unfinished">Prepend debug output with timestamp (default: %u)</translation>
     </message>
@@ -7570,6 +7691,11 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <location line="+1"/>
         <source>Receive and display P2P network alerts (default: %u)</source>
         <translation type="unfinished">Receive and display P2P network alerts (default: %u)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Register Commands:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
@@ -7617,7 +7743,32 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished">Run in the background as a daemon and accept commands</translation>
     </message>
     <message>
+        <location line="+1"/>
+        <source>SLATE Core RPC client version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>See signrawtransaction docs for format of sighash flags, JSON objects.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Select JSON output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location line="+2"/>
+        <source>Send command to SLATE Core</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Send commands to node running on &lt;ip&gt; (default: %s)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
         <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
         <translation type="unfinished">Send transactions as zero-fee transactions if possible (default: %u)</translation>
     </message>
@@ -7630,6 +7781,16 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <location line="+1"/>
         <source>Session timed out.</source>
         <translation type="unfinished">Session timed out.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Set TX lock time to N</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Set TX version to N</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -7655,6 +7816,11 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <location line="+1"/>
         <source>Set minimum block size in bytes (default: %u)</source>
         <translation type="unfinished">Set minimum block size in bytes (default: %u)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Set register NAME to given JSON-STRING</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -7700,6 +7866,16 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <location line="+1"/>
         <source>Signing transaction failed</source>
         <translation type="unfinished">Signing transaction failed</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Slate Core Daemon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Slate Core slate-tx utility version</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -7749,6 +7925,11 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     <message>
         <location line="+1"/>
         <source>Staking options:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Start Slate Core Daemon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7833,6 +8014,11 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+1"/>
+        <source>This command requires JSON registers:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
         <source>This help message</source>
         <translation type="unfinished">This help message</translation>
     </message>
@@ -7855,6 +8041,11 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <location line="+1"/>
         <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
         <translation type="unfinished">Threshold for disconnecting misbehaving peers (default: %u)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Timeout during HTTP requests (default: %d)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -7963,8 +8154,18 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+1"/>
+        <source>Update hex-encoded slate transaction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
         <source>Upgrade wallet to latest format</source>
         <translation type="unfinished">Upgrade wallet to latest format</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Usage:</source>
+        <translation type="unfinished">Usage:</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -8014,6 +8215,11 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     <message>
         <location line="+1"/>
         <source>Version 1 zSLX require a security level of 100 to successfully spend.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Wait for RPC server to start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8108,8 +8314,269 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+1"/>
+        <source>prevtxs=JSON object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>privatekeys=JSON object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>version</source>
+        <translation type="unfinished">version</translation>
+    </message>
+    <message>
+        <location line="+1"/>
         <source>wallet.dat corrupt, salvage failed</source>
         <translation type="unfinished">wallet.dat corrupt, salvage failed</translation>
+    </message>
+</context>
+<context>
+    <name>tradingDialog</name>
+    <message>
+        <location filename="../forms/tradingdialog.ui" line="+14"/>
+        <source>Bittrex API</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+28"/>
+        <source>Order Book</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+126"/>
+        <source>Bids</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>Asks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <location line="+16"/>
+        <source>label</source>
+        <translation type="unfinished">label</translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <location line="+16"/>
+        <location line="+2491"/>
+        <location line="+13"/>
+        <location line="+51"/>
+        <location line="+51"/>
+        <location line="+32"/>
+        <location line="+32"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-2648"/>
+        <source>Market History</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+52"/>
+        <source>Open Orders</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+59"/>
+        <source>Advanced View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Trade history</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+52"/>
+        <source>Buy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>Buy SLX</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <location line="+1155"/>
+        <source>Units</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-1108"/>
+        <location line="+1192"/>
+        <location line="+517"/>
+        <source>SLX</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-1696"/>
+        <location line="+552"/>
+        <location line="+472"/>
+        <location line="+37"/>
+        <source>BTC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-1042"/>
+        <location line="+1147"/>
+        <source>Bid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-1128"/>
+        <location line="+1094"/>
+        <source>Order Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-1076"/>
+        <location line="+1057"/>
+        <source>Max</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-1005"/>
+        <location line="+2231"/>
+        <source>BTC Available:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-1803"/>
+        <location line="+472"/>
+        <location line="+1812"/>
+        <location line="+19"/>
+        <location line="+38"/>
+        <source>0.00000000</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-2300"/>
+        <source>Total w/ 0.25% Fee</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+472"/>
+        <source>Sell</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+177"/>
+        <source>Sell SLX</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+26"/>
+        <location line="+1036"/>
+        <source>SLX Available:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-608"/>
+        <source> 0.00000000 </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+41"/>
+        <source>Total w/ 0.25% Fee </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+431"/>
+        <source> 0.00000000</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source> BTC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+25"/>
+        <source>Balance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+44"/>
+        <source>SLX Balance:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>BTC Balance:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+51"/>
+        <source>SLX Pending:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+64"/>
+        <source>BTC Pending:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+32"/>
+        <source>Bittrex SLX Deposit Address:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>Generate SLATE Deposit Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+158"/>
+        <source>Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+28"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Convert VCoin:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+47"/>
+        <source>=</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>$0.0000 / B0.00000000</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+29"/>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+31"/>
+        <source>Update API Keys</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>API Key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+42"/>
+        <source>Secret Key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+68"/>
+        <source>0.000000000</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
