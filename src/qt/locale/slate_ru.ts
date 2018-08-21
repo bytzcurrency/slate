@@ -613,10 +613,6 @@
         <translation><numerusform>Обработано %n блоков истории транзакций</numerusform><numerusform>Обработано %n блоков истории транзакций</numerusform><numerusform>Обработано %n блоков истории транзакций</numerusform><numerusform>Обработано %n блоков истории транзакций</numerusform></translation>
     </message>
     <message>
-        <source>Synchronizing additional data: %p%</source>
-        <translation>Синхронизация дополнительных данных: %p%</translation>
-    </message>
-    <message>
         <source>%1 behind. Scanning block %2</source>
         <translation>%1 позади. Блок сканирования %2</translation>
     </message>
@@ -864,7 +860,7 @@ MultiSend: %1</translation>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Кошелек &lt;b&gt;зашифрован&lt;/b&gt; и в настоящее время &lt;b&gt;заблокирован&lt;/b&gt;</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>BlockExplorer</name>
     <message>
@@ -1542,48 +1538,12 @@ MultiSend будет неактивен до тех пор, пока вы не �
         <translation>(нет метки)</translation>
     </message>
     <message>
-        <source>The entered address:
-</source>
-        <translation>Введенный адрес:
-</translation>
-    </message>
-    <message>
-        <source> is invalid.
-Please check the address and try again.</source>
-        <translation>недопустим.
-Пожалуйста, проверьте адрес и попробуйте снова.</translation>
-    </message>
-    <message>
-        <source>The total amount of your MultiSend vector is over 100% of your stake reward
-</source>
-        <translation>Итоговое значение вектора MultiSend превышает 100% ваших вознаграждений
-</translation>
-    </message>
-    <message>
         <source>Please Enter 1 - 100 for percent.</source>
         <translation>Введите 1 - 100 для указания процентов.</translation>
     </message>
     <message>
-        <source>Saved the MultiSend to memory, but failed saving properties to the database.
-</source>
-        <translation>Сохранили МультиОтправку в памяти, но не удалось сохранить свойства в базе данных.
-</translation>
-    </message>
-    <message>
-        <source>MultiSend Vector
-</source>
-        <translation>Вектор MultiSend
-</translation>
-    </message>
-    <message>
         <source>Removed </source>
         <translation>Удалено</translation>
-    </message>
-    <message>
-        <source>Could not locate address
-</source>
-        <translation>Не удалось найти адрес
-</translation>
     </message>
 </context>
 <context>
@@ -1936,12 +1896,6 @@ Please be patient after clicking import.</source>
     <message>
         <source>The user interface language can be set here. This setting will take effect after restarting SLATE.</source>
         <translation>Здесь можно выставить язык интерфейса. Изменения вступят в силу после перезапуска SLATE.</translation>
-    </message>
-    <message>
-        <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/slatecurrency/slatecurrency-translations</source>
-        <translation>Отсутствует ваш язык или заметили незавершенный перевод? Вы можете помочь нам стать лучше:
-https://www.transifex.com/slatecurrency/slatecurrency-translations</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -3014,7 +2968,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <source>%1 ms</source>
         <translation>%1 мс</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>QRImageWidget</name>
     <message>
@@ -5015,20 +4969,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Вы должны указать в  строке приложенный ключ. Пожалуйста, обратитесь к документации для получения справки</translation>
     </message>
     <message>
-        <source>(51472 could be used only on mainnet)</source>
-        <translation>(51472 можно использовать только в сети)</translation>
-    </message>
-    <message>
         <source>(default: %s)</source>
         <translation>(неуплата: %s)</translation>
     </message>
     <message>
         <source>(default: 1)</source>
         <translation>(неуплата: 1)</translation>
-    </message>
-    <message>
-        <source>(must be 51472 for mainnet)</source>
-        <translation>(должен быть 51472 для mainet)</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>
@@ -5137,14 +5083,6 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     <message>
         <source>Copyright (C) 2015-%i The PIVX Core developers</source>
         <translation>Copyright (C) 2015-%i Разработчики PIVX Core</translation>
-    </message>
-    <message>
-        <source>Copyright (C) 2018-%i The SLATE Core developers</source>
-        <translation>Copyright (C) 2018-%i Разработчики SLATE Core</translation>
-    </message>
-    <message>
-        <source>Copyright (C) %i The SLATE Core developers</source>
-        <translation>Copyright (C) %i Разработчики SLATE Core</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
@@ -6195,4 +6133,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>wallet.dat коррумпирован, сбор не выполнен</translation>
     </message>
 </context>
+<context>
+    <name>tradingDialog</name>
+    </context>
 </TS>

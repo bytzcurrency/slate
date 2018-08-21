@@ -613,10 +613,6 @@
         <translation><numerusform>%n Blöcke der Transaktionshistorie bearbeitet.</numerusform><numerusform>%n Blöcke des Transaktionsverlaufs verarbeitet.</numerusform></translation>
     </message>
     <message>
-        <source>Synchronizing additional data: %p%</source>
-        <translation>Synchronisiere zusätzliche Daten:  %p%</translation>
-    </message>
-    <message>
         <source>%1 behind. Scanning block %2</source>
         <translation>%1 im Rückstand. Scanne Block %2</translation>
     </message>
@@ -859,7 +855,7 @@ Adresse: %4</translation>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Wallet ist &lt;b&gt;verschlüsselt&lt;/b&gt; und aktuell &lt;b&gt;gesperrt&lt;/b&gt;</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>BlockExplorer</name>
     <message>
@@ -1533,48 +1529,12 @@ MultiSend wird nicht aktiviert bis Sie auf Aktivieren geklickt haben.</translati
         <translation>(keine Bezeichnung)</translation>
     </message>
     <message>
-        <source>The entered address:
-</source>
-        <translation>Die eingegebene Adresse:
-</translation>
-    </message>
-    <message>
-        <source> is invalid.
-Please check the address and try again.</source>
-        <translation>ist ungültig.
-Bitte Adresse überprüfen und nochmals versuchen.</translation>
-    </message>
-    <message>
-        <source>The total amount of your MultiSend vector is over 100% of your stake reward
-</source>
-        <translation>Die Gesamtzahl des MultiSend Vektors ist über 100% des Stake Rewards
-</translation>
-    </message>
-    <message>
         <source>Please Enter 1 - 100 for percent.</source>
         <translation>Bitte eine Zahl zwischen 1-100 in Prozent eingeben.</translation>
     </message>
     <message>
-        <source>Saved the MultiSend to memory, but failed saving properties to the database.
-</source>
-        <translation>Gespeichert den MultiSend im Speicher, aber Fehler beim Speichern von Eigenschaften in der Datenbank
-</translation>
-    </message>
-    <message>
-        <source>MultiSend Vector
-</source>
-        <translation>MultiSend Vektor
-</translation>
-    </message>
-    <message>
         <source>Removed </source>
         <translation>Gelöscht</translation>
-    </message>
-    <message>
-        <source>Could not locate address
-</source>
-        <translation>Konnte Adresse nicht ermitteln
-</translation>
     </message>
 </context>
 <context>
@@ -1927,12 +1887,6 @@ Bitte haben Sie etwas Geduld, nachdem Sie auf Importieren geklickt haben.</trans
     <message>
         <source>The user interface language can be set here. This setting will take effect after restarting SLATE.</source>
         <translation>Die Sprache der Benutzeroberfläche kann hier festgelegt werden. Diese Einstellung wird nach einem Neustart realisiert.</translation>
-    </message>
-    <message>
-        <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/slatecurrency/slatecurrency-translations</source>
-        <translation>Sprache fehlt oder ist unvollständig? Helfe mit und trage zur Übersetzung bei unter:
-https://www.transifex.com/slatecurrency/slatecurrency-translations</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -3065,7 +3019,7 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <source>%1 ms</source>
         <translation>%1 Ms</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>QRImageWidget</name>
     <message>
@@ -5141,20 +5095,12 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>Sie müssen einen privaten Masternode-Schlüssel in der Konfiguration festlegen. Bitte nutzen Sie die Dokumentation zwecks Hilfe.</translation>
     </message>
     <message>
-        <source>(51472 could be used only on mainnet)</source>
-        <translation>(51472 kann nur im Mainnet verwendet werden)</translation>
-    </message>
-    <message>
         <source>(default: %s)</source>
         <translation>(default: %s)</translation>
     </message>
     <message>
         <source>(default: 1)</source>
         <translation>(default: 1)</translation>
-    </message>
-    <message>
-        <source>(must be 51472 for mainnet)</source>
-        <translation>(muss im Mainnet 51472 sein)</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>
@@ -5263,14 +5209,6 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
     <message>
         <source>Copyright (C) 2015-%i The PIVX Core developers</source>
         <translation>Copyright (C) 2015-%i The PIVX Core developers</translation>
-    </message>
-    <message>
-        <source>Copyright (C) 2018-%i The SLATE Core developers</source>
-        <translation>Copyright (C) 2018-%i The SLATE Core developers</translation>
-    </message>
-    <message>
-        <source>Copyright (C) %i The SLATE Core developers</source>
-        <translation>Copyright (C) %i The SLATE Core developers</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
@@ -6365,4 +6303,7 @@ Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn)
         <translation>wallet.dat beschädigt, Datenrettung fehlgeschlagen</translation>
     </message>
 </context>
+<context>
+    <name>tradingDialog</name>
+    </context>
 </TS>

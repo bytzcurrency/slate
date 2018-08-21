@@ -613,10 +613,6 @@
         <translation><numerusform>Bearbetar %n block av transaktionshistoriken.</numerusform><numerusform>Bearbetar %n block av transaktionshistoriken.</numerusform></translation>
     </message>
     <message>
-        <source>Synchronizing additional data: %p%</source>
-        <translation>synchroniserar ytterligare data %p%</translation>
-    </message>
-    <message>
         <source>%1 behind. Scanning block %2</source>
         <translation>%1 efter. Skannar block %2</translation>
     </message>
@@ -864,7 +860,7 @@ MultiSend: %1</translation>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Plånbok är &lt;b&gt;krypterad&lt;/b&gt; och tillfälligt &lt;b&gt;låst&lt;/b&gt;</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>BlockExplorer</name>
     <message>
@@ -1542,47 +1538,12 @@ MultiSend kommer inte aktiveras om du inte tryckt på Aktivera</translation>
         <translation>(Ingen etikett)</translation>
     </message>
     <message>
-        <source>The entered address:
-</source>
-        <translation>Den inmatade adressen:
-</translation>
-    </message>
-    <message>
-        <source> is invalid.
-Please check the address and try again.</source>
-        <translation>är ogiltig.
-Var vänlig kontrollera adressen och försök igen.</translation>
-    </message>
-    <message>
-        <source>The total amount of your MultiSend vector is over 100% of your stake reward
-</source>
-        <translation>Din totala MultiSend vektor mängd överstiger 100% av din stake belöning
-</translation>
-    </message>
-    <message>
         <source>Please Enter 1 - 100 for percent.</source>
         <translation>Var vänlig mata in 1 - 100 i procent.</translation>
     </message>
     <message>
-        <source>Saved the MultiSend to memory, but failed saving properties to the database.
-</source>
-        <translation>Sparade MultiSend till minne, men misslyckades spara egenskaperna till databasen.
-</translation>
-    </message>
-    <message>
-        <source>MultiSend Vector
-</source>
-        <translation>MultiSend Vektor</translation>
-    </message>
-    <message>
         <source>Removed </source>
         <translation>Borttagen</translation>
-    </message>
-    <message>
-        <source>Could not locate address
-</source>
-        <translation>Kunde inte lokalisera adress
-</translation>
     </message>
 </context>
 <context>
@@ -1883,12 +1844,6 @@ Var god vänta efter att du trycker på importera.</translation>
     <message>
         <source>The user interface language can be set here. This setting will take effect after restarting SLATE.</source>
         <translation>Användargränssnittets språk kan väljas här. Denna inställning börjar gälla efter att man startat om SLATE.</translation>
-    </message>
-    <message>
-        <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/slatecurrency/slatecurrency-translations</source>
-        <translation>Fattas språk eller är översättningen ofullständig? Hjälp till att bidra med översättning här:
-https://www.transifex.com/slatecurrency/slatecurrency-translations</translation>
     </message>
     <message>
         <source>Enable automatic minting of SLX units to zSLX</source>
@@ -2954,7 +2909,7 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
         <source>%1 ms</source>
         <translation>%1 ms</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>QRImageWidget</name>
     <message>
@@ -4906,20 +4861,12 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
         <translation>Du måste specifiera en masternodeprivkey i konfigurationen. Var vänlig se dokumentation för hjälp.</translation>
     </message>
     <message>
-        <source>(51472 could be used only on mainnet)</source>
-        <translation>(51472 kunde endast användas på mainnet)</translation>
-    </message>
-    <message>
         <source>(default: %s)</source>
         <translation>(standard: %s)</translation>
     </message>
     <message>
         <source>(default: 1)</source>
         <translation>(standard: 1)</translation>
-    </message>
-    <message>
-        <source>(must be 51472 for mainnet)</source>
-        <translation>(måste vara 51472 för mainnet)</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>
@@ -5028,14 +4975,6 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
     <message>
         <source>Copyright (C) 2015-%i The PIVX Core developers</source>
         <translation>Copyright (C) 2015-%i The PIVX Core developers</translation>
-    </message>
-    <message>
-        <source>Copyright (C) 2018-%i The SLATE Core developers</source>
-        <translation>Copyright (C) 2018-%i The SLATE Core developers</translation>
-    </message>
-    <message>
-        <source>Copyright (C) %i The SLATE Core developers</source>
-        <translation>Copyright (C) %i The SLATE Core developers</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
@@ -5289,5 +5228,8 @@ Minta antingen högre valörer (så att färre inputs behövs) eller spendera mi
         <source>on startup</source>
         <translation>Vid uppstart</translation>
     </message>
+    </context>
+<context>
+    <name>tradingDialog</name>
     </context>
 </TS>

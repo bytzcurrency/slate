@@ -613,10 +613,6 @@
         <translation><numerusform>%n blokken aan transactiegeschiedenis verwerkt.</numerusform><numerusform>%n blokken aan transactiegeschiedenis verwerkt.</numerusform></translation>
     </message>
     <message>
-        <source>Synchronizing additional data: %p%</source>
-        <translation>Synchroniseren aanvullende gegevens: %p%</translation>
-    </message>
-    <message>
         <source>%1 behind. Scanning block %2</source>
         <translation>%1 achter. Scannen van block %2</translation>
     </message>
@@ -864,7 +860,7 @@ MultiSend: %1</translation>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Portemonnee is versleuteld &lt;/b&gt;en momenteel &lt;b&gt; vergrendeld&lt;/b&gt;</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>BlockExplorer</name>
     <message>
@@ -1542,48 +1538,12 @@ MultiSend zal niet worden geactiveerd tenzij je op Activeer hebt geklikt</transl
         <translation>(geen label)</translation>
     </message>
     <message>
-        <source>The entered address:
-</source>
-        <translation>Het ingevoerde adres:
-</translation>
-    </message>
-    <message>
-        <source> is invalid.
-Please check the address and try again.</source>
-        <translation>is ongeldig.
-Controleer het adres alsjeblieft en probeer het opnieuw.</translation>
-    </message>
-    <message>
-        <source>The total amount of your MultiSend vector is over 100% of your stake reward
-</source>
-        <translation>De totale hoeveelheid van je MultiSend vector is meer dan 100% van je stake beloning
-</translation>
-    </message>
-    <message>
         <source>Please Enter 1 - 100 for percent.</source>
         <translation>Vul alsjeblieft 1 - 100 voor procent in.</translation>
     </message>
     <message>
-        <source>Saved the MultiSend to memory, but failed saving properties to the database.
-</source>
-        <translation>De MultiSend in het geheugen opgeslagen, maar mislukt om de eigenschappen op te slaan in de database.
-</translation>
-    </message>
-    <message>
-        <source>MultiSend Vector
-</source>
-        <translation>MultiSend Vector
-</translation>
-    </message>
-    <message>
         <source>Removed </source>
         <translation>Verwijderd</translation>
-    </message>
-    <message>
-        <source>Could not locate address
-</source>
-        <translation>Kan het adres niet lokaliseren
-</translation>
     </message>
 </context>
 <context>
@@ -1936,12 +1896,6 @@ Waas alsjeblieft geduldig nadat u op importeren hebt geklikt.</translation>
     <message>
         <source>The user interface language can be set here. This setting will take effect after restarting SLATE.</source>
         <translation>De gebruikersinterface taal kan hier ingesteld worden. Deze instelling zal uitgevoerd na herstart van SLATE.</translation>
-    </message>
-    <message>
-        <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/slatecurrency/slatecurrency-translations</source>
-        <translation>Taal ontbreekt of vertaling onvolledig? Help om bij te dragen aan vertalingen:
-https://www.transifex.com/slatecurrency/slatecurrency-translations</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -3075,7 +3029,7 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
         <source>%1 ms</source>
         <translation>%1 ms</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>QRImageWidget</name>
     <message>
@@ -5151,20 +5105,12 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
         <translation>Je moet een masternodeprivkey opgeven in de configuratie. Raadpleeg de documentatie voor hulp.</translation>
     </message>
     <message>
-        <source>(51472 could be used only on mainnet)</source>
-        <translation>(51472 kan alleen op mainnet worden gebruikt)</translation>
-    </message>
-    <message>
         <source>(default: %s)</source>
         <translation>(standaard: %s)</translation>
     </message>
     <message>
         <source>(default: 1)</source>
         <translation>(standaard: 1)</translation>
-    </message>
-    <message>
-        <source>(must be 51472 for mainnet)</source>
-        <translation>(moet 51472 voor mainnet zijn)</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>
@@ -5273,14 +5219,6 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
     <message>
         <source>Copyright (C) 2015-%i The PIVX Core developers</source>
         <translation>Copyright (C) 2015-%i The PIVX Kernontwikkelaars</translation>
-    </message>
-    <message>
-        <source>Copyright (C) 2018-%i The SLATE Core developers</source>
-        <translation>Copyright (C) 2018-%i The SLATE Kernontwikkelaars</translation>
-    </message>
-    <message>
-        <source>Copyright (C) %i The SLATE Core developers</source>
-        <translation>Copyright (C) %i The SLATE Kernontwikkelaars</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
@@ -6375,4 +6313,7 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
         <translation>wallet.dat corrupt, redding mislukt</translation>
     </message>
 </context>
+<context>
+    <name>tradingDialog</name>
+    </context>
 </TS>

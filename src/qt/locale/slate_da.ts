@@ -613,10 +613,6 @@
         <translation><numerusform>Behandlet %n blok af transaktionshistorik.</numerusform><numerusform>Behandlet %n blokke af transaktionshistorik.</numerusform></translation>
     </message>
     <message>
-        <source>Synchronizing additional data: %p%</source>
-        <translation>Synkroniserer yderligere data %p%</translation>
-    </message>
-    <message>
         <source>%1 behind. Scanning block %2</source>
         <translation>%1 bag. Scanning blok %2</translation>
     </message>
@@ -864,7 +860,7 @@ Adresse: %4
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Tegnebogen er &lt;b&gt;krypteret og låst&lt;/b&gt;</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>BlockExplorer</name>
     <message>
@@ -1542,48 +1538,12 @@ Multisend vil ikke fungere med mindre systemet er aktiveret.</translation>
         <translation>(ingen opmærknig)</translation>
     </message>
     <message>
-        <source>The entered address:
-</source>
-        <translation>Den indtastede adresse:
-</translation>
-    </message>
-    <message>
-        <source> is invalid.
-Please check the address and try again.</source>
-        <translation>er ikke gyldig. 
-Kontroller adressen og prøv igen.</translation>
-    </message>
-    <message>
-        <source>The total amount of your MultiSend vector is over 100% of your stake reward
-</source>
-        <translation>Den totale sum af Deres Multisendgruppe er over 100% af Deres indskudsbelønning
-</translation>
-    </message>
-    <message>
         <source>Please Enter 1 - 100 for percent.</source>
         <translation>Indtast en procentsats 1-100 </translation>
     </message>
     <message>
-        <source>Saved the MultiSend to memory, but failed saving properties to the database.
-</source>
-        <translation>Gemt MultiSend til hukommelse, men fejlede gemme egenskaber til databasen.
-</translation>
-    </message>
-    <message>
-        <source>MultiSend Vector
-</source>
-        <translation>Multisendgruppe
-</translation>
-    </message>
-    <message>
         <source>Removed </source>
         <translation>Fjernet</translation>
-    </message>
-    <message>
-        <source>Could not locate address
-</source>
-        <translation>Kunne ikke finde adresse
-</translation>
     </message>
 </context>
 <context>
@@ -1936,12 +1896,6 @@ Vær tålmodig efter at du har klikket på import.</translation>
     <message>
         <source>The user interface language can be set here. This setting will take effect after restarting SLATE.</source>
         <translation>Vælg sprog her. Ændringerne træder i kraft næste gang SLATE klienten startes</translation>
-    </message>
-    <message>
-        <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/slatecurrency/slatecurrency-translations</source>
-        <translation>Det valgte sprog mangler, eller oversættelsen er mangelfuld. Hjælp ved at bidrage med oversættelser her:
-https://www.transifex.com/slatecurrency/slatecurrency-translations</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -3018,7 +2972,7 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
         <source>%1 ms</source>
         <translation>%1 ms</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>QRImageWidget</name>
     <message>
@@ -5143,14 +5097,6 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
         <translation>Copyright (C) 2015-%i The PIVX Core developers</translation>
     </message>
     <message>
-        <source>Copyright (C) 2018-%i The SLATE Core developers</source>
-        <translation>Copyright (C) 2018-%i The SLATE Core developers</translation>
-    </message>
-    <message>
-        <source>Copyright (C) %i The SLATE Core developers</source>
-        <translation>Copyright (C) %i The SLATE Core developers</translation>
-    </message>
-    <message>
         <source>Corrupted block database detected</source>
         <translation>Blokdatabasen er beskadiget</translation>
     </message>
@@ -6199,4 +6145,7 @@ Enten mint højere nomineringer (så færre input er nødvendige) eller reducere
         <translation>Tegnebogsfilen wallet.dat er beskadiget. Opbygning mislykkedes.</translation>
     </message>
 </context>
+<context>
+    <name>tradingDialog</name>
+    </context>
 </TS>

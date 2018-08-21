@@ -13,7 +13,6 @@ QT_TS = \
   qt/locale/slate_da.ts \
   qt/locale/slate_de.ts \
   qt/locale/slate_en.ts \
-  qt/locale/slate_en_US.ts \
   qt/locale/slate_es.ts \
   qt/locale/slate_es_ES.ts \
   qt/locale/slate_fi.ts \

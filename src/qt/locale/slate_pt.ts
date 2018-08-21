@@ -1286,4 +1286,7 @@
         <translation>Sua transação foi aceita na pool!</translation>
     </message>
     </context>
+<context>
+    <name>tradingDialog</name>
+    </context>
 </TS>

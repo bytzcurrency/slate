@@ -516,7 +516,7 @@
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>El moneder està &lt;b&gt;encriptat&lt;/b&gt; i bloquejat&lt;/b&gt;</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>BlockExplorer</name>
     <message>
@@ -1084,30 +1084,12 @@
         <translation>(sense etiqueta)</translation>
     </message>
     <message>
-        <source>The entered address:
-</source>
-        <translation>L'adreça introduïda:
-</translation>
-    </message>
-    <message>
         <source>Please Enter 1 - 100 for percent.</source>
         <translation>Si us plau introdueix 1 - 100 per al percentatge</translation>
     </message>
     <message>
-        <source>MultiSend Vector
-</source>
-        <translation>Vector MultiSend
-</translation>
-    </message>
-    <message>
         <source>Removed </source>
         <translation>Eliminat</translation>
-    </message>
-    <message>
-        <source>Could not locate address
-</source>
-        <translation>No s'ha trobat l'adreça
-</translation>
     </message>
 </context>
 <context>
@@ -1404,7 +1386,7 @@
         <source>%1 ms</source>
         <translation>%1 ms</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>QRImageWidget</name>
     <message>
@@ -2079,5 +2061,8 @@
         <source>Warning</source>
         <translation>Atenció</translation>
     </message>
+    </context>
+<context>
+    <name>tradingDialog</name>
     </context>
 </TS>

@@ -533,10 +533,6 @@
         <translation>&amp;命令列工具</translation>
     </message>
     <message>
-        <source>Synchronizing additional data: %p%</source>
-        <translation>其他資料同步中: %p%</translation>
-    </message>
-    <message>
         <source>&amp;File</source>
         <translation>&amp;檔案</translation>
     </message>
@@ -961,5 +957,8 @@
     </context>
 <context>
     <name>slate-core</name>
+    </context>
+<context>
+    <name>tradingDialog</name>
     </context>
 </TS>

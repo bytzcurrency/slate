@@ -545,10 +545,6 @@
         <translation>&amp;Komentolinja vaihtoehdot</translation>
     </message>
     <message>
-        <source>Synchronizing additional data: %p%</source>
-        <translation>Synkronisoidaan lisätietoja: %p%</translation>
-    </message>
-    <message>
         <source>&amp;File</source>
         <translation>&amp;Tiedosto</translation>
     </message>
@@ -1057,37 +1053,12 @@
         <translation>(ei nimikettä)</translation>
     </message>
     <message>
-        <source>The entered address:
-</source>
-        <translation>Syötetty osoite:</translation>
-    </message>
-    <message>
-        <source> is invalid.
-Please check the address and try again.</source>
-        <translation>on invalidi. Ole hyvä ja tarkista osoite.</translation>
-    </message>
-    <message>
-        <source>The total amount of your MultiSend vector is over 100% of your stake reward
-</source>
-        <translation>MultiSend vektorisi kokonaismäärä on yli 100% panoksesi lohkopalkkiosta.</translation>
-    </message>
-    <message>
         <source>Please Enter 1 - 100 for percent.</source>
         <translation>Syötä 1 - 100 prosenttia</translation>
     </message>
     <message>
-        <source>MultiSend Vector
-</source>
-        <translation>MultiSend vektori</translation>
-    </message>
-    <message>
         <source>Removed </source>
         <translation>Poistettu</translation>
-    </message>
-    <message>
-        <source>Could not locate address
-</source>
-        <translation>Osoitetta ei löytynyt</translation>
     </message>
 </context>
 <context>
@@ -2768,4 +2739,7 @@ Please check the address and try again.</source>
         <translation>wallet.dat vioittunut, pelastus epäonnistui</translation>
     </message>
 </context>
+<context>
+    <name>tradingDialog</name>
+    </context>
 </TS>

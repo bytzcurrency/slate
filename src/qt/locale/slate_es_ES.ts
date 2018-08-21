@@ -570,4 +570,7 @@
         <translation>wallet.dat corrupto, recuperación fallida</translation>
     </message>
 </context>
+<context>
+    <name>tradingDialog</name>
+    </context>
 </TS>

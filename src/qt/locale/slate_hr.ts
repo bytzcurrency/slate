@@ -573,10 +573,6 @@
         <translation>&amp;Opcije-naredbene linije</translation>
     </message>
     <message>
-        <source>Synchronizing additional data: %p%</source>
-        <translation>Usklađivanje dodatnih podataka: %p%</translation>
-    </message>
-    <message>
         <source>%1 behind. Scanning block %2</source>
         <translation>%1 iza. Skeniranje blokiranjem %2</translation>
     </message>
@@ -1369,5 +1365,8 @@
         <source>Warning</source>
         <translation>Upozorenje</translation>
     </message>
+    </context>
+<context>
+    <name>tradingDialog</name>
     </context>
 </TS>

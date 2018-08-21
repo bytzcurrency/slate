@@ -608,14 +608,6 @@
         <source>&amp;Command-line options</source>
         <translation>&amp;Komandinės eilutės parinktys</translation>
     </message>
-    <message numerus="yes">
-        <source>Processed %n blocks of transaction history.</source>
-        <translation><numerusform>Apdorota %n operacijų istorijos blokų.</numerusform><numerusform>Apdorota %n operacijų istorijos blokų.</numerusform><numerusform>Apdorota %n operacijų istorijos blokų.</numerusform></translation>
-    </message>
-    <message>
-        <source>Synchronizing additional data: %p%</source>
-        <translation>Sinchronizuojami papildomi duomenys: %p%</translation>
-    </message>
     <message>
         <source>%1 behind. Scanning block %2</source>
         <translation>%1 atsilieka. Nuskaitomas %2 blokas.</translation>
@@ -736,10 +728,6 @@
         <source>SLATE Core client</source>
         <translation>SLATE Core piniginė</translation>
     </message>
-    <message numerus="yes">
-        <source>%n active connection(s) to SLATE network</source>
-        <translation><numerusform>%n aktyvių prisijungimų SLATE tinkle ()</numerusform><numerusform>%n aktyvių prisijungimų SLATE tinkle ()</numerusform><numerusform>%n aktyvių prisijungimų SLATE tinkle ()</numerusform></translation>
-    </message>
     <message>
         <source>Synchronizing with network...</source>
         <translation>Sinchronizuojama su tinklu ...</translation>
@@ -760,25 +748,9 @@
         <source>Up to date</source>
         <translation>Atnaujinta</translation>
     </message>
-    <message numerus="yes">
-        <source>%n hour(s)</source>
-        <translation><numerusform>%n valanda</numerusform><numerusform>%n valandų</numerusform><numerusform>%n valandų</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n day(s)</source>
-        <translation><numerusform>%n diena</numerusform><numerusform>%n dienų</numerusform><numerusform>%n dienų</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n week(s)</source>
-        <translation><numerusform>%n savaitė</numerusform><numerusform>%n savaičių</numerusform><numerusform>%n savaičių</numerusform></translation>
-    </message>
     <message>
         <source>%1 and %2</source>
         <translation>%1 ir %2</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n year(s)</source>
-        <translation><numerusform>%n metai</numerusform><numerusform>%n metų</numerusform><numerusform>%n metų</numerusform></translation>
     </message>
     <message>
         <source>Catching up...</source>
@@ -864,7 +836,7 @@ MultiSend: %1</translation>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Piniginė yra &lt;b&gt;užšifruota&lt;/b&gt; ir šiuo metu &lt;b&gt;užrakinta&lt;/b&gt;</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>BlockExplorer</name>
     <message>
@@ -1534,42 +1506,12 @@ MultiSend nebus aktyvuotas, nebent paspausite "Įjungti"</translation>
         <translation>(nėra etiketės)</translation>
     </message>
     <message>
-        <source>The entered address:
-</source>
-        <translation>Įvestas adresas: 
-</translation>
-    </message>
-    <message>
-        <source> is invalid.
-Please check the address and try again.</source>
-        <translation>yra netinkamas.
-Patikrinkite adresą ir bandykite dar kartą.</translation>
-    </message>
-    <message>
-        <source>The total amount of your MultiSend vector is over 100% of your stake reward
-</source>
-        <translation>Bendra MultiSend sąrašo suma yra didesnė nei 100% jūsų stake'inimo atlygio
-</translation>
-    </message>
-    <message>
         <source>Please Enter 1 - 100 for percent.</source>
         <translation>Įveskite 1-100 procentų</translation>
     </message>
     <message>
-        <source>MultiSend Vector
-</source>
-        <translation>MultiSend Sąrašas
-</translation>
-    </message>
-    <message>
         <source>Removed </source>
         <translation>Pašalintas</translation>
-    </message>
-    <message>
-        <source>Could not locate address
-</source>
-        <translation>Nepavyko rasti adreso
-</translation>
     </message>
 </context>
 <context>
@@ -1830,12 +1772,6 @@ Patikrinkite adresą ir bandykite dar kartą.</translation>
     <message>
         <source>The user interface language can be set here. This setting will take effect after restarting SLATE.</source>
         <translation>Čia galite nustatyti vartotojo sąsajos kalbą. Šis nustatymas įsigalios iš naujo paleidus "SLATE".</translation>
-    </message>
-    <message>
-        <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/slatecurrency/slatecurrency-translations</source>
-        <translation>Trūksta kalbos arba vertimas nebaigtas? Padėkite prisidėdami prie vertimų čia: 
-https://www.transifex.com/slatecurrency/slatecurrency-translations</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -3316,4 +3252,7 @@ https://www.transifex.com/slatecurrency/slatecurrency-translations</translation>
         <translation>wallet.dat sugadintas, surinkimas nepavyko</translation>
     </message>
 </context>
+<context>
+    <name>tradingDialog</name>
+    </context>
 </TS>

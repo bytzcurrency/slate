@@ -613,10 +613,6 @@
         <translation><numerusform>Procesados %n bloques del histórico de transacciones.</numerusform><numerusform>Procesados %n bloques del histórico de transacciones.</numerusform></translation>
     </message>
     <message>
-        <source>Synchronizing additional data: %p%</source>
-        <translation>Sincronizando datos adicionales: %p%</translation>
-    </message>
-    <message>
         <source>%1 behind. Scanning block %2</source>
         <translation>%1 detrás. Escaneando bloque %2</translation>
     </message>
@@ -864,7 +860,7 @@ MultiEnvío: %1</translation>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>El monedero está &lt;b&gt;encriptado&lt;/b&gt; y actualmente &lt;b&gt;bloqueado&lt;/b&gt;</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>BlockExplorer</name>
     <message>
@@ -1542,48 +1538,12 @@ MultiEnvío no se activará a menos que haga usted click en Activar</translation
         <translation>(sin etiqueta)</translation>
     </message>
     <message>
-        <source>The entered address:
-</source>
-        <translation>La dirección introducida:
-</translation>
-    </message>
-    <message>
-        <source> is invalid.
-Please check the address and try again.</source>
-        <translation>es inválida.
-Por favor compruebe la dirección e inténtelo de nuevo.</translation>
-    </message>
-    <message>
-        <source>The total amount of your MultiSend vector is over 100% of your stake reward
-</source>
-        <translation>La cantidad total de su vector MultiEnvío es superior al 100% de su recompensa
-</translation>
-    </message>
-    <message>
         <source>Please Enter 1 - 100 for percent.</source>
         <translation>Por favor Introduzca 1 - 100 por ciento.</translation>
     </message>
     <message>
-        <source>Saved the MultiSend to memory, but failed saving properties to the database.
-</source>
-        <translation>Salvou o MultiSend na memória, mas não salvou as propriedades no banco de dados.
-</translation>
-    </message>
-    <message>
-        <source>MultiSend Vector
-</source>
-        <translation>Vector MultiEnvío
-</translation>
-    </message>
-    <message>
         <source>Removed </source>
         <translation>Borrado</translation>
-    </message>
-    <message>
-        <source>Could not locate address
-</source>
-        <translation>No se pudo localizar la dirección
-</translation>
     </message>
 </context>
 <context>
@@ -1936,12 +1896,6 @@ Por favor, tenga paciencia después de hacer clic en importar.</translation>
     <message>
         <source>The user interface language can be set here. This setting will take effect after restarting SLATE.</source>
         <translation>El idioma de interface de usuario puede seleccionarse aquí. Este ajuste tomará efecto después de reiniciar SLATE.</translation>
-    </message>
-    <message>
-        <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/slatecurrency/slatecurrency-translations</source>
-        <translation>¿Falta su lenguaje o la traducción está incompleta? Contribuya con las traducciones aquí:
-https://www.transifex.com/slatecurrency/slatecurrency-translations</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -3019,7 +2973,7 @@ También mint las denominaciones más altas (por lo tanto, se necesitan menos da
         <source>%1 ms</source>
         <translation>%1 ms</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>QRImageWidget</name>
     <message>
@@ -5143,14 +5097,6 @@ También mint las denominaciones más altas (por lo tanto, se necesitan menos da
         <translation>Copyright (C) 2015-%i The PIVX Core developers</translation>
     </message>
     <message>
-        <source>Copyright (C) 2018-%i The SLATE Core developers</source>
-        <translation>Copyright (C) 2018-%i The SLATE Core developers</translation>
-    </message>
-    <message>
-        <source>Copyright (C) %i The SLATE Core developers</source>
-        <translation>Copyright (C) %i The SLATE Core developers</translation>
-    </message>
-    <message>
         <source>Corrupted block database detected</source>
         <translation>Se detectó base de datos de bloques dañado</translation>
     </message>
@@ -6199,4 +6145,7 @@ También mint las denominaciones más altas (por lo tanto, se necesitan menos da
         <translation>wallet.dat esta corrupto, fallo al guardar</translation>
     </message>
 </context>
+<context>
+    <name>tradingDialog</name>
+    </context>
 </TS>

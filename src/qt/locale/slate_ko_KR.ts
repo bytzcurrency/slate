@@ -613,10 +613,6 @@
         <translation><numerusform>%n 블록의 거래내역 확인됨</numerusform></translation>
     </message>
     <message>
-        <source>Synchronizing additional data: %p%</source>
-        <translation>추가 데이터 동기화: %p%</translation>
-    </message>
-    <message>
         <source>%1 behind. Scanning block %2</source>
         <translation>%1 남음. %2 블록 스캔중...</translation>
     </message>
@@ -864,7 +860,7 @@ Address: %4
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>지갑은 &lt;b&gt;암호화&lt;/ b&gt;되어 있으며 현재 &lt;b&gt;잠겨 있습니다&lt;/ b&gt;.</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>BlockExplorer</name>
     <message>
@@ -1542,48 +1538,12 @@ MultiSend will not be activated unless you have clicked Activate</source>
         <translation>(라벨 없음)</translation>
     </message>
     <message>
-        <source>The entered address:
-</source>
-        <translation>입력된 주소:
-</translation>
-    </message>
-    <message>
-        <source> is invalid.
-Please check the address and try again.</source>
-        <translation>올바르지 않습니다.
-주소를 확인하고 다시 시도해주세요.</translation>
-    </message>
-    <message>
-        <source>The total amount of your MultiSend vector is over 100% of your stake reward
-</source>
-        <translation>다중전송 벡터의 총 금액이 스테이크 보상 금액의 100 % 이상입니다
-</translation>
-    </message>
-    <message>
         <source>Please Enter 1 - 100 for percent.</source>
         <translation>퍼센트로 1 - 100을 입력하십시오.</translation>
     </message>
     <message>
-        <source>Saved the MultiSend to memory, but failed saving properties to the database.
-</source>
-        <translation>MultiSend를 메모리에 저장했지만 데이터베이스에 대한 속성 저장에 실패했습니다.
-</translation>
-    </message>
-    <message>
-        <source>MultiSend Vector
-</source>
-        <translation>다중전송 벡터
-</translation>
-    </message>
-    <message>
         <source>Removed </source>
         <translation>제거됨</translation>
-    </message>
-    <message>
-        <source>Could not locate address
-</source>
-        <translation>주소를 찾을 수 없습니다
-</translation>
     </message>
 </context>
 <context>
@@ -1936,12 +1896,6 @@ Please be patient after clicking import.</source>
     <message>
         <source>The user interface language can be set here. This setting will take effect after restarting SLATE.</source>
         <translation>사용자 인터페이스 언어를 설정할 수 있습니다. 이 설정은 SLATE을 다시 시작한 후에 적용됩니다.</translation>
-    </message>
-    <message>
-        <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/slatecurrency/slatecurrency-translations</source>
-        <translation>지원 언어가 없거나 번역이 불완전한가요? 번역을 도와주세요 :
-https://www.transifex.com/slatecurrency/slatecurrency-translations</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -3045,7 +2999,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <source>%1 ms</source>
         <translation>%1 ms</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>QRImageWidget</name>
     <message>
@@ -5171,14 +5125,6 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Copyright (C) 2015-%i The PIVX Core 개발자</translation>
     </message>
     <message>
-        <source>Copyright (C) 2018-%i The SLATE Core developers</source>
-        <translation>Copyright (C) 2018-%i The SLATE Core 개발자</translation>
-    </message>
-    <message>
-        <source>Copyright (C) %i The SLATE Core developers</source>
-        <translation>Copyright (C) %i The SLATE Core 개발자</translation>
-    </message>
-    <message>
         <source>Corrupted block database detected</source>
         <translation>손상된 블록 데이터베이스가 발견되었습니다</translation>
     </message>
@@ -6227,4 +6173,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>wallet.dat 파일이 손상되어 복구에 실패했습니다</translation>
     </message>
 </context>
+<context>
+    <name>tradingDialog</name>
+    </context>
 </TS>
