@@ -545,10 +545,6 @@
         <translation>&amp;C命令行选项</translation>
     </message>
     <message>
-        <source>Synchronizing additional data: %p%</source>
-        <translation>同步其他数据：%p%</translation>
-    </message>
-    <message>
         <source>&amp;File</source>
         <translation>&amp;F文件</translation>
     </message>
@@ -1577,5 +1573,8 @@ Address: %4
         <source>Your transaction was accepted into the pool!</source>
         <translation>您的交易被矿池接受！</translation>
     </message>
+    </context>
+<context>
+    <name>tradingDialog</name>
     </context>
 </TS>

@@ -6,7 +6,6 @@
         <file alias="da">locale/slate_da.qm</file>
         <file alias="de">locale/slate_de.qm</file>
         <file alias="en">locale/slate_en.qm</file>
-        <file alias="en_US">locale/slate_en_US.qm</file>
         <file alias="es">locale/slate_es.qm</file>
         <file alias="es_ES">locale/slate_es_ES.qm</file>
         <file alias="fi">locale/slate_fi.qm</file>

@@ -489,10 +489,6 @@
         <translation>&amp;Opcje Command-line</translation>
     </message>
     <message>
-        <source>Synchronizing additional data: %p%</source>
-        <translation>Synchronizacja dodatkowych danych %p%</translation>
-    </message>
-    <message>
         <source>&amp;File</source>
         <translation>&amp;Plik</translation>
     </message>
@@ -684,7 +680,7 @@ MultiWysyłlka: %1</translation>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Portfel jest 1Zakodowany1 i obecnie 2Zablokowany2</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>BlockExplorer</name>
     <message>
@@ -1088,30 +1084,12 @@ MultiWysyłlka: %1</translation>
         <translation>(brak zakładki)</translation>
     </message>
     <message>
-        <source>The entered address:
-</source>
-        <translation>Wprowadzony adres:
-</translation>
-    </message>
-    <message>
-        <source> is invalid.
-Please check the address and try again.</source>
-        <translation>jest nieprawidłowy
-Proszę sprawdzić adres i spróbować ponownie</translation>
-    </message>
-    <message>
         <source>Please Enter 1 - 100 for percent.</source>
         <translation>Proszę wprowadzić 1-100 procent</translation>
     </message>
     <message>
         <source>Removed </source>
         <translation>Usunięto</translation>
-    </message>
-    <message>
-        <source>Could not locate address
-</source>
-        <translation>Nie można zlokalizować adresu
-</translation>
     </message>
 </context>
 <context>
@@ -1216,12 +1194,6 @@ Proszę sprawdzić adres i spróbować ponownie</translation>
     <message>
         <source>The user interface language can be set here. This setting will take effect after restarting SLATE.</source>
         <translation>Język interfejsu użytkownika może być wybrany tutaj. Ustawienia ulegną zmianie po restarcie SLATE</translation>
-    </message>
-    <message>
-        <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/slatecurrency/slatecurrency-translations</source>
-        <translation>Brakuje języka bądź nieukończona pełnego tłumaczenia? Pomóż w tłumaczeniu tutaj:
-https://www.transifex.com/slatecurrency/slatecurrency-translations </translation>
     </message>
     <message>
         <source>Connect to the SLATE network through a SOCKS5 proxy.</source>
@@ -1502,7 +1474,7 @@ https://www.transifex.com/slatecurrency/slatecurrency-translations </translation
         <source>%1 ms</source>
         <translation>%1 ms</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>QRImageWidget</name>
     <message>
@@ -2041,5 +2013,8 @@ https://www.transifex.com/slatecurrency/slatecurrency-translations </translation
         <source>Warning</source>
         <translation>Ostrzeżenie</translation>
     </message>
+    </context>
+<context>
+    <name>tradingDialog</name>
     </context>
 </TS>

@@ -334,4 +334,7 @@
         <translation>चेतावनी</translation>
     </message>
     </context>
+<context>
+    <name>tradingDialog</name>
+    </context>
 </TS>

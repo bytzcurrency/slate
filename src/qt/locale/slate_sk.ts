@@ -545,10 +545,6 @@
         <translation>Možnosti príkazového riadku</translation>
     </message>
     <message>
-        <source>Synchronizing additional data: %p%</source>
-        <translation>Synchronizácia dodatočných údajov: %p%</translation>
-    </message>
-    <message>
         <source>&amp;File</source>
         <translation>Súbor</translation>
     </message>
@@ -756,7 +752,7 @@ MultiSend: %1</translation>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Peňaženka je &lt;b&gt;zašifrovaná&lt;/ b&gt; a momentálne je &lt;b&gt;zamknutá&lt;/ b&gt;</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>BlockExplorer</name>
     <message>
@@ -1297,5 +1293,8 @@ MultiSend: %1</translation>
         <source>Warning</source>
         <translation>Varovanie</translation>
     </message>
+    </context>
+<context>
+    <name>tradingDialog</name>
     </context>
 </TS>

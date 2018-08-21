@@ -585,10 +585,6 @@
         <translation>&amp;Opções de linha de comando</translation>
     </message>
     <message>
-        <source>Synchronizing additional data: %p%</source>
-        <translation>Sincronizando informação adicional: %p%</translation>
-    </message>
-    <message>
         <source>%1 behind. Scanning block %2</source>
         <translation>%1 atrás. Escaneado bloco %2</translation>
     </message>
@@ -809,7 +805,7 @@ MultiSend: %1</translation>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>A carteira está &lt;b&gt;criptografada&lt;/b&gt; e atualmente &lt;b&gt;travada&lt;/b&gt;</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>BlockExplorer</name>
     <message>
@@ -1437,43 +1433,12 @@ MultiSend: %1</translation>
         <translation>(sem rótulo)</translation>
     </message>
     <message>
-        <source>The entered address:
-</source>
-        <translation>O endereço informado:
-</translation>
-    </message>
-    <message>
-        <source> is invalid.
-Please check the address and try again.</source>
-        <translation>é inválido.
-
-Favor verificar o endereço e tente novamente.</translation>
-    </message>
-    <message>
-        <source>The total amount of your MultiSend vector is over 100% of your stake reward
-</source>
-        <translation>A quantia total de seu vetor MultiSend é superior a 100% da recompensa de seu stake
-</translation>
-    </message>
-    <message>
         <source>Please Enter 1 - 100 for percent.</source>
         <translation>Favor inserir 1 - 100 para porcentagem.</translation>
     </message>
     <message>
-        <source>MultiSend Vector
-</source>
-        <translation>Vetor MultiSend
-</translation>
-    </message>
-    <message>
         <source>Removed </source>
         <translation>Removido</translation>
-    </message>
-    <message>
-        <source>Could not locate address
-</source>
-        <translation>Não foi possível localizar o endereço
-</translation>
     </message>
 </context>
 <context>
@@ -1710,12 +1675,6 @@ Favor verificar o endereço e tente novamente.</translation>
     <message>
         <source>The user interface language can be set here. This setting will take effect after restarting SLATE.</source>
         <translation>A linguagem da interface pode ser definida aqui. Está configuração terá efeito após reinício do SLATE.</translation>
-    </message>
-    <message>
-        <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/slatecurrency/slatecurrency-translations</source>
-        <translation>Linguagem não encontrada ou tradução incompleta? Ajude contribuido com traduções aqui:
-https://www.transifex.com/slatecurrency/slatecurrency-translations</translation>
     </message>
     <message>
         <source>Connect to the SLATE network through a SOCKS5 proxy.</source>
@@ -2212,7 +2171,7 @@ https://www.transifex.com/slatecurrency/slatecurrency-translations</translation>
         <source>%1 ms</source>
         <translation>%1 ms</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>QRImageWidget</name>
     <message>
@@ -3800,14 +3759,6 @@ https://www.transifex.com/slatecurrency/slatecurrency-translations</translation>
         <translation>Todos os direitos reservados (C) 2015-%i aos Desenvolvedores do PIVX Core</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The SLATE Core developers</source>
-        <translation>Todos os direitos reservados (C) 2015-%i aos Desenvolvedores do SLATE Core</translation>
-    </message>
-    <message>
-        <source>Copyright (C) %i The SLATE Core developers</source>
-        <translation>Todos os direitos reservados (C) %i aos Desenvolvedores do SLATE Core</translation>
-    </message>
-    <message>
         <source>Corrupted block database detected</source>
         <translation>database de blocos corrompida</translation>
     </message>
@@ -4414,4 +4365,7 @@ https://www.transifex.com/slatecurrency/slatecurrency-translations</translation>
         <translation>wallet.dat corrompido, falha ao salvar</translation>
     </message>
 </context>
+<context>
+    <name>tradingDialog</name>
+    </context>
 </TS>

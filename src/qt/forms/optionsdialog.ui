@@ -492,6 +492,37 @@
         </layout>
        </item>
        <item>
+        <widget class="QLabel" name="label_4">
+         <property name="toolTip">
+          <string notr="true"/>
+         </property>
+         <property name="statusTip">
+          <string notr="true"/>
+         </property>
+         <property name="whatsThis">
+          <string notr="true"/>
+         </property>
+         <property name="accessibleName">
+          <string notr="true"/>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(110, 110, 110);</string>
+         </property>
+         <property name="text">
+          <string>Language missing or translation incomplete? Help contributing translations here:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+         <property name="textInteractionFlags">
+          <set>Qt::TextBrowserInteraction</set>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QLabel" name="label_3">
          <property name="toolTip">
           <string notr="true"/>
@@ -505,9 +536,14 @@
          <property name="accessibleName">
           <string notr="true"/>
          </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(110, 110, 110);</string>
+         </property>
          <property name="text">
-          <string>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/slatecurrency/slatecurrency-translations</string>
+          <string notr="true">https://www.transifex.com/slate/slate</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
          <property name="wordWrap">
           <bool>true</bool>

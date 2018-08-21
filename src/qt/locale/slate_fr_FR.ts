@@ -613,10 +613,6 @@
         <translation><numerusform>%n bloc de l'historique de transaction traité.</numerusform><numerusform>%n blocs de l'historique de transaction traités.</numerusform></translation>
     </message>
     <message>
-        <source>Synchronizing additional data: %p%</source>
-        <translation>Synchronisation des données additionnelles : %p%</translation>
-    </message>
-    <message>
         <source>%1 behind. Scanning block %2</source>
         <translation>%1 derrière. Analyse du bloc %2</translation>
     </message>
@@ -820,7 +816,7 @@ Adresse : %4
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Le portefeuille est &lt;b&gt;crypté&lt;/b&gt; et actuellement &lt;b&gt;verrouillé&lt;/b&gt;</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>BlockExplorer</name>
     <message>
@@ -1320,29 +1316,12 @@ Adresse : %4
         <translation>(pas de label)</translation>
     </message>
     <message>
-        <source>The entered address:
-</source>
-        <translation>L'adresse entrée:
-</translation>
-    </message>
-    <message>
-        <source> is invalid.
-Please check the address and try again.</source>
-        <translation>est invalide.
-Veuillez vérifier l'adresse et réessayer.</translation>
-    </message>
-    <message>
         <source>Please Enter 1 - 100 for percent.</source>
         <translation>Veuillez entrer un pourcentage entre 1 et 100.</translation>
     </message>
     <message>
         <source>Removed </source>
         <translation>Supprimé</translation>
-    </message>
-    <message>
-        <source>Could not locate address
-</source>
-        <translation>Impossible de localiser l'adresse</translation>
     </message>
 </context>
 <context>
@@ -2334,5 +2313,8 @@ Veuillez vérifier l'adresse et réessayer.</translation>
         <source>on startup</source>
         <translation>au démarrage</translation>
     </message>
+    </context>
+<context>
+    <name>tradingDialog</name>
     </context>
 </TS>
