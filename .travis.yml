@@ -135,5 +135,4 @@ jobs:
       before_script:
         - git fetch --unshallow
       script:
-        - test/lint/logprint-scanner.py
         - test/lint/lint-all.sh

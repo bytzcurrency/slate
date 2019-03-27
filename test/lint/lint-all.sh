@@ -1,12 +1,17 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # Copyright (c) 2017-2018 The Bitcoin Core developers
 # Copyright (c) 2018 The PIVX Core developers
+# Copyright (c) 2018 The SLATE Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #
 # This script runs all contrib/devtools/lint-*.sh files, and fails if any exit
 # with a non-zero status code.
+
+# This script is intentionally locale dependent by not setting "export LC_ALL=C"
+# in order to allow for the executed lint scripts to opt in or opt out of locale
+# dependence themselves.
 
 set -u
 
