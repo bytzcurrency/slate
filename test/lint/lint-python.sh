@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
 # Copyright (c) 2017-2018 The Bitcoin Core developers
 # Copyright (c) 2018 The PIVX Core developers
@@ -7,6 +7,8 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #
 # Check for specified flake8 warnings in python files.
+
+export LC_ALL=C
 
 # E112 expected an indented block
 # E113 unexpected indentation
