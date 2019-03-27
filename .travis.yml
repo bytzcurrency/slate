@@ -135,4 +135,4 @@ jobs:
       before_script:
         - git fetch --unshallow
       script:
-        - test/lint/lint-all.sh
+        - .travis/lint_06_script.sh
