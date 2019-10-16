@@ -4272,9 +4272,24 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
         const bool isBlockFromFork = pindexPrev != nullptr && !chainActive.Contains(pindexPrev);
         CTransaction &stakeTxIn = block.vtx[1];
 
-        // Check validity of the coinStake.
-        if(!stakeTxIn.IsCoinStake())
-            return error("%s: no coin stake on vtx pos 1", __func__);
+        // ZC started after PoS.
+        // Check for serial double spent on the same block, TODO: Move this to the proper method..
+        if(nHeight >= Params().Zerocoin_StartHeight()) {
+            vector<CBigNum> inBlockSerials;
+            for (CTransaction tx : block.vtx) {
+                for (CTxIn in: tx.vin) {
+                    if (in.scriptSig.IsZerocoinSpend()) {
+                        CoinSpend spend = TxInToZerocoinSpend(in);
+                        // Check for serials double spending in the same block
+                        if (std::find(inBlockSerials.begin(), inBlockSerials.end(), spend.getCoinSerialNumber()) != inBlockSerials.end()) {
+                            return state.DoS(100, error("%s: serial double spent on the same block", __func__));
+                        }
+                        inBlockSerials.push_back(spend.getCoinSerialNumber());
+                    }
+                }
+            }
+            inBlockSerials.clear();
+        }
 
         // Check whether is a fork or not
         if (isBlockFromFork) {
@@ -4313,17 +4328,13 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
                              // First regular staking check
                             if(hasPIVInputs) {
                                 if (stakeIn.prevout == in.prevout) {
-                                    // reject the block
-                                    return state.DoS(100,
-                                                     error("%s: input already spent on a previous block",
-                                                           __func__));
+                                   return state.DoS(100, error("%s: input already spent on a previous block", __func__));
                                 }
                             }
                             // Second, if there is zPoS staking then store the serials for later check
                             if(hasZPIVInputs) {
                                 if(in.scriptSig.IsZerocoinSpend()){
-                                    CoinSpend spend = TxInToZerocoinSpend(in);
-                                    vBlockSerials.push_back(spend.getCoinSerialNumber());
+                                    vBlockSerials.push_back(TxInToZerocoinSpend(in).getCoinSerialNumber());
                                 }
                             }
                         }
