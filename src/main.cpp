@@ -4310,15 +4310,24 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
             }
             const bool hasPIVInputs = !pivInputs.empty();
             const bool hasZPIVInputs = !zPIVInputs.empty();
+
+            int readBlock = 0;
             vector<CBigNum> vBlockSerials;            
             CBlock bl;
             // Go backwards on the forked chain up to the split
             do {
+               // Check if the forked chain is longer than the max reorg limit
+               if(readBlock == Params().MaxReorganizationDepth()){
+                    // TODO: Remove this chain from disk.
+                    return error("%s: forked chain longer than maximum reorg limit", __func__);
+                }
+                
                if(!ReadBlockFromDisk(bl, prev))
                     // Previous block not on disk
                     return error("%s: previous block %s not on disk", __func__, prev->GetBlockHash().GetHex());
 
-
+                // Increase amount of read blocks
+                readBlock++; 
                 // Loop through every input from said block
                 for (CTransaction t : bl.vtx) {
                     for (CTxIn in: t.vin) {
@@ -4405,7 +4414,7 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
                     // No coins on the main chain
                     return error("%s: coin stake inputs not available on main chain", __func__);
                 }
-                
+
                 if(coin && !coin->IsAvailable(in.prevout.n)){
                     // If this is not available get the height of the spent and validate it with the forked height
                     // Check if this occurred before the chain split
