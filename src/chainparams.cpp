@@ -133,9 +133,9 @@ public:
         nMaxReorganizationDepth = 100;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
-        nToCheckBlockUpgradeMajority = 1000;
+        nToCheckBlockUpgradeMajority = 1000; 
         nMinerThreads = 0;
-        nTargetTimespan = 1 * 60; // SLATE: 1 day
+        nTargetTimespan = 40 * 60; // SLATE: 40 minutes
         nTargetSpacing = 1 * 60;  // SLATE: 1 minute
         nMaturity = 100;
         nMasternodeCountDrift = 20;
