@@ -1,0 +1,14 @@
+# http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-1.0.html
+
+[Desktop Entry]
+Encoding=UTF-8
+Name=Slate Daemon SNAP
+Comment=regtest
+GenericName=Slate Digital Currency Daemon Client regressslate test network
+Exec=slatecore.daemon-regtest %u
+Terminal=true
+Type=Application
+Icon=${SNAP}/slated_regtest.png
+MimeType=x-scheme-handler/slate;
+Categories=X-Finance;X-Games;
+Keywords=internet;slate;xslate;core;wallet;daemon;regtest;snap;launchpad;crypto;digital;currency;coin;token;zerocoin;
