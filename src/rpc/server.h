@@ -262,6 +262,7 @@ extern UniValue getspentzerocoinamount(const UniValue& params, bool fHelp);
 extern UniValue setzslxseed(const UniValue& params, bool fHelp);
 extern UniValue getzslxseed(const UniValue& params, bool fHelp);
 extern UniValue generatemintlist(const UniValue& params, bool fHelp);
+extern UniValue searchdzslx(const UniValue& params, bool fHelp);
 extern UniValue dzslxstate(const UniValue& params, bool fHelp);
 
 extern UniValue getrawtransaction(const UniValue& params, bool fHelp); // in rpc/rawtransaction.cpp
