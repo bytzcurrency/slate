@@ -2646,65 +2646,6 @@ UniValue spendzerocoin(const UniValue& params, bool fHelp)
     return ret;
 }
 
-UniValue resetmintzerocoin(const UniValue& params, bool fHelp)
-{
-    if (fHelp || params.size() > 1)
-        throw runtime_error(
-            "resetmintzerocoin ( fullscan )\n"
-            "\nScan the blockchain for all of the zerocoins that are held in the wallet.dat.\n"
-            "Update any meta-data that is incorrect. Archive any mints that are not able to be found.\n" +
-            HelpRequiringPassphrase() + "\n"
-
-            "\nArguments:\n"
-            "1. fullscan          (boolean, optional) Rescan each block of the blockchain.\n"
-            "                               WARNING - may take 30+ minutes!\n"
-
-            "\nResult:\n"
-            "{\n"
-            "  \"updated\": [       (array) JSON array of updated mints.\n"
-            "    \"xxx\"            (string) Hex encoded mint.\n"
-            "    ,...\n"
-            "  ],\n"
-            "  \"archived\": [      (array) JSON array of archived mints.\n"
-            "    \"xxx\"            (string) Hex encoded mint.\n"
-            "    ,...\n"
-            "  ]\n"
-            "}\n"
-
-            "\nExamples:\n" +
-            HelpExampleCli("resetmintzerocoin", "true") + HelpExampleRpc("resetmintzerocoin", "true"));
-
-    LOCK2(cs_main, pwalletMain->cs_wallet);
-
-    CWalletDB walletdb(pwalletMain->strWalletFile);
-    CzSLXTracker* zslxTracker = pwalletMain->zslxTracker.get();
-    set<CMintMeta> setMints = zslxTracker->ListMints(false, false, true);
-    vector<CMintMeta> vMintsToFind(setMints.begin(), setMints.end());
-    vector<CMintMeta> vMintsMissing;
-    vector<CMintMeta> vMintsToUpdate;
-
-    // search all of our available data for these mints
-    FindMints(vMintsToFind, vMintsToUpdate, vMintsMissing);
-
-    // update the meta data of mints that were marked for updating
-    UniValue arrUpdated(UniValue::VARR);
-    for (CMintMeta meta : vMintsToUpdate) {
-        zslxTracker->UpdateState(meta);
-        arrUpdated.push_back(meta.hashPubcoin.GetHex());
-    }
-
-    // delete any mints that were unable to be located on the blockchain
-    UniValue arrDeleted(UniValue::VARR);
-    for (CMintMeta mint : vMintsMissing) {
-        zslxTracker->Archive(mint);
-        arrDeleted.push_back(mint.hashPubcoin.GetHex());
-    }
-
-    UniValue obj(UniValue::VOBJ);
-    obj.push_back(Pair("updated", arrUpdated));
-    obj.push_back(Pair("archived", arrDeleted));
-    return obj;
-}
 
 UniValue resetspentzerocoin(const UniValue& params, bool fHelp)
 {
