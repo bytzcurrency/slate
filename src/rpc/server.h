@@ -256,7 +256,6 @@ extern UniValue resetmintzerocoin(const UniValue& params, bool fHelp);
 extern UniValue resetspentzerocoin(const UniValue& params, bool fHelp);
 extern UniValue importzerocoins(const UniValue& params, bool fHelp);
 extern UniValue reconsiderzerocoins(const UniValue& params, bool fHelp);
-extern UniValue getspentzerocoinamount(const UniValue& params, bool fHelp);
 extern UniValue setzslxseed(const UniValue& params, bool fHelp);
 extern UniValue getzslxseed(const UniValue& params, bool fHelp);
 
