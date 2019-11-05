@@ -2522,33 +2522,6 @@ UniValue multisend(const UniValue& params, bool fHelp)
     return printMultiSend();
 }
 
-UniValue getzerocoinbalance(const UniValue& params, bool fHelp)
-{
-
-    if (fHelp || params.size() != 0)
-        throw runtime_error(
-            "getzerocoinbalance\n"
-            "\nReturn the wallet's total zSLX balance.\n" +
-            HelpRequiringPassphrase() + "\n"
-
-            "\nResult:\n"
-            "amount         (numeric) Total zSLX balance.\n"
-
-            "\nExamples:\n" +
-            HelpExampleCli("getzerocoinbalance", "") + HelpExampleRpc("getzerocoinbalance", ""));
-
-    LOCK2(cs_main, pwalletMain->cs_wallet);
-
-    EnsureWalletIsUnlocked(true);
-
-        UniValue ret(UniValue::VOBJ);
-        ret.push_back(Pair("Total", ValueFromAmount(pwalletMain->GetZerocoinBalance(false))));
-        ret.push_back(Pair("Mature", ValueFromAmount(pwalletMain->GetZerocoinBalance(true))));
-        ret.push_back(Pair("Unconfirmed", ValueFromAmount(pwalletMain->GetUnconfirmedZerocoinBalance())));
-        ret.push_back(Pair("Immature", ValueFromAmount(pwalletMain->GetImmatureZerocoinBalance())));
-        return ret;
-
-}
 
 UniValue listmintedzerocoins(const UniValue& params, bool fHelp)
 {
