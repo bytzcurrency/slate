@@ -3166,31 +3166,6 @@ UniValue setzslxseed(const UniValue& params, bool fHelp)
     return ret;
 }
 
-UniValue getzslxseed(const UniValue& params, bool fHelp)
-{
-    if(fHelp || !params.empty())
-        throw runtime_error(
-            "getzslxseed\n"
-            "\nCheck archived zSLX list to see if any mints were added to the blockchain.\n" +
-            HelpRequiringPassphrase() + "\n"
-
-            "\nResult\n"
-            "\"seed\" : s,  (string) The deterministic zSLX seed.\n"
-
-            "\nExamples\n" +
-            HelpExampleCli("getzslxseed", "") + HelpExampleRpc("getzslxseed", ""));
-
-    EnsureWalletIsUnlocked();
-
-    CzSLXWallet* zwallet = pwalletMain->getZWallet();
-    uint256 seed = zwallet->GetMasterSeed();
-
-    UniValue ret(UniValue::VOBJ);
-    ret.push_back(Pair("seed", seed.GetHex()));
-
-    return ret;
-}
-
 
 void static SearchThread(CzSLXWallet* zwallet, int nCountStart, int nCountEnd)
 {

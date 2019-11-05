@@ -256,7 +256,6 @@ extern UniValue resetspentzerocoin(const UniValue& params, bool fHelp);
 extern UniValue importzerocoins(const UniValue& params, bool fHelp);
 extern UniValue reconsiderzerocoins(const UniValue& params, bool fHelp);
 extern UniValue setzslxseed(const UniValue& params, bool fHelp);
-extern UniValue getzslxseed(const UniValue& params, bool fHelp);
 
 extern UniValue getrawtransaction(const UniValue& params, bool fHelp); // in rpc/rawtransaction.cpp
 extern UniValue listunspent(const UniValue& params, bool fHelp);
