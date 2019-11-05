@@ -2523,38 +2523,6 @@ UniValue multisend(const UniValue& params, bool fHelp)
 }
 
 
-UniValue listmintedzerocoins(const UniValue& params, bool fHelp)
-{
-
-    if (fHelp || params.size() != 0)
-        throw runtime_error(
-            "listmintedzerocoins\n"
-            "\nList all zSLX mints in the wallet.\n" +
-            HelpRequiringPassphrase() + "\n"
-
-            "\nResult:\n"
-            "[\n"
-            "  \"xxx\"      (string) Pubcoin in hex format.\n"
-            "  ,...\n"
-            "]\n"
-
-            "\nExamples:\n" +
-            HelpExampleCli("listmintedzerocoins", "") + HelpExampleRpc("listmintedzerocoins", ""));
-
-    LOCK2(cs_main, pwalletMain->cs_wallet);
-
-    EnsureWalletIsUnlocked(true);
-
-    CWalletDB walletdb(pwalletMain->strWalletFile);
-    set<CMintMeta> setMints = pwalletMain->zslxTracker->ListMints(true, false, true);
-
-    UniValue jsonList(UniValue::VARR);
-    for (const CMintMeta& meta : setMints)
-        jsonList.push_back(meta.hashPubcoin.GetHex());
-
-    return jsonList;
-}
-
 UniValue listzerocoinamounts(const UniValue& params, bool fHelp)
 {
 
