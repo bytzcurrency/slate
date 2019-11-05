@@ -2769,57 +2769,6 @@ UniValue resetspentzerocoin(const UniValue& params, bool fHelp)
 }
 
 
-UniValue reconsiderzerocoins(const UniValue& params, bool fHelp)
-{
-    if(fHelp || !params.empty())
-        throw runtime_error(
-            "reconsiderzerocoins\n"
-            "\nCheck archived zSLX list to see if any mints were added to the blockchain.\n" +
-            HelpRequiringPassphrase() + "\n"
-
-            "\nResult:\n"
-            "[\n"
-            "  {\n"
-            "    \"txid\" : \"xxx\",           (string) the mint's zerocoin denomination \n"
-            "    \"denomination\" : amount,  (numeric) the mint's zerocoin denomination\n"
-            "    \"pubcoin\" : \"xxx\",        (string) The mint's public identifier\n"
-            "    \"height\" : n              (numeric) The height the tx was added to the blockchain\n"
-            "  }\n"
-            "  ,...\n"
-            "]\n"
-
-            "\nExamples\n" +
-            HelpExampleCli("reconsiderzerocoins", "") + HelpExampleRpc("reconsiderzerocoins", ""));
-
-    LOCK2(cs_main, pwalletMain->cs_wallet);
-
-    EnsureWalletIsUnlocked(true);
-
-    list<CZerocoinMint> listMints;
-    list<CDeterministicMint> listDMints;
-    pwalletMain->ReconsiderZerocoins(listMints, listDMints);
-
-    UniValue arrRet(UniValue::VARR);
-    for (const CZerocoinMint mint : listMints) {
-        UniValue objMint(UniValue::VOBJ);
-        objMint.push_back(Pair("txid", mint.GetTxHash().GetHex()));
-        objMint.push_back(Pair("denomination", ValueFromAmount(mint.GetDenominationAsAmount())));
-        objMint.push_back(Pair("pubcoin", mint.GetValue().GetHex()));
-        objMint.push_back(Pair("height", mint.GetHeight()));
-        arrRet.push_back(objMint);
-    }
-    for (const CDeterministicMint dMint : listDMints) {
-        UniValue objMint(UniValue::VOBJ);
-        objMint.push_back(Pair("txid", dMint.GetTxHash().GetHex()));
-        objMint.push_back(Pair("denomination", FormatMoney(libzerocoin::ZerocoinDenominationToAmount(dMint.GetDenomination()))));
-        objMint.push_back(Pair("pubcoinhash", dMint.GetPubcoinHash().GetHex()));
-        objMint.push_back(Pair("height", dMint.GetHeight()));
-        arrRet.push_back(objMint);
-    }
-
-    return arrRet;
-}
-
 UniValue setzslxseed(const UniValue& params, bool fHelp)
 {
     if(fHelp || params.size() != 1)
