@@ -2645,38 +2645,3 @@ UniValue spendzerocoin(const UniValue& params, bool fHelp)
 
     return ret;
 }
-
-
-UniValue setzslxseed(const UniValue& params, bool fHelp)
-{
-    if(fHelp || params.size() != 1)
-        throw runtime_error(
-            "setzslxseed \"seed\"\n"
-            "\nSet the wallet's deterministic zslx seed to a specific value.\n" +
-            HelpRequiringPassphrase() + "\n"
-
-            "\nArguments:\n"
-            "1. \"seed\"        (string, required) The deterministic zslx seed.\n"
-
-            "\nResult\n"
-            "\"success\" : b,  (boolean) Whether the seed was successfully set.\n"
-
-            "\nExamples\n" +
-            HelpExampleCli("setzslxseed", "63f793e7895dd30d99187b35fbfb314a5f91af0add9e0a4e5877036d1e392dd5") +
-            HelpExampleRpc("setzslxseed", "63f793e7895dd30d99187b35fbfb314a5f91af0add9e0a4e5877036d1e392dd5"));
-
-    EnsureWalletIsUnlocked();
-
-    uint256 seed;
-    seed.SetHex(params[0].get_str());
-
-    CzSLXWallet* zwallet = pwalletMain->getZWallet();
-    bool fSuccess = zwallet->SetMasterSeed(seed, true);
-    if (fSuccess)
-        zwallet->SyncWithChain();
-
-    UniValue ret(UniValue::VOBJ);
-    ret.push_back(Pair("success", fSuccess));
-
-    return ret;
-}
