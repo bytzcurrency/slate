@@ -3015,63 +3015,6 @@ UniValue resetspentzerocoin(const UniValue& params, bool fHelp)
     return objRet;
 }
 
-UniValue getarchivedzerocoin(const UniValue& params, bool fHelp)
-{
-    if(fHelp || params.size() != 0)
-        throw runtime_error(
-            "getarchivedzerocoin\n"
-            "\nDisplay zerocoins that were archived because they were believed to be orphans.\n"
-            "Provides enough information to recover mint if it was incorrectly archived.\n" +
-            HelpRequiringPassphrase() + "\n"
-
-            "\nResult:\n"
-            "[\n"
-            "  {\n"
-            "    \"txid\": \"xxx\",           (string) Transaction ID for archived mint.\n"
-            "    \"denomination\": amount,  (numeric) Denomination value.\n"
-            "    \"serial\": \"xxx\",         (string) Serial number in hex format.\n"
-            "    \"randomness\": \"xxx\",     (string) Hex encoded randomness.\n"
-            "    \"pubcoin\": \"xxx\"         (string) Pubcoin in hex format.\n"
-            "  }\n"
-            "  ,...\n"
-            "]\n"
-
-            "\nExamples:\n" +
-            HelpExampleCli("getarchivedzerocoin", "") + HelpExampleRpc("getarchivedzerocoin", ""));
-
-    LOCK2(cs_main, pwalletMain->cs_wallet);
-
-    EnsureWalletIsUnlocked();
-
-    CWalletDB walletdb(pwalletMain->strWalletFile);
-    list<CZerocoinMint> listMints = walletdb.ListArchivedZerocoins();
-    list<CDeterministicMint> listDMints = walletdb.ListArchivedDeterministicMints();
-
-    UniValue arrRet(UniValue::VARR);
-    for (const CZerocoinMint mint : listMints) {
-        UniValue objMint(UniValue::VOBJ);
-        objMint.push_back(Pair("txid", mint.GetTxHash().GetHex()));
-        objMint.push_back(Pair("denomination", ValueFromAmount(mint.GetDenominationAsAmount())));
-        objMint.push_back(Pair("serial", mint.GetSerialNumber().GetHex()));
-        objMint.push_back(Pair("randomness", mint.GetRandomness().GetHex()));
-        objMint.push_back(Pair("pubcoin", mint.GetValue().GetHex()));
-        arrRet.push_back(objMint);
-    }
-
-    for (const CDeterministicMint dMint : listDMints) {
-        UniValue objDMint(UniValue::VOBJ);
-        objDMint.push_back(Pair("txid", dMint.GetTxHash().GetHex()));
-        objDMint.push_back(Pair("denomination", ValueFromAmount(libzerocoin::ZerocoinDenominationToAmount(dMint.GetDenomination()))));
-        objDMint.push_back(Pair("serialhash", dMint.GetSerialHash().GetHex()));
-        objDMint.push_back(Pair("pubcoinhash", dMint.GetPubcoinHash().GetHex()));
-        objDMint.push_back(Pair("seedhash", dMint.GetSeedHash().GetHex()));
-        objDMint.push_back(Pair("count", (int64_t)dMint.GetCount()));
-        arrRet.push_back(objDMint);
-    }
-
-    return arrRet;
-}
-
 
 UniValue importzerocoins(const UniValue& params, bool fHelp)
 {
