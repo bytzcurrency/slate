@@ -2647,69 +2647,6 @@ UniValue spendzerocoin(const UniValue& params, bool fHelp)
 }
 
 
-UniValue resetspentzerocoin(const UniValue& params, bool fHelp)
-{
-    if (fHelp || params.size() != 0)
-        throw runtime_error(
-            "resetspentzerocoin\n"
-            "\nScan the blockchain for all of the zerocoins that are held in the wallet.dat.\n"
-            "Reset mints that are considered spent that did not make it into the blockchain.\n"
-
-            "\nResult:\n"
-            "{\n"
-            "  \"restored\": [        (array) JSON array of restored objects.\n"
-            "    {\n"
-            "      \"serial\": \"xxx\"  (string) Serial in hex format.\n"
-            "    }\n"
-            "    ,...\n"
-            "  ]\n"
-            "}\n"
-
-            "\nExamples:\n" +
-            HelpExampleCli("resetspentzerocoin", "") + HelpExampleRpc("resetspentzerocoin", ""));
-
-    LOCK2(cs_main, pwalletMain->cs_wallet);
-
-    CWalletDB walletdb(pwalletMain->strWalletFile);
-    CzSLXTracker* zslxTracker = pwalletMain->zslxTracker.get();
-    set<CMintMeta> setMints = zslxTracker->ListMints(false, false, false);
-    list<CZerocoinSpend> listSpends = walletdb.ListSpentCoins();
-    list<CZerocoinSpend> listUnconfirmedSpends;
-
-    for (CZerocoinSpend spend : listSpends) {
-        CTransaction tx;
-        uint256 hashBlock = 0;
-        if (!GetTransaction(spend.GetTxHash(), tx, hashBlock)) {
-            listUnconfirmedSpends.push_back(spend);
-            continue;
-        }
-
-        //no confirmations
-        if (hashBlock == 0)
-            listUnconfirmedSpends.push_back(spend);
-    }
-
-    UniValue objRet(UniValue::VOBJ);
-    UniValue arrRestored(UniValue::VARR);
-    for (CZerocoinSpend spend : listUnconfirmedSpends) {
-        for (auto& meta : setMints) {
-            if (meta.hashSerial == GetSerialHash(spend.GetSerial())) {
-                zslxTracker->SetPubcoinNotUsed(meta.hashPubcoin);
-                walletdb.EraseZerocoinSpendSerialEntry(spend.GetSerial());
-                RemoveSerialFromDB(spend.GetSerial());
-                UniValue obj(UniValue::VOBJ);
-                obj.push_back(Pair("serial", spend.GetSerial().GetHex()));
-                arrRestored.push_back(obj);
-                continue;
-            }
-        }
-    }
-
-    objRet.push_back(Pair("restored", arrRestored));
-    return objRet;
-}
-
-
 UniValue setzslxseed(const UniValue& params, bool fHelp)
 {
     if(fHelp || params.size() != 1)
