@@ -1,0 +1,14 @@
+# http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-1.0.html
+
+[Desktop Entry]
+Encoding=UTF-8
+Name=Slate SNAP
+Comment=regtest
+GenericName=Slate Digital Currency QT client regressslate test network
+Exec=slatecore.qt-regtest %u
+Terminal=false
+Type=Application
+Icon=${SNAP}/slate_regtest.png
+MimeType=x-scheme-handler/slate;
+Categories=X-Finance;X-Games;
+Keywords=internet;slate;xslate;core;wallet;qt;regtest;snap;launchpad;crypto;digital;currency;coin;token;zerocoin;

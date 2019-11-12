@@ -1,0 +1,14 @@
+# http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-1.0.html
+
+[Desktop Entry]
+Encoding=UTF-8
+Name=Slate Daemon SNAP
+Comment=main
+GenericName=Slate Digital Currency Daemon Client main network
+Exec=slatecore.daemon %u
+Terminal=true
+Type=Application
+Icon=${SNAP}/slated.png
+MimeType=x-scheme-handler/slate;
+Categories=X-Finance;X-Games;
+Keywords=internet;slate;xslate;core;wallet;daemon;main;snap;launchpad;crypto;digital;currency;coin;token;zerocoin;
