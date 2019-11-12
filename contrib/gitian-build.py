@@ -64,20 +64,20 @@ def build():
 
     if args.linux:
         print('\nCompiling ' + args.version + ' Linux')
-        subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'ion='+args.commit, '--url', 'ion='+args.url, '../slate/contrib/gitian-descriptors/gitian-linux.yml'])
+        subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'slate='+args.commit, '--url', 'slate='+args.url, '../slate/contrib/gitian-descriptors/gitian-linux.yml'])
         subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-linux', '--destination', '../gitian.sigs/', '../slate/contrib/gitian-descriptors/gitian-linux.yml'])
         subprocess.check_call('mv build/out/slate-*.tar.xz build/out/src/slate-*.tar.gz ../slate-binaries/'+args.version, shell=True)
 
     if args.windows:
         print('\nCompiling ' + args.version + ' Windows')
-        subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'ion='+args.commit, '--url', 'ion='+args.url, '../slate/contrib/gitian-descriptors/gitian-win.yml'])
+        subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'slate='+args.commit, '--url', 'slate='+args.url, '../slate/contrib/gitian-descriptors/gitian-win.yml'])
         subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-win-unsigned', '--destination', '../gitian.sigs/', '../slate/contrib/gitian-descriptors/gitian-win.yml'])
         subprocess.check_call('mv build/out/slate-*-win-unsigned.tar.xz inputs/', shell=True)
         subprocess.check_call('mv build/out/slate-*.zip build/out/slate-*.exe ../slate-binaries/'+args.version, shell=True)
 
     if args.macos:
         print('\nCompiling ' + args.version + ' MacOS')
-        subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'ion='+args.commit, '--url', 'ion='+args.url, '../slate/contrib/gitian-descriptors/gitian-osx.yml'])
+        subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'slate='+args.commit, '--url', 'slate='+args.url, '../slate/contrib/gitian-descriptors/gitian-osx.yml'])
         subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-osx-unsigned', '--destination', '../gitian.sigs/', '../slate/contrib/gitian-descriptors/gitian-osx.yml'])
         subprocess.check_call('mv build/out/slate-*-osx-unsigned.tar.xz inputs/', shell=True)
         subprocess.check_call('mv build/out/slate-*.tar.xz build/out/slate-*.dmg ../slate-binaries/'+args.version, shell=True)
@@ -160,21 +160,21 @@ def main():
     global args, workdir
 
     parser = argparse.ArgumentParser(usage='%(prog)s [options] signer version')
-    parser.add_argument('-c', '--commit', action='store_true', dest='commit', help='Indicate that the version argument is for a commit or branch')
-    parser.add_argument('-p', '--pull', action='store_true', dest='pull', help='Indicate that the version argument is the number of a github repository pull request')
+    parser.add_argument('-c', '--commit', actslate='store_true', dest='commit', help='Indicate that the version argument is for a commit or branch')
+    parser.add_argument('-p', '--pull', actslate='store_true', dest='pull', help='Indicate that the version argument is the number of a github repository pull request')
     parser.add_argument('-u', '--url', dest='url', default='https://github.com/slatecurrency/slate', help='Specify the URL of the repository. Default is %(default)s')
-    parser.add_argument('-v', '--verify', action='store_true', dest='verify', help='Verify the Gitian build')
-    parser.add_argument('-b', '--build', action='store_true', dest='build', help='Do a Gitian build')
-    parser.add_argument('-s', '--sign', action='store_true', dest='sign', help='Make signed binaries for Windows and MacOS')
-    parser.add_argument('-B', '--buildsign', action='store_true', dest='buildsign', help='Build both signed and unsigned binaries')
+    parser.add_argument('-v', '--verify', actslate='store_true', dest='verify', help='Verify the Gitian build')
+    parser.add_argument('-b', '--build', actslate='store_true', dest='build', help='Do a Gitian build')
+    parser.add_argument('-s', '--sign', actslate='store_true', dest='sign', help='Make signed binaries for Windows and MacOS')
+    parser.add_argument('-B', '--buildsign', actslate='store_true', dest='buildsign', help='Build both signed and unsigned binaries')
     parser.add_argument('-o', '--os', dest='os', default='lwm', help='Specify which Operating Systems the build is for. Default is %(default)s. l for Linux, w for Windows, m for MacOS')
     parser.add_argument('-j', '--jobs', dest='jobs', default='2', help='Number of processes to use. Default %(default)s')
     parser.add_argument('-m', '--memory', dest='memory', default='2000', help='Memory to allocate in MiB. Default %(default)s')
-    parser.add_argument('-k', '--kvm', action='store_true', dest='kvm', help='Use KVM instead of LXC')
-    parser.add_argument('-d', '--docker', action='store_true', dest='docker', help='Use Docker instead of LXC')
-    parser.add_argument('-S', '--setup', action='store_true', dest='setup', help='Set up the Gitian building environment. Uses LXC. If you want to use KVM, use the --kvm option. Only works on Debian-based systems (Ubuntu, Debian)')
-    parser.add_argument('-D', '--detach-sign', action='store_true', dest='detach_sign', help='Create the assert file for detached signing. Will not commit anything.')
-    parser.add_argument('-n', '--no-commit', action='store_false', dest='commit_files', help='Do not commit anything to git')
+    parser.add_argument('-k', '--kvm', actslate='store_true', dest='kvm', help='Use KVM instead of LXC')
+    parser.add_argument('-d', '--docker', actslate='store_true', dest='docker', help='Use Docker instead of LXC')
+    parser.add_argument('-S', '--setup', actslate='store_true', dest='setup', help='Set up the Gitian building environment. Uses LXC. If you want to use KVM, use the --kvm option. Only works on Debian-based systems (Ubuntu, Debian)')
+    parser.add_argument('-D', '--detach-sign', actslate='store_true', dest='detach_sign', help='Create the assert file for detached signing. Will not commit anything.')
+    parser.add_argument('-n', '--no-commit', actslate='store_false', dest='commit_files', help='Do not commit anything to git')
     parser.add_argument('signer', help='GPG signer to sign each build assert file')
     parser.add_argument('version', help='Version number, commit, or branch to build. If building a commit or branch, the -c option must be specified')
 
@@ -211,10 +211,10 @@ def main():
 
     # Disable for MacOS if no SDK found
     if args.macos and not os.path.isfile('gitian-builder/inputs/MacOSX10.11.sdk.tar.xz'):
-    	subprocess.check_call(['wget', '-O', 'gitian-builder/inputs/MacOSX10.11.sdk.tar.xz', '-N', '-P', 'inputs', 'https://github.com/gitianuser/MacOSX-SDKs/releases/download/MacOSX10.11.sdk/MacOSX10.11.sdk.tar.xz'])
-    	if args.macos and not os.path.isfile('gitian-builder/inputs/MacOSX10.11.sdk.tar.xz'):
-        	print('Cannot build for MacOS, SDK does not exist. Will build for other OSes')
-        	args.macos = False
+        subprocess.check_call(['wget', '-O', 'gitian-builder/inputs/MacOSX10.11.sdk.tar.xz', '-N', '-P', 'inputs', 'https://github.com/gitianuser/MacOSX-SDKs/releases/download/MacOSX10.11.sdk/MacOSX10.11.sdk.tar.xz'])
+        if args.macos and not os.path.isfile('gitian-builder/inputs/MacOSX10.11.sdk.tar.xz'):
+            print('Cannot build for MacOS, SDK does not exist. Will build for other OSes')
+            args.macos = False
 
     script_name = os.path.basename(sys.argv[0])
     # Signer and version shouldn't be empty
