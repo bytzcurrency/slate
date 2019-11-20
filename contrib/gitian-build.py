@@ -66,21 +66,21 @@ def build():
         print('\nCompiling ' + args.version + ' Linux')
         subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'slate='+args.commit, '--url', 'slate='+args.url, '../slate/contrib/gitian-descriptors/gitian-linux.yml'])
         subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-linux', '--destination', '../gitian.sigs/', '../slate/contrib/gitian-descriptors/gitian-linux.yml'])
-        subprocess.check_call('mv build/out/slate-*.tar.xz build/out/src/slate-*.tar.gz ../slate-binaries/'+args.version, shell=True)
+        subprocess.check_call('mv build/out/slate-*.tar.gz build/out/src/slate-*.tar.gz ../slate-binaries/'+args.version, shell=True)
 
     if args.windows:
         print('\nCompiling ' + args.version + ' Windows')
         subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'slate='+args.commit, '--url', 'slate='+args.url, '../slate/contrib/gitian-descriptors/gitian-win.yml'])
         subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-win-unsigned', '--destination', '../gitian.sigs/', '../slate/contrib/gitian-descriptors/gitian-win.yml'])
-        subprocess.check_call('mv build/out/slate-*-win-unsigned.tar.xz inputs/', shell=True)
+        subprocess.check_call('mv build/out/slate-*-win-unsigned.tar.gz inputs/', shell=True)
         subprocess.check_call('mv build/out/slate-*.zip build/out/slate-*.exe ../slate-binaries/'+args.version, shell=True)
 
     if args.macos:
         print('\nCompiling ' + args.version + ' MacOS')
         subprocess.check_call(['bin/gbuild', '-j', args.jobs, '-m', args.memory, '--commit', 'slate='+args.commit, '--url', 'slate='+args.url, '../slate/contrib/gitian-descriptors/gitian-osx.yml'])
         subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-osx-unsigned', '--destination', '../gitian.sigs/', '../slate/contrib/gitian-descriptors/gitian-osx.yml'])
-        subprocess.check_call('mv build/out/slate-*-osx-unsigned.tar.xz inputs/', shell=True)
-        subprocess.check_call('mv build/out/slate-*.tar.xz build/out/slate-*.dmg ../slate-binaries/'+args.version, shell=True)
+        subprocess.check_call('mv build/out/slate-*-osx-unsigned.tar.gz inputs/', shell=True)
+        subprocess.check_call('mv build/out/slate-*.tar.gz build/out/slate-*.dmg ../slate-binaries/'+args.version, shell=True)
 
     os.chdir(workdir)
 
@@ -103,7 +103,7 @@ def sign():
 
     if args.windows:
         print('\nSigning ' + args.version + ' Windows')
-        subprocess.check_call('cp inputs/slate-' + args.version + '-win-unsigned.tar.xz inputs/slate-win-unsigned.tar.xz', shell=True)
+        subprocess.check_call('cp inputs/slate-' + args.version + '-win-unsigned.tar.gz inputs/slate-win-unsigned.tar.gz', shell=True)
         subprocess.check_call(['bin/gbuild', '-i', '--commit', 'signature='+args.commit, '../slate/contrib/gitian-descriptors/gitian-win-signer.yml'])
         subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-win-signed', '--destination', '../gitian.sigs/', '../slate/contrib/gitian-descriptors/gitian-win-signer.yml'])
         subprocess.check_call('mv build/out/slate-*win64-setup.exe ../slate-binaries/'+args.version, shell=True)
@@ -111,7 +111,7 @@ def sign():
 
     if args.macos:
         print('\nSigning ' + args.version + ' MacOS')
-        subprocess.check_call('cp inputs/slate-' + args.version + '-osx-unsigned.tar.xz inputs/slate-osx-unsigned.tar.xz', shell=True)
+        subprocess.check_call('cp inputs/slate-' + args.version + '-osx-unsigned.tar.gz inputs/slate-osx-unsigned.tar.gz', shell=True)
         subprocess.check_call(['bin/gbuild', '-i', '--commit', 'signature='+args.commit, '../slate/contrib/gitian-descriptors/gitian-osx-signer.yml'])
         subprocess.check_call(['bin/gsign', '-p', args.sign_prog, '--signer', args.signer, '--release', args.version+'-osx-signed', '--destination', '../gitian.sigs/', '../slate/contrib/gitian-descriptors/gitian-osx-signer.yml'])
         subprocess.check_call('mv build/out/slate-osx-signed.dmg ../slate-binaries/'+args.version+'/slate-'+args.version+'-osx.dmg', shell=True)
@@ -210,9 +210,9 @@ def main():
     subprocess.check_call(['mkdir', '-p', 'gitian-builder/inputs'])
 
     # Disable for MacOS if no SDK found
-    if args.macos and not os.path.isfile('gitian-builder/inputs/MacOSX10.11.sdk.tar.xz'):
-        subprocess.check_call(['wget', '-O', 'gitian-builder/inputs/MacOSX10.11.sdk.tar.xz', '-N', '-P', 'inputs', 'https://github.com/gitianuser/MacOSX-SDKs/releases/download/MacOSX10.11.sdk/MacOSX10.11.sdk.tar.xz'])
-        if args.macos and not os.path.isfile('gitian-builder/inputs/MacOSX10.11.sdk.tar.xz'):
+    if args.macos and not os.path.isfile('gitian-builder/inputs/MacOSX10.11.sdk.tar.gz'):
+        subprocess.check_call(['wget', '-O', 'gitian-builder/inputs/MacOSX10.11.sdk.tar.gz', '-N', '-P', 'inputs', 'https://github.com/gitianuser/MacOSX-SDKs/releases/download/MacOSX10.11.sdk/MacOSX10.11.sdk.tar.gz'])
+        if args.macos and not os.path.isfile('gitian-builder/inputs/MacOSX10.11.sdk.tar.gz'):
             print('Cannot build for MacOS, SDK does not exist. Will build for other OSes')
             args.macos = False
 
