@@ -292,10 +292,10 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("192.219.30.30", "192.219.30.30"));   // Slate seeder located in Dublin
-        vSeeds.push_back(CDNSSeedData("192.219.30.29", "192.219.30.29"));   // Slate seeder located in Dublin
-        vSeeds.push_back(CDNSSeedData("204.92.235.7", "204.92.235.7"));     // Slate seeder located in Montreal
-        vSeeds.push_back(CDNSSeedData("198.96.117.222", "198.96.117.222")); // Slate seeder located in Montreal
+        // vSeeds.push_back(CDNSSeedData("192.219.30.30", "192.219.30.30"));   // Slate seeder located in Dublin
+        // vSeeds.push_back(CDNSSeedData("192.219.30.29", "192.219.30.29"));   // Slate seeder located in Dublin
+        // vSeeds.push_back(CDNSSeedData("204.92.235.7", "204.92.235.7"));     // Slate seeder located in Montreal
+        // vSeeds.push_back(CDNSSeedData("198.96.117.222", "198.96.117.222")); // Slate seeder located in Montreal
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 66); // Testnet slate addresses start with 'T'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 9);  // Testnet slate script addresses start with '4' or '5'
